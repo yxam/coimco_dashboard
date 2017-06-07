@@ -50,7 +50,7 @@ export class Login {
           },
           error => {
             this.alertService.error(error);
-            this.loading= false;
+            this.loading = false;
           }
         )
   }
@@ -58,8 +58,6 @@ export class Login {
   onSubmit(values: Object): void {
     this.submitted = true;
     if (this.form.valid) {
-      console.log(this.model.username);
-      console.log(this.model.password);
       this.login();
     }
   }
