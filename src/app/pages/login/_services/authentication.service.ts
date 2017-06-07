@@ -12,7 +12,7 @@ export class AuthenticationService{
     console.log(body);
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers:headers});
-    return this.http.post('http://localhost:8080/login', body, headers)
+    return this.http.post('https://coimco.herokuapp.com/login', body, headers)
           .map((response  : Response)=> {
             let user = response.json();
             if(user && user.token){
