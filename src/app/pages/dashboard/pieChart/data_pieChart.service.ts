@@ -32,28 +32,25 @@ export class Data_pieChart{
     return Observable.throw(errMsg);
   }
 
-  getData(){
-
+  getData() {
     const auth = JSON.parse(this.token);
     const aux = `Baerer ${auth}`;
-    /*
+
+
     let headers = new Headers({
-      'Content-Type': 'application/json',
-      'Authorization': `${aux}`});
-      */
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', aux);
+      'Accept': 'application/json',
+      'Authorization': aux,
+      'Access-Control-Allow-Headers': 'Authorization',
+    });
 
-
-
-    const options = new RequestOptions({ headers: headers});
+    const options = new RequestOptions(headers);
       console.log(headers);
 
-      return this.http.get('https://861a60bd.ngrok.io/api/products', headers)
+    const products = this.http.get('https://coimco.herokuapp.com/api/products', options)
                     .subscribe((response: Response) => {
                       const data = response.json();
                     });
+    return products;
 
 }
 
