@@ -12,11 +12,13 @@ import 'easy-pie-chart/dist/jquery.easypiechart.js';
 // TODO: move easypiechart to component
 export class PieChart {
 
-  public charts: Array<Object>;
+  charts: Array<Object>;
+  currentUser: any;
   private _init = false;
 
   constructor(private _pieChartService: PieChartService) {
     this.charts = this._pieChartService.getData();
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngAfterViewInit() {
@@ -24,7 +26,7 @@ export class PieChart {
       this._loadPieCharts();
       this._updatePieCharts();
       this._init = true;
-    }
+     }
   }
 
   private _loadPieCharts() {

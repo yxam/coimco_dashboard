@@ -12,7 +12,7 @@
         <div class="author">{{ message.author }} {{ message.surname}}</div>
       </div>
       <div class="message-content line-clamp" [ngClass]="{'line-clamp-2' : !message.expanded}">
-        <span *ngIf="message.preview">{{ message.header }} </span>{{ message.text }}
+        <span *ngIf="message.preview">{{ message.header }} </span>{{ message.street }} <br> {{message.phone}}
       </div>
       <div class="preview" [ngClass]="{'hidden': !message.expanded}" *ngIf="message.preview">
         <a href="{{ message.link }}" target="_blank">

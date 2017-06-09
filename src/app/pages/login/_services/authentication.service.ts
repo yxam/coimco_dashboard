@@ -8,12 +8,12 @@ export class AuthenticationService{
   constructor(private http:Http){}
 
   login(username: string, password: string): Observable<void>{
-    let body=JSON.stringify({mail:username, pass:password});
+    let body = JSON.stringify({mail:username, pass:password});
     console.log(body);
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers:headers});
     return this.http.post('https://coimco.herokuapp.com/login', body, headers)
-          .map((response  : Response)=> {
+          .map((response : Response)=> {
             let user = response.json();
             if(user && user.token){
               localStorage.setItem('currentUser', JSON.stringify(user.data));
