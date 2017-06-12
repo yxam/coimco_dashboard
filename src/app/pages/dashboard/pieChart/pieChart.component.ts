@@ -26,16 +26,16 @@ export class PieChart {
       this._loadPieCharts();
       this._updatePieCharts();
       this._init = true;
-     }
+    }
   }
 
   private _loadPieCharts() {
 
-    jQuery('.chart').each(function () {
+    jQuery('.chart').each(function() {
       let chart = jQuery(this);
       chart.easyPieChart({
         easing: 'easeOutBounce',
-        onStep: function (from, to, percent) {
+        onStep: function(from, to, percent) {
           jQuery(this.el).find('.percent').text(Math.round(percent));
         },
         barColor: jQuery(this).attr('data-rel'),

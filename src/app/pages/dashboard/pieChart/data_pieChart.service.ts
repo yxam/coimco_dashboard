@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class Data_pieChart{
+export class Data_pieChart {
   token: string;
   data: any;
 
@@ -15,10 +15,10 @@ export class Data_pieChart{
   private extractData(res: Response) {
     const body = res.json();
     console.log(body.data);
-    return body.data || { };
+    return body.data || {};
   }
 
-  private handleError (error: Response | any) {
+  private handleError(error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure
     let errMsg: string;
     if (error instanceof Response) {
@@ -34,7 +34,7 @@ export class Data_pieChart{
 
   getData() {
     /*const tokenuser = JSON.parse(this.token);*/
-   const tokenuser = JSON.parse(this.token);
+    const tokenuser = JSON.parse(this.token);
     const auth = `Bearer ${tokenuser}`;
 
 
@@ -43,16 +43,17 @@ export class Data_pieChart{
     headers.append('Authorization', auth);
 
 
-    const options = new RequestOptions( { 'headers': headers } );
+    const options = new RequestOptions({ 'headers': headers });
 
     console.log(headers);
 
-    return this.http.get('https://2334fd9f.ngrok.io/api/products', options )
-                    .map((response: Response) =>
-                    this.data = response.json()
-                  );
+    return this.http.get('https://2334fd9f.ngrok.io/api/products', options)
+      .map((response: Response) =>
+        this.data = response.json())
+      .toPromise();
 
-}
+
+  }
 
 
 }

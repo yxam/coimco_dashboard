@@ -7,11 +7,11 @@ import {Data_pieChart} from './data_pieChart.service';
 
 @Injectable()
 export class PieChartService {
-data: any;
-  constructor ( private _baConfig: BaThemeConfigProvider, private data_pieChart: Data_pieChart) {
+  data: any;
+  constructor(private _baConfig: BaThemeConfigProvider, private data_pieChart: Data_pieChart) {
 
   }
-getData() {
+  getData() {
     let pieColor = this._baConfig.get().colors.custom.dashboardPieChart;
     this.data = this.data_pieChart.getData();
     console.log(this.data);
@@ -21,7 +21,7 @@ getData() {
         description: 'dashboard.all_sales',
         stats: '$ 1.120',
         icon: 'money',
-        denied_acces : '-',
+        denied_acces: '-',
       }, {
         color: pieColor,
         description: 'dashboard.all_purchases',
