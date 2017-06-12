@@ -13,7 +13,45 @@ export const PAGES_MENU = [
             order: 0
           }
         }
-      }  
+      },
+      {
+        path: 'charts',
+        data: {
+          menu: {
+            title: 'general.menu.charts',
+            icon: 'ion-stats-bars',
+            selected: false,
+            expanded: false,
+            order: 200,
+          }
+        },
+        children: [
+          {
+            path: 'chartist-js',
+            data: {
+              menu: {
+                title: 'general.menu.chartist_client',
+              }
+            }
+          },
+          {
+            path: 'chartist-js2',
+            data: {
+              menu: {
+                title: 'general.menu.chartist_provider',
+              }
+            }
+          },
+          {
+            path: 'chartist-js3',
+            data: {
+              menu: {
+                title: 'general.menu.chartist_product',
+              }
+            }
+          }                    
+        ]
+      }        
     ]
   }
 ]
