@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Http, Headers, Response, RequestOptions, Request, RequestMethod } from '@angular/http';
+import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class Data_pieChart{
     this.token = localStorage.getItem('tokenUser');
   }
   private extractData(res: Response) {
-    let body = res.json();
+    const body = res.json();
     console.log(body.data);
     return body.data || { };
   }
@@ -33,24 +33,24 @@ export class Data_pieChart{
   }
 
   getData() {
-    const auth = JSON.parse(this.token);
-    const aux = `Baerer ${auth}`;
+    /*const tokenuser = JSON.parse(this.token);*/
+   const tokenuser = JSON.parse(this.token);
+    const auth = `Bearer ${tokenuser}`;
 
 
-    let headers = new Headers({
-      'Accept': 'application/json',
-      'Authorization': aux,
-      'Access-Control-Allow-Headers': 'Authorization',
-    });
+    const headers = new Headers();
+    headers.append('Accept', 'application/json');
+    headers.append('Authorization', auth);
 
-    const options = new RequestOptions(headers);
-      console.log(headers);
 
-    const products = this.http.get('https://coimco.herokuapp.com/api/products', options)
-                    .subscribe((response: Response) => {
-                      const data = response.json();
-                    });
-    return products;
+    const options = new RequestOptions( { 'headers': headers } );
+
+    console.log(headers);
+
+    return this.http.get('https://2334fd9f.ngrok.io/api/products', options )
+                    .map((response: Response) =>
+                    this.data = response.json()
+                  );
 
 }
 

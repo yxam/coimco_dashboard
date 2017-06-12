@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Http, Headers, Response, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Data_pieChart} from './data_pieChart.service';
+
 @Injectable()
 export class PieChartService {
 data: any;
@@ -12,8 +13,8 @@ data: any;
   }
 getData() {
     let pieColor = this._baConfig.get().colors.custom.dashboardPieChart;
-    this.data=this.data_pieChart.getData();
-    console.log(this.data );
+    this.data = this.data_pieChart.getData();
+    console.log(this.data);
     return [
       {
         color: pieColor,
