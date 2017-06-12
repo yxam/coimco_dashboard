@@ -9,7 +9,9 @@ const routes: Routes = [
     path: '',
     component: Charts,
     children: [
-      { path: 'chartist-js', component: ChartistJs }
+      { path: 'chartist-js', component: ChartistJs },
+      { path: 'chartist-js2', component: ChartistJs},
+      { path: 'chartist-js3', component: ChartistJs} 
     ]
   }
 ];
