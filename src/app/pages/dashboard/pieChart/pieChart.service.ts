@@ -1,20 +1,32 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { BaThemeConfigProvider, colorHelper } from '../../../theme';
 import { Observable } from 'rxjs/Observable';
-import { Http, Headers, Response, RequestOptions} from '@angular/http';
+import { Subject } from 'rxjs/Subject';
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
-import {Data_pieChart} from './data_pieChart.service';
+import { Data_pieChart } from './data_pieChart.service';
 
 @Injectable()
 export class PieChartService {
-  data: any;
-  constructor(private _baConfig: BaThemeConfigProvider, private data_pieChart: Data_pieChart) {
+  dbdata: JSON[]= [];
+  products: JSON[]= [];
+  errorMessage: any;
+  private searchTerms= new Subject<string>();
+  constructor(
+     private _baConfig: BaThemeConfigProvider,
+     private data_pieChart: Data_pieChart) {}
 
-  }
   getData() {
-    let pieColor = this._baConfig.get().colors.custom.dashboardPieChart;
-    this.data = this.data_pieChart.getData();
-    console.log(this.data);
+    const pieColor = this._baConfig.get().colors.custom.dashboardPieChart;
+    this.data_pieChart.getData()
+                      .subscribe(data => this.dbdata = data,
+                                 error => this.errorMessage = <any>error,
+                                  ()=> console.log(this.dbdata)) ;
+    //console.log(this.data);
+    //this.data_pieChart.getData().then(data => this.data = data.slice(1, 5));
+    console.log(this.dbdata);
+    console.log(this.errorMessage);
+
     return [
       {
         color: pieColor,

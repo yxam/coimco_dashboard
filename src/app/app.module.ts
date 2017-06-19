@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
+import { JsonpModule } from '@angular/http';
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -42,6 +43,7 @@ export type StoreType = {
   imports: [ // import Angular's modules
     BrowserModule,
     HttpModule,
+    JsonpModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,

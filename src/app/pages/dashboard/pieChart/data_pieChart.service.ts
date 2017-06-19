@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response, RequestOptions, Request, RequestMethod } from '@angular/http';
+import { Http, Jsonp , Headers, Response, RequestOptions, Request, RequestMethod } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class Data_pieChart {
   token: string;
-  data: any;
+  data_json: any;
 
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private jsonp: Jsonp) {
     this.token = localStorage.getItem('tokenUser');
   }
   private extractData(res: Response) {
@@ -32,7 +33,7 @@ export class Data_pieChart {
     return Observable.throw(errMsg);
   }
 
-  getData() {
+  getData(): Observable<any[]> {
     /*const tokenuser = JSON.parse(this.token);*/
     const tokenuser = JSON.parse(this.token);
     const auth = `Bearer ${tokenuser}`;
@@ -47,10 +48,10 @@ export class Data_pieChart {
 
     console.log(headers);
 
-    return this.http.get('https://2334fd9f.ngrok.io/api/products', options)
-      .map((response: Response) =>
-        this.data = response.json())
-      .toPromise();
+    return this.http.get('https://coimco.herokuapp.com/api/products', options)
+      .map(function(res: Response) {
+            return res.json() || {};
+        })
 
 
   }
