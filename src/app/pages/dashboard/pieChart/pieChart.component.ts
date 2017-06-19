@@ -12,11 +12,13 @@ import 'easy-pie-chart/dist/jquery.easypiechart.js';
 // TODO: move easypiechart to component
 export class PieChart {
 
-  public charts: Array<Object>;
+  charts: Array<Object>;
+  currentUser: any;
   private _init = false;
 
   constructor(private _pieChartService: PieChartService) {
     this.charts = this._pieChartService.getData();
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngAfterViewInit() {
@@ -29,11 +31,11 @@ export class PieChart {
 
   private _loadPieCharts() {
 
-    jQuery('.chart').each(function () {
+    jQuery('.chart').each(function() {
       let chart = jQuery(this);
       chart.easyPieChart({
         easing: 'easeOutBounce',
-        onStep: function (from, to, percent) {
+        onStep: function(from, to, percent) {
           jQuery(this.el).find('.percent').text(Math.round(percent));
         },
         barColor: jQuery(this).attr('data-rel'),

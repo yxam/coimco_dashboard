@@ -35,7 +35,6 @@ export class BaMenuService {
     let items = [];
     menuItems.forEach((item) => {
       this._selectItem(item);
-
       if (item.selected) {
         this._currentMenuItem = item;
       }

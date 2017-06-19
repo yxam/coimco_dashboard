@@ -6,8 +6,9 @@ import {Component} from '@angular/core';
   templateUrl: './dashboard.html'
 })
 export class Dashboard {
-
+currentUser: any;
   constructor() {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
 }
