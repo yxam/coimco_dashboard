@@ -3,20 +3,18 @@ import { Injectable } from '@angular/core';
 import { BaThemeConfigProvider } from '../../../../../../theme';
 
 @Injectable()
-export class ChartProductPriceService {
+export class ChartProviderSalesService {
 
   private _data = {
-    areaLineData: {
-      labels: [1, 2, 3, 4, 5, 6, 7, 8],
+    simpleLineData: {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
       series: [
-        [5, 9, 7, 8, 5, 3, 5, 4]
+        [20, 20, 12, 45, 50],
+        [10, 45, 30, 14, 12],
+        [34, 12, 12, 40, 50],
+        [10, 43, 25, 22, 16],
+        [3, 6, 30, 33, 43]
       ]
-    },
-    areaLineOptions: {
-      fullWidth: true,
-      height: '300px',
-      low: 0,
-      showArea: true
     },
 
   };

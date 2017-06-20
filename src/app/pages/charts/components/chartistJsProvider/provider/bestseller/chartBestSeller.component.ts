@@ -5,7 +5,7 @@ import { ChartBestSellerService } from './chartBestSeller.services';
 @Component({
   selector: 'chartbest-seller',
   templateUrl: './chartBestSeller.html',
-  styleUrls: ['./../../chartistJsProduct.scss'],
+  styleUrls: ['./../../chartistJsProvider.scss'],
 })
 
 export class ChartBestSeller {

@@ -8,7 +8,8 @@ import { Charts } from './charts.component';
 import { chartistJsProduct } from './components/chartistJsProduct/chartistJsProduct.component';
 import { chartistJsProductService } from './components/chartistJsProduct/chartistJsProduct.service';
 import { AppTranslationModule } from '../../app.translation.module';
-import { ChartDashboard } from './components/chartistJsProduct/chartDashboard.component';
+import { ChartDashboardProduct } from './components/chartistJsProduct/chartDashboard.component';
+import { ChartDashboardProvider } from './components/chartistJsProvider/chartDashboard.component';
 import { ChartBestSellerService } from './components/chartistJsProduct/product/bestseller/chartBestSeller.services';
 import { ChartBestSeller } from './components/chartistJsProduct/product/bestseller/chartBestSeller.component';
 import { ChartProductSalesService } from './components/chartistJsProduct/product/productsales/chartProductSales.services';
@@ -31,7 +32,8 @@ import { ChartProductPrice } from './components/chartistJsProduct/product/produc
   declarations: [
     Charts,
     chartistJsProduct,
-    ChartDashboard,
+    ChartDashboardProduct,
+    ChartDashboardProvider,
     ChartBestSeller,
     ChartProductSales,
     ChartRankCategory,
@@ -47,4 +49,4 @@ import { ChartProductPrice } from './components/chartistJsProduct/product/produc
     ChartProductPriceService,
   ],
 })
-export class ChartsModule {}
+export class ChartsModule { }

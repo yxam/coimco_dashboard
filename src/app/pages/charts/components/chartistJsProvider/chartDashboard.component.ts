@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chartistJsProvider.scss'],
 })
 
-export class ChartDashboard implements OnInit {
+export class ChartDashboardProvider implements OnInit {
 
   constructor() { }
   ngOnInit(): void {

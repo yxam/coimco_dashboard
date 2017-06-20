@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartProviderSalesService } from './chartProviderSales.services';
 
 @Component({
-  selector: 'chartproduct-sales',
+  selector: 'chartProvider-sales',
   templateUrl: './chartProviderSales.html',
   styleUrls: ['./../../chartistJsProvider.scss'],
 })
