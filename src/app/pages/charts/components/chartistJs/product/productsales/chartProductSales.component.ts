@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { ChartProductSalesService } from './chartProductSales.services';
 
@@ -8,7 +8,7 @@ import { ChartProductSalesService } from './chartProductSales.services';
   styleUrls: ['./../../chartistJS.scss'],
 })
 
-export class ChartProductSales{
+export class ChartProductSales implements OnInit {
   data: any;
   constructor (private _chartProductSalesService: ChartProductSalesService) {
 

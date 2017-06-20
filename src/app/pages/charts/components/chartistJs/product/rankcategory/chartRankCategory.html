@@ -1,0 +1,14 @@
+<section class="chartist">
+  <div class="row">
+    <div class="col-md-12">
+      <ba-card title="chart.lines" baCardClass="with-scroll">
+        <h5 translate>{{'chart.stacked_bar_chart'}}</h5>
+        <ba-chartist-chart baChartistChartClass="ct-chart stacked-bar"
+                           baChartistChartType="Bar"
+                           [baChartistChartData]="data['stackedBarData']"
+                           [baChartistChartOptions]="data['stackedBarOptions']">
+        </ba-chartist-chart>
+      </ba-card>
+    </div>
+  </div>
+</section>

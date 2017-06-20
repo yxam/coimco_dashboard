@@ -5,6 +5,9 @@ import { ChartistJs } from './components/chartistJs/chartistJs.component';
 import { ChartDashboard } from './components/chartistJs/chartDashboard.component';
 import { ChartBestSeller } from './components/chartistJs/product/bestseller/chartBestSeller.component';
 import { ChartProductSales } from './components/chartistJs/product/productsales/chartProductSales.component';
+import { ChartRankCategory } from './components/chartistJs/product/rankcategory/chartRankCategory.component';
+import { ChartRankBrand } from './components/chartistJs/product/rankbrand/chartRankBrand.component';
+import { ChartProductPrice } from './components/chartistJs/product/productprice/chartProductPrice.component';
 // noinspection TypeScriptValidateTypes
 const routes: Routes = [
   {
@@ -16,6 +19,9 @@ const routes: Routes = [
       { path: 'chartist-js3', component: ChartistJs },
       { path: 'bestseller', component: ChartBestSeller },
       { path: 'productsales', component: ChartProductSales },
+      { path: 'rankcategory', component: ChartRankCategory },
+      { path: 'rankbrand', component: ChartRankBrand },
+      { path: 'productprice', component: ChartProductPrice },
     ],
   },
 ];

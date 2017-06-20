@@ -20,6 +20,9 @@
     "menu": {
       "dashboard": "Dashboard",
       "editors": "Editors",
+      "chartist_provider": "Proveedores",
+      "chartist_client": "Productos",
+      "chartist_product": "Clientes",
       "ck_editor": "CKEditor",
       "components": "Components",
       "tree_view": "Tree View",
