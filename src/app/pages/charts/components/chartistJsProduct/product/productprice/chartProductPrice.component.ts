@@ -5,7 +5,7 @@ import { ChartProductPriceService } from './chartProductPrice.services';
 @Component({
   selector: 'chartProduct-price',
   templateUrl: './chartProductPrice.html',
-  styleUrls: ['./../../chartistJS.scss'],
+  styleUrls: ['./../../chartistJsProduct.scss'],
 })
 
 export class ChartProductPrice implements OnInit {

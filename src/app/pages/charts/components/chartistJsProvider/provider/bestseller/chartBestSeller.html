@@ -1,0 +1,20 @@
+<section class="chartist">
+
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8" >
+      <ba-card title="chart.pies_and_donuts" baCardClass="with-scroll">
+        <div class="row">
+          <div class="col-md-12 col-lg-10"><h5 translate>{{'chart.donut'}}</h5>
+            <ba-chartist-chart baChartistChartClass="ct-chart stacked-bar"
+                               baChartistChartType="Pie"
+                               [baChartistChartData]="data['simpleDonutData']"
+                               [baChartistChartOptions]="data['simpleDonutOptions']"
+                               [baChartistChartResponsive]="getResponsive(25, 60)">
+            </ba-chartist-chart>
+          </div>
+        </div>
+      </ba-card>
+    </div>
+  </div>
+</section>

@@ -5,7 +5,7 @@ import { ChartRankCategoryService } from './chartRankCategory.services';
 @Component({
   selector: 'chartrank-category',
   templateUrl: './chartRankCategory.html',
-  styleUrls: ['./../../chartistJs.scss'],
+  styleUrls: ['./../../chartistJsProduct.scss'],
 })
 
 export class ChartRankCategory implements OnInit {

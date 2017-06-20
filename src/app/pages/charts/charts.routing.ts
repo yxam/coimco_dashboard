@@ -1,13 +1,13 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { Charts } from './charts.component';
-import { ChartistJs } from './components/chartistJs/chartistJs.component';
-import { ChartDashboard } from './components/chartistJs/chartDashboard.component';
-import { ChartBestSeller } from './components/chartistJs/product/bestseller/chartBestSeller.component';
-import { ChartProductSales } from './components/chartistJs/product/productsales/chartProductSales.component';
-import { ChartRankCategory } from './components/chartistJs/product/rankcategory/chartRankCategory.component';
-import { ChartRankBrand } from './components/chartistJs/product/rankbrand/chartRankBrand.component';
-import { ChartProductPrice } from './components/chartistJs/product/productprice/chartProductPrice.component';
+import { chartistJsProduct } from './components/chartistJsProduct/chartistJsProduct.component';
+import { ChartDashboard } from './components/chartistJsProduct/chartDashboard.component';
+import { ChartBestSeller } from './components/chartistJsProduct/product/bestseller/chartBestSeller.component';
+import { ChartProductSales } from './components/chartistJsProduct/product/productsales/chartProductSales.component';
+import { ChartRankCategory } from './components/chartistJsProduct/product/rankcategory/chartRankCategory.component';
+import { ChartRankBrand } from './components/chartistJsProduct/product/rankbrand/chartRankBrand.component';
+import { ChartProductPrice } from './components/chartistJsProduct/product/productprice/chartProductPrice.component';
 // noinspection TypeScriptValidateTypes
 const routes: Routes = [
   {
@@ -15,8 +15,8 @@ const routes: Routes = [
     component: Charts,
     children: [
       { path: 'chartist-js', component: ChartDashboard },
-      { path: 'chartist-js2', component: ChartistJs },
-      { path: 'chartist-js3', component: ChartistJs },
+      { path: 'chartist-js2', component: chartistJsProduct },
+      { path: 'chartist-js3', component: chartistJsProduct },
       { path: 'bestseller', component: ChartBestSeller },
       { path: 'productsales', component: ChartProductSales },
       { path: 'rankcategory', component: ChartRankCategory },
