@@ -12,7 +12,7 @@ export class ChartistJs {
 
   data:any;
 
-  constructor(private _chartistJsService:ChartistJsService) {
+  constructor(private _chartistJsService: ChartistJsService) {
   }
 
   ngOnInit() {

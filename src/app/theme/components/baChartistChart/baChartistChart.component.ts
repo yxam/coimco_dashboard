@@ -38,7 +38,7 @@ export class BaChartistChart {
     }
   }
 
-  ngOnDestroy():void {
+  ngOnDestroy(): void {
     if (this.chart) {
       this.chart.detach();
     }
