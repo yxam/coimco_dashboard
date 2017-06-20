@@ -8,26 +8,38 @@
           <div class="col-md-12 col-lg-10">
             <h5 translate>{{'chart.donut'}}</h5>
 
-            <h5 translate>Inicio:
-              <input
-                type="date"
-                name="start"
-                step="1"
-                min="2011-01-01"
-                max="2015-12-31"
-                value="2012-01-01"></h5>
-
-            <h5 translate>Fin:
-              <input
-                type="date"
-                name="end"
-                step="1"
-                min="2011-01-01"
-                max="2015-12-31"
-                value="2015-01-01"></h5>
             <h5 translate>
-              K:
-              <input type="number" name="quantity" min="1" value="5" max="15">
+              <div class="col-md-2">Inicio:</div>
+              <div class="col-md-10">
+                <input
+                  type="date"
+                  name="start"
+                  step="1"
+                  min="2011-01-01"
+                  max="2015-12-31"
+                  value="2012-01-01">
+              </div>
+            </h5>
+
+            <h5 translate>
+              <div class="col-md-2">Fin:</div>
+              <div class="col-md-10">
+
+                <input
+                  type="date"
+                  name="end"
+                  step="1"
+                  min="2011-01-01"
+                  max="2015-12-31"
+                  value="2015-01-01">
+              </div>
+            </h5>
+            <h5 translate>
+              <div class="col-md-2">Cantidad:</div>
+              <div class="col-md-10">
+
+                <input type="number" name="k" min="1" value="5" max="15">
+              </div>
             </h5>
 
             <ba-chartist-chart
