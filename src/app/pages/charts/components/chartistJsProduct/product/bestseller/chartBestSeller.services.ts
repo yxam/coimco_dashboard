@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-
 import { BaThemeConfigProvider } from '../../../../../../theme';
+import { ChartsAPI } from './../../../../chartsAPI.services';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class ChartBestSellerService {
-
+  private dbdata: Observable<JSON[]>
+  private products: JSON[] = [];
+  private errorMessage: any;
   private _data = {
     simpleDonutData: {
       labels: ['Bananas', 'Apples', 'Grapes'],
@@ -12,15 +15,43 @@ export class ChartBestSellerService {
     },
 
   };
+  private dataSeller: JSON[]= [];
 
-  constructor(private _baConfig:BaThemeConfigProvider) {
+  constructor(
+    private _baConfig: BaThemeConfigProvider,
+    private _chartAPI: ChartsAPI) {
   }
 
-  public getAll() {
+  getAll() {
     return this._data;
   }
 
-  public getResponsive(padding, offset) {
+  getSeller(filter: JSON): any {
+  this.dbdata.subscribe(
+    data => {
+      this._chartAPI.getBestSeller(filter).subscribe(
+        data =>
+      );
+      console.log(data);
+    }
+  )
+     /*
+                    .subscribe(
+                      data => this.dbdata = data,
+                      error => console.log(error),
+                      () => console.log(this.dbdata));
+                      */
+    console.log(this.dbdata);
+    return this.dbdata;
+  }
+  printDATA(data: any ) {
+    console.log(data);
+  }
+  getData() {
+    return this.dataSeller;
+  }
+
+  getResponsive(padding, offset) {
     return [
       ['screen and (min-width: 1550px)', {
         chartPadding: padding,

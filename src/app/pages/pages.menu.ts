@@ -27,7 +27,7 @@ export const PAGES_MENU = [
         },
         children: [
           {
-            path: 'chartist-js',
+            path: 'product',
             data: {
               menu: {
                 title: 'general.menu.chartist_client',
@@ -35,7 +35,7 @@ export const PAGES_MENU = [
             }
           },
           {
-            path: 'chartist-js2',
+            path: 'provider',
             data: {
               menu: {
                 title: 'general.menu.chartist_provider',
@@ -43,15 +43,15 @@ export const PAGES_MENU = [
             }
           },
           {
-            path: 'chartist-js3',
+            path: 'customer',
             data: {
               menu: {
                 title: 'general.menu.chartist_product',
               }
             }
-          }                    
+          }
         ]
-      }        
+      }
     ]
   }
 ]

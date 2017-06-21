@@ -15,9 +15,9 @@ const routes: Routes = [
     path: '',
     component: Charts,
     children: [
-      { path: 'chartist-js', component: ChartDashboardProduct },
-      { path: 'chartist-js2', component: ChartDashboardProvider },
-      { path: 'chartist-js3', component: chartistJsProduct },
+      { path: 'product', component: ChartDashboardProduct },
+      { path: 'provider', component: ChartDashboardProvider },
+      { path: 'customer', component: chartistJsProduct },
       //Products
       { path: 'bestseller', component: ChartBestSeller },
       { path: 'productsales', component: ChartProductSales },

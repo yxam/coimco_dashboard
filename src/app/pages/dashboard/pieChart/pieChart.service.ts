@@ -21,9 +21,7 @@ export class PieChartService {
     this.data_pieChart.getData()
                       .subscribe(data => this.dbdata = data,
                                  error => this.errorMessage = <any>error,
-                                  ()=> console.log(this.dbdata)) ;
-    //console.log(this.data);
-    //this.data_pieChart.getData().then(data => this.data = data.slice(1, 5));
+                                  () => console.log(this.dbdata)) ;
     console.log(this.dbdata);
     console.log(this.errorMessage);
 
