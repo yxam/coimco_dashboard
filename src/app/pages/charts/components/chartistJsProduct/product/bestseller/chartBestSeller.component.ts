@@ -10,13 +10,14 @@ import { ChartsAPI } from './../../../../chartsAPI.services';
 
 export class ChartBestSeller {
   data: any;
-
-  constructor (
+  dbdata: any;
+  datos_aux: any;
+  constructor(
     private _chartBestSellerService: ChartBestSellerService,
     private _chartAPI: ChartsAPI) {
 
   }
-  ngOnInit(){
+  ngOnInit() {
     this.data = this._chartBestSellerService.getAll();
   }
   getResponsive(padding, offset) {
@@ -25,9 +26,16 @@ export class ChartBestSeller {
   onSubmit(f: NgForm) {
     console.log(f.value);
     console.log(f.valid);
-    const aux = this._chartBestSellerService.getSeller(f.value);
+    this._chartBestSellerService.getSeller(f.value).subscribe(
+      data => {
+        console.log("Aqui -> ", data);
+        this.dbdata = data['data'][0].ID;
+        console.log(this.dbdata);
+        this.datos_aux = this._chartBestSellerService.getAll();
 
-    console.log(aux);
-
+      },
+      err => {
+        console.log(err)
+      });
   }
 }

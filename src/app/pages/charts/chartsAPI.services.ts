@@ -13,16 +13,14 @@ export class ChartsAPI {
     this.token = JSON.parse(localStorage.getItem('tokenUser'));
   }
 
-  getBestSeller( filter: JSON ): Observable<JSON[]> {
+  getBestSeller(filter: JSON): Observable<JSON[]> {
     const auth = `Bearer ${this.token}`;
-    const headers = new Headers() ;
+    const headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Authorization', auth);
     const options = new RequestOptions({ 'headers': headers });
     return this.http.get('https://coimco.herokuapp.com/api/products', options)
-                    .map((res : Response) => res.json())
-                    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
-
-
-    }
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
 }

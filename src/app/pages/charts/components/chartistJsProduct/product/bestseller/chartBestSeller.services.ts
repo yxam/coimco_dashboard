@@ -15,7 +15,7 @@ export class ChartBestSellerService {
     },
 
   };
-  private dataSeller: JSON[]= [];
+  private dataSeller: JSON[] = [];
 
   constructor(
     private _baConfig: BaThemeConfigProvider,
@@ -27,24 +27,11 @@ export class ChartBestSellerService {
   }
 
   getSeller(filter: JSON): any {
-  this.dbdata.subscribe(
-    data => {
-      this._chartAPI.getBestSeller(filter).subscribe(
-        data =>
-      );
-      console.log(data);
-    }
-  )
-     /*
-                    .subscribe(
-                      data => this.dbdata = data,
-                      error => console.log(error),
-                      () => console.log(this.dbdata));
-                      */
-    console.log(this.dbdata);
-    return this.dbdata;
+
+    //Retorna el observable de la data
+    return this._chartAPI.getBestSeller(filter);
   }
-  printDATA(data: any ) {
+  printDATA(data: any) {
     console.log(data);
   }
   getData() {
@@ -57,7 +44,7 @@ export class ChartBestSellerService {
         chartPadding: padding,
         labelOffset: offset,
         labelDirection: 'explode',
-        labelInterpolationFnc: function (value) {
+        labelInterpolationFnc: function(value) {
           return value;
         }
       }],
@@ -65,14 +52,14 @@ export class ChartBestSellerService {
         chartPadding: padding,
         labelOffset: offset,
         labelDirection: 'explode',
-        labelInterpolationFnc: function (value) {
+        labelInterpolationFnc: function(value) {
           return value;
         }
       }],
       ['screen and (max-width: 600px)', {
         chartPadding: 0,
         labelOffset: 0,
-        labelInterpolationFnc: function (value) {
+        labelInterpolationFnc: function(value) {
           return value[0];
         }
       }]
