@@ -22,6 +22,7 @@ import { ChartRankBrand } from './components/chartistJsProduct/product/rankbrand
 import { ChartProductPriceService } from './components/chartistJsProduct/product/productprice/chartProductPrice.services';
 import { ChartProductPrice } from './components/chartistJsProduct/product/productprice/chartProductPrice.component';
 import { ChartsAPI } from './chartsAPI.services';
+import { chartistJsCustomerService } from './components/chartistJsCustomer/chartistJsCustomer.service';
 
 @NgModule({
   imports: [
@@ -50,7 +51,8 @@ import { ChartsAPI } from './chartsAPI.services';
     ChartRankCategoryService,
     ChartRankBrandService,
     ChartProductPriceService,
-    ChartsAPI
+    ChartsAPI,
+    chartistJsCustomerService,
   ],
 })
 export class ChartsModule { }

@@ -1,1 +1,1 @@
-export * from './chartistJsProduct.component';
+export * from './chartistJsCustomer.component';

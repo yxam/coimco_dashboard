@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-import {chartistJsProductService} from './chartistJsProduct.service';
+import {chartistJsCustomerService} from './chartistJsCustomer.service';
 
 @Component({
   selector: 'chartist-js',
@@ -12,7 +12,7 @@ export class chartistJsCustomer {
 
   data: any;
 
-  constructor(private _chartistJsProductService: chartistJsProductService) {
+  constructor(private _chartistJsProductService: chartistJsCustomerService) {
   }
 
   ngOnInit() {
