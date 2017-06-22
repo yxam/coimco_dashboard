@@ -24,17 +24,26 @@
             </h5>
             <h5 translate>
               <div class="col-md-2">Cantidad:</div>
-              <div class="col-md-5">
+              <div class="col-md-3">
 
                 <input type="number" ngModel required #k="ngModel" name="k" min="1" value="5" max="15">
               </div>
               <div class="col-md-5">
-                <button>submit</button>
+                <select name="category"  ngModel required #category="ngModel">
+                  <option value="Accesorios">Accesorios</option>
+                  <option value="Conectividad">Conectividad</option>
+                  <option value="Servidores">Servidores</option>
+                  <option value="Computadores">Computadores</option>
+                  <option value="Almacenamiento">Almacenamiento</option>
+                  <option value="Gabinetes">Gabinetes</option>
+                  <option value="Racks">Racks</option>
+                </select>
               </div>
+              <button>Filter</button>
             </h5>
 
           </form>
-            <ng-template [ngIf]="f.valid==true">
+            <ng-template [ngIf]="active==true">
             <ba-chartist-chart
               baChartistChartClass="ct-chart stacked-bar"
               baChartistChartType="Pie"

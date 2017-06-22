@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-
+import { ChartsAPI } from './../../../../chartsAPI.services';
 import { BaThemeConfigProvider } from '../../../../../../theme';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class ChartRankCategoryService {
@@ -9,7 +10,7 @@ export class ChartRankCategoryService {
     stackedBarData: {
       labels: ['Quarter 1', 'Quarter 2', 'Quarter 3', 'Quarter 4'],
       series: [
-        [800000, 1200000, 1400000, 1300000],
+        [800000, 1200000, 1400000, 300000],
         [200000, 400000, 500000, 300000],
         [100000, 200000, 400000, 600000],
       ],
@@ -19,7 +20,7 @@ export class ChartRankCategoryService {
       height: '300px',
       stackBars: true,
       axisY: {
-        labelInterpolationFnc: function (value) {
+        labelInterpolationFnc: function(value) {
           return (value / 1000) + 'k';
         }
       }
@@ -27,20 +28,26 @@ export class ChartRankCategoryService {
 
   };
 
-  constructor(private _baConfig: BaThemeConfigProvider) {
+  constructor(
+    private _baConfig: BaThemeConfigProvider,
+    private _chartAPI: ChartsAPI) {
   }
 
-  public getAll() {
+  getAll() {
     return this._data;
   }
 
-  public getResponsive(padding, offset) {
+  getCategory(filter: JSON): any {
+    return this._chartAPI.getRankCategory(filter);
+  }
+
+  getResponsive(padding, offset) {
     return [
       ['screen and (min-width: 1550px)', {
         chartPadding: padding,
         labelOffset: offset,
         labelDirection: 'explode',
-        labelInterpolationFnc: function (value) {
+        labelInterpolationFnc: function(value) {
           return value;
         }
       }],
@@ -48,14 +55,14 @@ export class ChartRankCategoryService {
         chartPadding: padding,
         labelOffset: offset,
         labelDirection: 'explode',
-        labelInterpolationFnc: function (value) {
+        labelInterpolationFnc: function(value) {
           return value;
         }
       }],
       ['screen and (max-width: 600px)', {
         chartPadding: 0,
         labelOffset: 0,
-        labelInterpolationFnc: function (value) {
+        labelInterpolationFnc: function(value) {
           return value[0];
         }
       }]

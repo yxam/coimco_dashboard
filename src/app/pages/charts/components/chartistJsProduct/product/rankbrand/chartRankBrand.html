@@ -3,44 +3,61 @@
     <div class="col-md-12">
       <ba-card title="chart.bars" baCardClass="with-scroll">
         <h5 translate>{{'chart.simple_bar_chart'}}</h5>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+
         <h5 translate>
           <div class="col-md-2">Inicio:</div>
           <div class="col-md-10">
-            <input
-              type="date"
-              name="start"
-              step="1"
-              min="2011-01-01"
-              max="2015-12-31"
-              value="2012-01-01">
+            <input type="date" ngModel required #start="ngModel" name="start" step="1" min="2011-01-01" max="2015-12-31" value="2012-01-01">
           </div>
         </h5>
 
         <h5 translate>
           <div class="col-md-2">Fin:</div>
           <div class="col-md-10">
-
-            <input
-              type="date"
-              name="end"
-              step="1"
-              min="2011-01-01"
-              max="2015-12-31"
-              value="2015-01-01">
+            <input type="date" ngModel required #end="ngModel" name="end" step="1" min="2011-01-01" max="2015-12-31" value="2015-01-01">
           </div>
         </h5>
         <h5 translate>
           <div class="col-md-2">Cantidad:</div>
-          <div class="col-md-10">
+          <div class="col-md-3">
 
-            <input type="number" name="k" min="1" value="5" max="15">
+            <input type="number" ngModel required #k="ngModel" name="k" min="1" value="5" max="15">
           </div>
+          <div class="col-md-5">
+            <select name="brand"  ngModel required #brand="ngModel">
+              <option value="luctus">luctos</option>
+              <option value="justo">justo</option>
+              <option value="Pellentesque">Pellentesque</option>
+              <option value="eul">eul</option>
+              <option value="elit">elit</option>
+              <option value="tempus">tempus</option>
+              <option value="turpis">turpis</option>
+              <option value="gravida">gravida</option>
+              <option value="etk">etk</option>
+              <option value="nequ">nequ</option>
+              <option value="eni">eni</option>
+              <option value="iaculis">iaculis</option>
+              <option value="mip">mip</option>
+              <option value="ipsum">ipsum</option>
+              <option value="leo">leo</option>
+              <option value="felis">felis</option>
+              <option value="quis">quis</option>
+              <option value="atd">atd</option>
+            </select>
+          </div>
+          <button>Filter</button>
         </h5>
+
+      </form>
+        <ng-template [ngIf]="active==true">
         <ba-chartist-chart
           baChartistChartClass="ct-chart"
           baChartistChartType="Bar"
           [baChartistChartData]="data['simpleBarData']"
-          [baChartistChartOptions]="data['simpleBarOptions']"></ba-chartist-chart>
+          [baChartistChartOptions]="data['simpleBarOptions']">
+        </ba-chartist-chart>
+      </ng-template>
       </ba-card>
     </div>
   </div>

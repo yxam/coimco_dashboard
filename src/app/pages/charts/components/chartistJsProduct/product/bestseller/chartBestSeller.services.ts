@@ -15,7 +15,7 @@ export class ChartBestSellerService {
     },
 
   };
-  private dataSeller: JSON[] = [];
+
 
   constructor(
     private _baConfig: BaThemeConfigProvider,
@@ -29,14 +29,9 @@ export class ChartBestSellerService {
   getSeller(filter: JSON): any {
 
     //Retorna el observable de la data
-    return this._chartAPI.getBestSeller(filter);
+    //return this._chartAPI.getBestSeller(filter);
   }
-  printDATA(data: any) {
-    console.log(data);
-  }
-  getData() {
-    return this.dataSeller;
-  }
+
 
   getResponsive(padding, offset) {
     return [
