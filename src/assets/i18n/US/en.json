@@ -23,6 +23,8 @@
       "chartist_provider": "Proveedores",
       "chartist_client": "Productos",
       "chartist_product": "Clientes",
+      "chartist_purchase": "Compra",
+      "chartist_sales": "Venta",
       "ck_editor": "CKEditor",
       "components": "Components",
       "tree_view": "Tree View",
