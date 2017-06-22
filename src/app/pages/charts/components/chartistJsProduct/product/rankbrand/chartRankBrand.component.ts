@@ -14,7 +14,7 @@ export class ChartRankBrand implements OnInit {
   dbdata: any;
   constructor(private _chartRankBrandService: ChartRankBrandService) { }
   ngOnInit() {
-    this.data = this._chartRankBrandService.getAll();
+    //this.data = this._chartRankBrandService.getAll();
     this.active = false;
   }
 
@@ -28,8 +28,9 @@ export class ChartRankBrand implements OnInit {
       data => {
         console.log("Aqui -> ", data);
         this.dbdata = data['data'];
+        console.log(this.dbdata);
         this.active = true;
-        this._chartRankBrandService.setData(this.dbdata);
+        this.data = this._chartRankBrandService.setData(this.dbdata);
 
 
       },

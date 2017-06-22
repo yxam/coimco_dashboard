@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class ChartRankBrandService {
   private dbdata: Observable<JSON[]>
+  private data_entry: any[] = [];
   private _data = {
     simpleBarData: {
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -23,7 +24,7 @@ export class ChartRankBrandService {
     simpleBarData: {
       labels: [],
       series: [
-        [],
+
       ]
     },
     simpleBarOptions: {
@@ -37,15 +38,24 @@ export class ChartRankBrandService {
     private _baConfig: BaThemeConfigProvider,
     private _chartAPI: ChartsAPI) {
   }
-  setData(dbdata: JSON) {
-    //console.log(JSON.stringify(dbdata));
-    const array_data = JSON.stringify(dbdata)
-
-    let i = 0;
-    for (let entry of array_data) {
-      console.log(entry);
-      //i++;
+  setData(dbdata: Array<JSON>) {
+    console.log(dbdata);
+    let list: string[] = [];
+    dbdata.forEach(variable => {
+      list.push(JSON.stringify(variable))
+    });
+    console.log(list[0]);
+    let aux_total: string[] = [];
+    for (let i = 0; i < list.length; i++) {
+      let aux = JSON.parse(list[i]);
+      let name = aux.Name;
+      let total = aux.Total;
+      this._dataBrand.simpleBarData.labels.push(name);
+      aux_total.push(total);
     }
+    this._dataBrand.simpleBarData.series.push(aux_total);
+    console.log(this._dataBrand);
+    return this._dataBrand;
 
   }
   getAll() {
