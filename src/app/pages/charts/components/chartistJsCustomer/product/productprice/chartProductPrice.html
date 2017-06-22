@@ -1,0 +1,47 @@
+<section class="chartist">
+  <div class="row">
+    <div class="col-md-12">
+      <ba-card title="chart.lines" baCardClass="with-scroll">
+        <h5 translate>{{'chart.line_chart'}}</h5>
+        <h5 translate>
+          <div class="col-md-2">Inicio:</div>
+          <div class="col-md-10">
+            <input
+              type="date"
+              name="start"
+              step="1"
+              min="2011-01-01"
+              max="2015-12-31"
+              value="2012-01-01">
+          </div>
+        </h5>
+
+        <h5 translate>
+          <div class="col-md-2">Fin:</div>
+          <div class="col-md-10">
+
+            <input
+              type="date"
+              name="end"
+              step="1"
+              min="2011-01-01"
+              max="2015-12-31"
+              value="2015-01-01">
+          </div>
+        </h5>
+        <h5 translate>
+          <div class="col-md-2">Cantidad:</div>
+          <div class="col-md-10">
+
+            <input type="number" name="k" min="1" value="5" max="15">
+          </div>
+        </h5>
+        <ba-chartist-chart
+          baChartistChartClass="ct-chart"
+          baChartistChartType="Line"
+          [baChartistChartData]="data['areaLineData']"
+          [baChartistChartOptions]="data['areaLineOptions']"></ba-chartist-chart>
+      </ba-card>
+    </div>
+  </div>
+</section>

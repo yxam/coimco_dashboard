@@ -10,6 +10,7 @@ import { chartistJsProductService } from './components/chartistJsProduct/chartis
 import { AppTranslationModule } from '../../app.translation.module';
 import { ChartDashboardProduct } from './components/chartistJsProduct/chartDashboard.component';
 import { ChartDashboardProvider } from './components/chartistJsProvider/chartDashboard.component';
+import { ChartDashboardCustomer } from './components/chartistJsCustomer/chartDashboard.component';
 import { ChartBestSellerService } from './components/chartistJsProduct/product/bestseller/chartBestSeller.services';
 import { ChartBestSeller } from './components/chartistJsProduct/product/bestseller/chartBestSeller.component';
 import { ChartProductSalesService } from './components/chartistJsProduct/product/productsales/chartProductSales.services';
@@ -35,6 +36,7 @@ import { ChartsAPI } from './chartsAPI.services';
     chartistJsProduct,
     ChartDashboardProduct,
     ChartDashboardProvider,
+    ChartDashboardCustomer,
     ChartBestSeller,
     ChartProductSales,
     ChartRankCategory,
