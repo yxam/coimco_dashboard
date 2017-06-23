@@ -54,5 +54,26 @@ export class ChartsAPI {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 
   }
+  //
+  getProducts(): Observable<JSON[]> {
+    const headers = this.createHeaders();
+    const url = 'http://coimco.herokuapp.com/api/products';
+    console.log(url);
+    return this.http.get(url, headers)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  getProductSales(filter: JSON): Observable<JSON[]> {
+    const headers = this.createHeaders();
+    const id = filter['product'];
+    const url = 'https://coimco.herokuapp.com/api/productsrec/' + id;
+    let body = this.createBody(filter);
+    console.log(body);
+    console.log(url);
+    return this.http.post(url, body, headers)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
 
 }

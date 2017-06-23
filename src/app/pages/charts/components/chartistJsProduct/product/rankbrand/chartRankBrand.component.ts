@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import {MdButtonModule} from '@angular/material';
 import { ChartRankBrandService } from './chartRankBrand.services';
 
 @Component({
@@ -24,6 +25,7 @@ export class ChartRankBrand implements OnInit {
   onSubmit(f: NgForm) {
     console.log(f.value);
     console.log(f.valid);
+    this.active = false;
     this._chartRankBrandService.getBran(f.value).subscribe(
       data => {
         console.log("Aqui -> ", data);

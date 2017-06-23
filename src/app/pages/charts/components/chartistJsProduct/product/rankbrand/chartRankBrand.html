@@ -2,11 +2,13 @@
   <div class="row">
     <div class="col-md-12">
       <ba-card title="chart.bars" baCardClass="with-scroll">
-        <h5 translate>{{'chart.simple_bar_chart'}}</h5>
+        <!--<h5 translate>{{'chart.simple_bar_chart'}}</h5>-->
+
+
         <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
 
         <h5 translate>
-          <div class="col-md-2">Inicio:</div>
+          <div class="col-md-2 ">Inicio:</div>
           <div class="col-md-10">
             <input type="date" ngModel required #start="ngModel" name="start" step="1" min="2011-01-01" max="2015-12-31" value="2012-01-01">
           </div>
@@ -18,14 +20,13 @@
             <input type="date" ngModel required #end="ngModel" name="end" step="1" min="2011-01-01" max="2015-12-31" value="2015-01-01">
           </div>
         </h5>
-        <h5 translate>
-          <div class="col-md-2">Cantidad:</div>
-          <div class="col-md-3">
 
-            <input type="number" ngModel required #k="ngModel" name="k" min="1" value="5" max="15">
+        <h5 translate>
+
+          <div class="col-md-4">Cantidad:<input type="number" ngModel required #k="ngModel" name="k" min="1" max="10">
           </div>
           <div class="col-md-5">
-            <select name="brand"  ngModel required #brand="ngModel">
+            Marca:<select name="brand"  ngModel required #brand="ngModel">
               <option value="luctus">luctos</option>
               <option value="justo">justo</option>
               <option value="Pellentesque">Pellentesque</option>
@@ -45,8 +46,9 @@
               <option value="quis">quis</option>
               <option value="atd">atd</option>
             </select>
+
           </div>
-          <button>Filter</button>
+          <div class="col-md-3" align="right" ><button md-raised-button><span style="color:#304787">Buscar</span></button></div>
         </h5>
 
       </form>

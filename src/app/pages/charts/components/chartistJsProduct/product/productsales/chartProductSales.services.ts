@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-
+import { ChartsAPI } from './../../../../chartsAPI.services';
 import { BaThemeConfigProvider } from '../../../../../../theme';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class ChartProductSalesService {
@@ -18,10 +19,54 @@ export class ChartProductSalesService {
     },
 
   };
+  private _dataSales = {
+    simpleLineData: {
+      labels: [],
+      series: [
+      ]
+    },
 
-  constructor(private _baConfig: BaThemeConfigProvider) {
+  };
+
+  constructor(
+    private _baConfig: BaThemeConfigProvider,
+    private _chartAPI: ChartsAPI) {
   }
 
+  getProductsDb() {
+    return this._chartAPI.getProducts();
+  }
+  getSales(filter: JSON): any {
+    return this._chartAPI.getProductSales(filter);
+  }
+  removeData() {
+    this._dataSales.simpleLineData.labels.splice(0);
+    this._dataSales.simpleLineData.series.splice(0);
+    console.log(this._dataSales);
+  }
+
+  setData(dbdata: Array<JSON>) {
+    this.removeData();
+    console.log(dbdata);
+    let list: string[] = [];
+    dbdata.forEach(variable => {
+      list.push(JSON.stringify(variable))
+    });
+    console.log(list);
+    let data_chart: string[] = [];
+    for (let i = 0; i < list.length; i++) {
+      let data_db = JSON.parse(list[i]);
+      let date = data_db.Date;
+      let total = data_db.Total;
+      console.log("->date", date);
+      console.log("->total", total);
+      this._dataSales.simpleLineData.labels.push(date);
+      data_chart.push(total);
+    }
+    this._dataSales.simpleLineData.series.push(data_chart);
+    console.log(this._dataSales);
+    return this._dataSales;
+  }
   public getAll() {
     return this._data;
   }
@@ -32,7 +77,7 @@ export class ChartProductSalesService {
         chartPadding: padding,
         labelOffset: offset,
         labelDirection: 'explode',
-        labelInterpolationFnc: function (value) {
+        labelInterpolationFnc: function(value) {
           return value;
         }
       }],
@@ -40,14 +85,14 @@ export class ChartProductSalesService {
         chartPadding: padding,
         labelOffset: offset,
         labelDirection: 'explode',
-        labelInterpolationFnc: function (value) {
+        labelInterpolationFnc: function(value) {
           return value;
         }
       }],
       ['screen and (max-width: 600px)', {
         chartPadding: 0,
         labelOffset: 0,
-        labelInterpolationFnc: function (value) {
+        labelInterpolationFnc: function(value) {
           return value[0];
         }
       }]

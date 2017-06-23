@@ -4,7 +4,7 @@ import { BaThemeConfigProvider } from '../../../../../../theme';
 import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class ChartRankBrandService {
-  private dbdata: Observable<JSON[]>
+  private dbdata: Observable<JSON[]>;
   private data_entry: any[] = [];
   private _data = {
     simpleBarData: {
@@ -23,9 +23,7 @@ export class ChartRankBrandService {
   private _dataBrand = {
     simpleBarData: {
       labels: [],
-      series: [
-
-      ]
+      series: []
     },
     simpleBarOptions: {
       fullWidth: true,
@@ -38,22 +36,28 @@ export class ChartRankBrandService {
     private _baConfig: BaThemeConfigProvider,
     private _chartAPI: ChartsAPI) {
   }
+  removeData() {
+    this._dataBrand.simpleBarData.labels.splice(0);
+    this._dataBrand.simpleBarData.series.splice(0);
+    console.log(this._dataBrand);
+  }
   setData(dbdata: Array<JSON>) {
+    this.removeData();
     console.log(dbdata);
     let list: string[] = [];
     dbdata.forEach(variable => {
       list.push(JSON.stringify(variable))
     });
-    console.log(list[0]);
-    let aux_total: string[] = [];
+    console.log(list);
+    let data_chart: string[] = [];
     for (let i = 0; i < list.length; i++) {
-      let aux = JSON.parse(list[i]);
-      let name = aux.Name;
-      let total = aux.Total;
+      let data_db = JSON.parse(list[i]);
+      let name = data_db.Name;
+      let total = data_db.Total;
       this._dataBrand.simpleBarData.labels.push(name);
-      aux_total.push(total);
+      data_chart.push(total);
     }
-    this._dataBrand.simpleBarData.series.push(aux_total);
+    this._dataBrand.simpleBarData.series.push(data_chart);
     console.log(this._dataBrand);
     return this._dataBrand;
 

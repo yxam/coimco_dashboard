@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgaModule } from '../../theme/nga.module';
-
+import { MaterialModule } from '@angular/material';
 import { routing } from './charts.routing';
 import { Charts } from './charts.component';
 import { chartistJsProduct } from './components/chartistJsProduct/chartistJsProduct.component';
@@ -21,7 +21,9 @@ import { ChartRankBrand } from './components/chartistJsProduct/product/rankbrand
 import { ChartProductPriceService } from './components/chartistJsProduct/product/productprice/chartProductPrice.services';
 import { ChartProductPrice } from './components/chartistJsProduct/product/productprice/chartProductPrice.component';
 import { ChartsAPI } from './chartsAPI.services';
-
+import {MdButtonModule} from '@angular/material';
+import { AutocompleteOverview } from './components/searcher/searcher.component';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
     CommonModule,
@@ -29,6 +31,10 @@ import { ChartsAPI } from './chartsAPI.services';
     FormsModule,
     NgaModule,
     routing,
+    MdButtonModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    //  BrowserAnimationsModule,
   ],
   declarations: [
     Charts,
@@ -40,6 +46,7 @@ import { ChartsAPI } from './chartsAPI.services';
     ChartRankCategory,
     ChartRankBrand,
     ChartProductPrice,
+    AutocompleteOverview,
   ],
   providers: [
     chartistJsProductService,
@@ -50,5 +57,6 @@ import { ChartsAPI } from './chartsAPI.services';
     ChartProductPriceService,
     ChartsAPI
   ],
+  bootstrap: [AutocompleteOverview],
 })
 export class ChartsModule { }
