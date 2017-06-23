@@ -12,6 +12,7 @@ import { ChartDashboardProduct } from './components/chartistJsProduct/chartDashb
 import { ChartDashboardProvider } from './components/chartistJsProvider/chartDashboard.component';
 import { ChartDashboardCustomer } from './components/chartistJsCustomer/chartDashboard.component';
 import { ChartDashboardPurchase } from './components/chartistJsPurchase/chartDashboard.component';
+import { ChartDashboardSale } from './components/chartistJsSale/chartDashboard.component';
 import { ChartBestSellerService } from './components/chartistJsProduct/product/bestseller/chartBestSeller.services';
 import { ChartBestSeller } from './components/chartistJsProduct/product/bestseller/chartBestSeller.component';
 import { ChartProductSalesService } from './components/chartistJsProduct/product/productsales/chartProductSales.services';
@@ -25,6 +26,7 @@ import { ChartProductPrice } from './components/chartistJsProduct/product/produc
 import { ChartsAPI } from './chartsAPI.services';
 import { chartistJsCustomerService } from './components/chartistJsCustomer/chartistJsCustomer.service';
 import { chartistJsPurchaseService } from './components/chartistJsPurchase/chartistJsPurchase.service';
+import { chartistJsSaleService } from './components/chartistJsSale/chartistJsSale.service';
 
 @NgModule({
   imports: [
@@ -40,6 +42,7 @@ import { chartistJsPurchaseService } from './components/chartistJsPurchase/chart
     ChartDashboardProduct,
     ChartDashboardProvider,
     ChartDashboardCustomer,
+    ChartDashboardSale,
     ChartDashboardPurchase,
     ChartBestSeller,
     ChartProductSales,
@@ -57,6 +60,7 @@ import { chartistJsPurchaseService } from './components/chartistJsPurchase/chart
     ChartsAPI,
     chartistJsCustomerService,
     chartistJsPurchaseService,
+    chartistJsSaleService,
   ],
 })
 export class ChartsModule { }

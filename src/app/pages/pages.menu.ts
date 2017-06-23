@@ -59,10 +59,10 @@ export const PAGES_MENU = [
             }
           },
           {
-            path: 'sales',
+            path: 'sale',
             data: {
               menu: {
-                title: 'general.menu.chartist_sales',
+                title: 'general.menu.chartist_sale',
               }
             }
           },                    
