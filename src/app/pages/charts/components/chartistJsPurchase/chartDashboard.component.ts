@@ -3,10 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'chartist-js',
   templateUrl: './chartdashboard.html',
-  styleUrls: ['./chartistJsCustomer.scss'],
+  styleUrls: ['./chartistJsPurchase.scss'],
 })
 
-export class ChartDashboardCustomer implements OnInit {
+export class ChartDashboardPurchase implements OnInit {
 
   constructor() { }
   ngOnInit(): void {

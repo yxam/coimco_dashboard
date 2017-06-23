@@ -11,6 +11,7 @@ import { AppTranslationModule } from '../../app.translation.module';
 import { ChartDashboardProduct } from './components/chartistJsProduct/chartDashboard.component';
 import { ChartDashboardProvider } from './components/chartistJsProvider/chartDashboard.component';
 import { ChartDashboardCustomer } from './components/chartistJsCustomer/chartDashboard.component';
+import { ChartDashboardPurchase } from './components/chartistJsPurchase/chartDashboard.component';
 import { ChartBestSellerService } from './components/chartistJsProduct/product/bestseller/chartBestSeller.services';
 import { ChartBestSeller } from './components/chartistJsProduct/product/bestseller/chartBestSeller.component';
 import { ChartProductSalesService } from './components/chartistJsProduct/product/productsales/chartProductSales.services';
@@ -23,6 +24,7 @@ import { ChartProductPriceService } from './components/chartistJsProduct/product
 import { ChartProductPrice } from './components/chartistJsProduct/product/productprice/chartProductPrice.component';
 import { ChartsAPI } from './chartsAPI.services';
 import { chartistJsCustomerService } from './components/chartistJsCustomer/chartistJsCustomer.service';
+import { chartistJsPurchaseService } from './components/chartistJsPurchase/chartistJsPurchase.service';
 
 @NgModule({
   imports: [
@@ -38,6 +40,7 @@ import { chartistJsCustomerService } from './components/chartistJsCustomer/chart
     ChartDashboardProduct,
     ChartDashboardProvider,
     ChartDashboardCustomer,
+    ChartDashboardPurchase,
     ChartBestSeller,
     ChartProductSales,
     ChartRankCategory,
@@ -53,6 +56,7 @@ import { chartistJsCustomerService } from './components/chartistJsCustomer/chart
     ChartProductPriceService,
     ChartsAPI,
     chartistJsCustomerService,
+    chartistJsPurchaseService,
   ],
 })
 export class ChartsModule { }

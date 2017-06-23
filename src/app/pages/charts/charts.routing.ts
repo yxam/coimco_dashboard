@@ -5,6 +5,7 @@ import { chartistJsProduct } from './components/chartistJsProduct/chartistJsProd
 import { ChartDashboardProduct } from './components/chartistJsProduct/chartDashboard.component';
 import { ChartDashboardProvider } from './components/chartistJsProvider/chartDashboard.component';
 import { ChartDashboardCustomer } from './components/chartistJsCustomer/chartDashboard.component';
+import { ChartDashboardPurchase } from './components/chartistJsPurchase/chartDashboard.component';
 import { ChartBestSeller } from './components/chartistJsProduct/product/bestseller/chartBestSeller.component';
 import { ChartProductSales } from './components/chartistJsProduct/product/productsales/chartProductSales.component';
 import { ChartRankCategory } from './components/chartistJsProduct/product/rankcategory/chartRankCategory.component';
@@ -16,18 +17,16 @@ const routes: Routes = [
     path: '',
     component: Charts,
     children: [
-      { path: 'product', component: ChartDashboardProduct },
-      { path: 'provider', component: ChartDashboardProvider },
-      { path: 'customer', component: ChartDashboardCustomer },
-      //Products
+      
+      { path: 'product', component: ChartDashboardProduct },      //Products
+      { path: 'provider', component: ChartDashboardProvider },    //Providers
+      { path: 'customer', component: ChartDashboardCustomer },    //Customers
+      { path: 'purchase', component: ChartDashboardPurchase },    //Purchases
       { path: 'bestseller', component: ChartBestSeller },
       { path: 'productsales', component: ChartProductSales },
       { path: 'rankcategory', component: ChartRankCategory },
       { path: 'rankbrand', component: ChartRankBrand },
       { path: 'productprice', component: ChartProductPrice },
-      //Providers
-
-      //Customers
     ],
   },
 ];
