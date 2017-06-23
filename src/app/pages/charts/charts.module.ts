@@ -21,8 +21,11 @@ import { ChartRankBrand } from './components/chartistJsProduct/product/rankbrand
 import { ChartProductPriceService } from './components/chartistJsProduct/product/productprice/chartProductPrice.services';
 import { ChartProductPrice } from './components/chartistJsProduct/product/productprice/chartProductPrice.component';
 import { ChartsAPI } from './chartsAPI.services';
-import {MdButtonModule} from '@angular/material';
+import { MdButtonModule } from '@angular/material';
 import { AutocompleteOverview } from './components/searcher/searcher.component';
+import { MdAutocompleteModule } from '@angular/material';
+
+
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
@@ -34,6 +37,7 @@ import { AutocompleteOverview } from './components/searcher/searcher.component';
     MdButtonModule,
     ReactiveFormsModule,
     MaterialModule,
+    MdAutocompleteModule,
     //  BrowserAnimationsModule,
   ],
   declarations: [

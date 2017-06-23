@@ -15,13 +15,11 @@ export class AutocompleteOverview {
   dbdata: Observable<JSON[]>;
   active: boolean;
   states = [
-    'FARID',
-    'ELIAS',
-    'ANDREAS'];
-
+  ];
+  states_db = [];
   constructor(private _chartAPI: ChartsAPI) {
     this.active = false;
-    /*this._chartAPI.getProducts()
+    this._chartAPI.getProducts()
       .subscribe(
       data => {
         this.dbdata = data['data'];
@@ -31,32 +29,35 @@ export class AutocompleteOverview {
           list.push(JSON.stringify(variable));
         });
         let data_product: string[] = [];
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < list.length; i++) {
           let data_db = JSON.parse(list[i]);
           console.log(data_db);
           let name = data_db.name;
+          let id = data_db.ID;
+          //states_id[name] = id;
+          //console.log(states_id);
           this.states.push(name);
+          this.states_db.push(data_db);
+
         }
-
-
-      }
-    );*/
-    console.log(this.states);
-    this.active = true;
-    this.stateCtrl = new FormControl();
-    this.filteredStates = this.stateCtrl.valueChanges
-      .startWith(null)
-      .map(name => {
-        console.log(name);
-        this.filterStates(name);
+        console.log(this.states_db);
+        console.log(this.states);
+        //LO QUE ALMACENA EL OBJETO
+        for (let j = 0; j < this.states_db.length; j++) {
+          console.log(this.states_db[j]);
+        }
+        this.active = true;
+        this.stateCtrl = new FormControl();
+        this.filteredStates = this.stateCtrl.valueChanges
+          .startWith(null)
+          .map(name => this.filterStates(name));
       });
-
 
 
   }
 
   filterStates(val: string) {
-
+    console.log(val);
     return val ? this.states.filter(s => s.toLowerCase().indexOf(val.toLowerCase()) === 0)
       : this.states;
   }
