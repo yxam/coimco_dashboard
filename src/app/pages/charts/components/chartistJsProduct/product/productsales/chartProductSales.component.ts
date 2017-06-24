@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MdButtonModule } from '@angular/material';
 import { ChartProductSalesService } from './chartProductSales.services';
 import { AutocompleteOverview } from './../../../searcher/searcher.component';
+
 
 @Component({
   selector: 'chartproduct-sales',
@@ -15,6 +16,8 @@ export class ChartProductSales implements OnInit {
   products: any;
   active: boolean;
   dbdata: any;
+  product_id: any;
+
   constructor(private _chartProductSalesService: ChartProductSalesService) {
 
   }
@@ -31,18 +34,38 @@ export class ChartProductSales implements OnInit {
       );
 
   }
+  showId(event): void {
+    if (event.id !== null) {
+      this.product_id = event.id;
+    }
+  }
   onSubmit(f: NgForm) {
     console.log(f.value);
     console.log(f.valid);
     this.active = false;
-    this._chartProductSalesService.getSales(f.value).subscribe(
+    if (this.product_id === null) {
+      alert('Debe ingresar un producto');
+    }
+
+    let form = JSON.stringify({
+      start: f.value.start,
+      end: f.value.end,
+      k: f.value.k,
+      id: this.product_id
+    });
+
+    const filter = JSON.parse(form);
+    console.log(filter);
+    this._chartProductSalesService.getSales(filter).subscribe(
       data => {
         console.log("Aqui -> ", data);
         this.dbdata = data['data'];
         console.log(this.dbdata);
         this.active = true;
-        const data_aux = this._chartProductSalesService.setData(this.dbdata);
-        console.log(data_aux);
+        //const id =
+        //const data_aux = this._chartProductSalesService.setData(this.dbdata);
+        //console.log(data_aux);
+
 
       },
       err => {

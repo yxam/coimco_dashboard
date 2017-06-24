@@ -22,10 +22,9 @@
 
         <h5 translate>
 
-          <div class="col-md-4">Cantidad:<input type="number" ngModel required #k="ngModel" name="k" min="1" max="10">
-          </div>
-          <div class="col-md-5">
-            Producto:<autocomplete-overview></autocomplete-overview>
+
+          <div class="col-md-9">
+            Producto:<autocomplete-overview (getid)="showId($event)" ></autocomplete-overview>
 
             <!--<select name="product"  ngModel required #product="ngModel">
                 <option value="190">Patch Panel #1</option>
