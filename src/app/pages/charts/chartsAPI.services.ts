@@ -26,16 +26,28 @@ export class ChartsAPI {
     let body = JSON.stringify({ start: start, end: end });
     return body;
   }
+
+
+  /*PRODUCTS*/
+  getBestSeller(filter: JSON) {
+    const headers = this.createHeaders();
+    const body = this.createBody(filter);
+    const k = filter['k'];
+    const url = 'https://coimco.herokuapp.com/api/productsrank-k/' + k;
+    console.log(headers);
+    console.log(body);
+    return this.http.post(url, body, headers)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
   getRankCategory(filter: JSON): Observable<JSON[]> {
 
     const category = filter['category'];
     const k = filter['k'];
     const headers = this.createHeaders();
-    let body = this.createBody(filter);
-    console.log(headers);
-    console.log(body);
+    const body = this.createBody(filter);
     const url = 'https://coimco.herokuapp.com/api/productsrank-cs/' + k + '/' + category;
-    console.log(url);
     return this.http.post(url, body, headers)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
@@ -86,4 +98,6 @@ export class ChartsAPI {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+
+  /* PROVIDERS */
 }

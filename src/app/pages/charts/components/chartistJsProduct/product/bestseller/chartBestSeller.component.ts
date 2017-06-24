@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ChartBestSellerService } from './chartBestSeller.services';
+import { MdButtonModule } from '@angular/material';
 
 @Component({
   selector: 'chartbest-seller',
@@ -11,14 +12,13 @@ import { ChartBestSellerService } from './chartBestSeller.services';
 export class ChartBestSeller {
   data: any;
   dbdata: any;
-  datos_aux: any;
   active: boolean;
   constructor(
     private _chartBestSellerService: ChartBestSellerService) {
 
   }
   ngOnInit() {
-    this.data = this._chartBestSellerService.getAll();
+    //this.data = this._chartBestSellerService.getAll();
     this.active = false;
   }
   getResponsive(padding, offset) {
@@ -31,11 +31,10 @@ export class ChartBestSeller {
       data => {
         console.log("Aqui -> ", data);
         //this.dbdata = data['data'][0];
-
+        this.dbdata = data['data'];
+        console.log(this.dbdata);
         this.active = true;
-
-
-
+        this.data = this._chartBestSellerService.setData(this.dbdata);
       },
       err => {
         console.log(err)
