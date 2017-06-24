@@ -17,6 +17,7 @@ export class PieChart {
   private _init = false;
 
   constructor(private _pieChartService: PieChartService) {
+    //Obteniendo data
     this.charts = this._pieChartService.getData();
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }

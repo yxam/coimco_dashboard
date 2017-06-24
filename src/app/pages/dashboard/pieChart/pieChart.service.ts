@@ -8,22 +8,23 @@ import { Data_pieChart } from './data_pieChart.service';
 
 @Injectable()
 export class PieChartService {
-  dbdata: JSON[]= [];
-  products: JSON[]= [];
+  dbdata: JSON[] = [];
+  products: JSON[] = [];
   errorMessage: any;
-  private searchTerms= new Subject<string>();
+
+  private searchTerms = new Subject<string>();
   constructor(
-     private _baConfig: BaThemeConfigProvider,
-     private data_pieChart: Data_pieChart) {}
+    private _baConfig: BaThemeConfigProvider,
+    private _data_pieChart: Data_pieChart) { }
 
   getData() {
     const pieColor = this._baConfig.get().colors.custom.dashboardPieChart;
-    this.data_pieChart.getData()
-                      .subscribe(data => this.dbdata = data,
-                                 error => this.errorMessage = <any>error,
-                                  () => console.log(this.dbdata)) ;
-    console.log(this.dbdata);
-    console.log(this.errorMessage);
+
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    /* comprobar tipo de usuario para ver que llamada hacer
+    if (currentUser.role === 2) {
+      const stats = this._data_pieChart.getStats();
+    }*/
 
     return [
       {

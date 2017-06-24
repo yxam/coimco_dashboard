@@ -1,28 +1,78 @@
 import { Injectable } from '@angular/core';
-
+import { ChartsAPI } from './../../../../chartsAPI.services';
 import { BaThemeConfigProvider } from '../../../../../../theme';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class ChartProductSalesService {
 
   private _data = {
-    simpleLineData: {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+    areaLineData: {
+      labels: [1, 2, 3, 4, 5, 6, 7, 8],
       series: [
-        [20, 20, 12, 45, 50],
-        [10, 45, 30, 14, 12],
-        [34, 12, 12, 40, 50],
-        [10, 43, 25, 22, 16],
-        [3, 6, 30, 33, 43]
-      ]
+        [5, 9, 7, 8, 5, 3, 5, 4],
+      ],
+    },
+    areaLineOptions: {
+      fullWidth: true,
+      height: '300px',
+      low: 0,
+      showArea: true,
+    },
+
+  };
+  private _dataSales = {
+    areaLineData: {
+      labels: [],
+      series: [],
+    },
+    areaLineOptions: {
+      fullWidth: true,
+      height: '300px',
+      low: 0,
+      showArea: true,
     },
 
   };
 
-  constructor(private _baConfig: BaThemeConfigProvider) {
+  constructor(
+    private _baConfig: BaThemeConfigProvider,
+    private _chartAPI: ChartsAPI) {
   }
 
-  public getAll() {
+  getProductsDb() {
+    return this._chartAPI.getProducts();
+  }
+  getSales(filter: JSON): any {
+    return this._chartAPI.getProductSales(filter);
+  }
+  removeData() {
+    this._dataSales.areaLineData.labels.splice(0);
+    this._dataSales.areaLineData.series.splice(0);
+    console.log(this._dataSales);
+  }
+
+  setData(dbdata: Array<JSON>) {
+    this.removeData();
+    console.log(dbdata);
+    let list: string[] = [];
+    dbdata.forEach(variable => {
+      list.push(JSON.stringify(variable))
+    });
+    console.log(list);
+    let data_chart: string[] = [];
+    for (let i = 0; i < list.length; i++) {
+      const data_db = JSON.parse(list[i]);
+      const date = data_db.Date;
+      const total = data_db.Total;
+      this._dataSales.areaLineData.labels.push(date);
+      data_chart.push(total);
+    }
+    this._dataSales.areaLineData.series.push(data_chart);
+    console.log(this._dataSales);
+    return this._dataSales;
+  }
+  getAll() {
     return this._data;
   }
 
@@ -32,7 +82,7 @@ export class ChartProductSalesService {
         chartPadding: padding,
         labelOffset: offset,
         labelDirection: 'explode',
-        labelInterpolationFnc: function (value) {
+        labelInterpolationFnc: function(value) {
           return value;
         }
       }],
@@ -40,14 +90,14 @@ export class ChartProductSalesService {
         chartPadding: padding,
         labelOffset: offset,
         labelDirection: 'explode',
-        labelInterpolationFnc: function (value) {
+        labelInterpolationFnc: function(value) {
           return value;
         }
       }],
       ['screen and (max-width: 600px)', {
         chartPadding: 0,
         labelOffset: 0,
-        labelInterpolationFnc: function (value) {
+        labelInterpolationFnc: function(value) {
           return value[0];
         }
       }]

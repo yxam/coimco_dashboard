@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgaModule } from '../../theme/nga.module';
-
+import { MaterialModule } from '@angular/material';
 import { routing } from './charts.routing';
 import { Charts } from './charts.component';
 import { chartistJsProduct } from './components/chartistJsProduct/chartistJsProduct.component';
@@ -24,10 +24,18 @@ import { ChartRankBrand } from './components/chartistJsProduct/product/rankbrand
 import { ChartProductPriceService } from './components/chartistJsProduct/product/productprice/chartProductPrice.services';
 import { ChartProductPrice } from './components/chartistJsProduct/product/productprice/chartProductPrice.component';
 import { ChartsAPI } from './chartsAPI.services';
+
 import { chartistJsCustomerService } from './components/chartistJsCustomer/chartistJsCustomer.service';
 import { chartistJsPurchaseService } from './components/chartistJsPurchase/chartistJsPurchase.service';
 import { chartistJsSaleService } from './components/chartistJsSale/chartistJsSale.service';
 
+import { MdButtonModule } from '@angular/material';
+import { AutocompleteOverview } from './components/searcher/searcher.component';
+import { MdAutocompleteModule } from '@angular/material';
+
+
+
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
     CommonModule,
@@ -35,6 +43,11 @@ import { chartistJsSaleService } from './components/chartistJsSale/chartistJsSal
     FormsModule,
     NgaModule,
     routing,
+    MdButtonModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    MdAutocompleteModule,
+    //  BrowserAnimationsModule,
   ],
   declarations: [
     Charts,
@@ -49,6 +62,7 @@ import { chartistJsSaleService } from './components/chartistJsSale/chartistJsSal
     ChartRankCategory,
     ChartRankBrand,
     ChartProductPrice,
+    AutocompleteOverview,
   ],
   providers: [
     chartistJsProductService,
@@ -62,5 +76,6 @@ import { chartistJsSaleService } from './components/chartistJsSale/chartistJsSal
     chartistJsPurchaseService,
     chartistJsSaleService,
   ],
+  bootstrap: [AutocompleteOverview],
 })
 export class ChartsModule { }
