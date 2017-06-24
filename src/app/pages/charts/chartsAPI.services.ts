@@ -69,6 +69,16 @@ export class ChartsAPI {
     const id = filter['id'];
     const url = 'https://coimco.herokuapp.com/api/productsrec/' + id;
     let body = this.createBody(filter);
+    return this.http.post(url, body, headers)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  getProductPrice(filter: JSON): Observable<JSON[]> {
+    const headers = this.createHeaders();
+    const id = filter['id'];
+    const url = 'https://coimco.herokuapp.com/api/productsprice/' + id;
+    let body = this.createBody(filter);
     console.log(body);
     console.log(url);
     return this.http.post(url, body, headers)

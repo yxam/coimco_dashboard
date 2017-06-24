@@ -62,6 +62,7 @@ export class ChartProductSales implements OnInit {
         this.dbdata = data['data'];
         console.log(this.dbdata);
         this.active = true;
+        this.data = this._chartProductSalesService.setData(this.dbdata);
         //const id =
         //const data_aux = this._chartProductSalesService.setData(this.dbdata);
         //console.log(data_aux);

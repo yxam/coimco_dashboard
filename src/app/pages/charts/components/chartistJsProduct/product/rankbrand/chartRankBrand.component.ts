@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {MdButtonModule} from '@angular/material';
+import { MdButtonModule } from '@angular/material';
 import { ChartRankBrandService } from './chartRankBrand.services';
 
 @Component({
