@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Jsonp , Headers, Response, RequestOptions, Request, RequestMethod } from '@angular/http';
+import { Http, Jsonp, Headers, Response, RequestOptions, Request, RequestMethod } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -32,9 +32,7 @@ export class Data_pieChart {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
-
-  getData(): Observable<any[]> {
-    /*const tokenuser = JSON.parse(this.token);*/
+  createHeaders() {
     const tokenuser = JSON.parse(this.token);
     const auth = `Bearer ${tokenuser}`;
 
@@ -42,16 +40,21 @@ export class Data_pieChart {
     const headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Authorization', auth);
-
-
     const options = new RequestOptions({ 'headers': headers });
+    return options;
+  }
 
-    console.log(headers);
-
-    return this.http.get('https://coimco.herokuapp.com/api/products', options)
+  createBody() {
+    //AQUI QUEDE CREAR EL BODY AÚN NO SABEMOS SI ES NECESARIO
+    return null;
+  }
+  getStats(): Observable<JSON[]> {
+    const headers = this.createHeaders();
+    const body = this.createBody();
+    return this.http.get('https://coimco.herokuapp.com/api/products', headers)
       .map(function(res: Response) {
-            return res.json() || {};
-        })
+        return res.json() || {};
+      })
 
 
   }

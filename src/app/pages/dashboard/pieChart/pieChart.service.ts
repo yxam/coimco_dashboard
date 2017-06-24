@@ -15,11 +15,16 @@ export class PieChartService {
   private searchTerms = new Subject<string>();
   constructor(
     private _baConfig: BaThemeConfigProvider,
-    private data_pieChart: Data_pieChart) { }
+    private _data_pieChart: Data_pieChart) { }
 
   getData() {
     const pieColor = this._baConfig.get().colors.custom.dashboardPieChart;
 
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    /* comprobar tipo de usuario para ver que llamada hacer
+    if (currentUser.role === 2) {
+      const stats = this._data_pieChart.getStats();
+    }*/
 
     return [
       {
