@@ -17,6 +17,7 @@ export class ChartRankBrand implements OnInit {
   ngOnInit() {
     //this.data = this._chartRankBrandService.getAll();
     this.active = false;
+    console.log(localStorage.getItem('currentUser'));
   }
 
   getResponsive(padding, offset) {

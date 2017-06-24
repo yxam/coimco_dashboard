@@ -63,8 +63,8 @@ export class ChartProductSalesService {
     let data_chart: string[] = [];
     for (let i = 0; i < list.length; i++) {
       const data_db = JSON.parse(list[i]);
-      const date = data_db.date;
-      const total = data_db.ID;
+      const date = data_db.Date;
+      const total = data_db.Total;
       this._dataSales.areaLineData.labels.push(date);
       data_chart.push(total);
     }
