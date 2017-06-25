@@ -5,7 +5,6 @@ import { chartistJsProduct } from './components/chartistJsProduct/chartistJsProd
 import { ChartDashboardProduct } from './components/chartistJsProduct/chartDashboard.component';
 import { ChartDashboardProvider } from './components/chartistJsProvider/chartDashboard.component';
 import { ChartDashboardCustomer } from './components/chartistJsCustomer/chartDashboard.component';
-import { ChartDashboardPurchase } from './components/chartistJsPurchase/chartDashboard.component';
 import { ChartDashboardSale } from './components/chartistJsSale/chartDashboard.component';
 import { ChartBestSeller } from './components/chartistJsProduct/product/bestseller/chartBestSeller.component';
 import { ChartProductSales } from './components/chartistJsProduct/product/productsales/chartProductSales.component';
@@ -22,7 +21,6 @@ const routes: Routes = [
       { path: 'product', component: ChartDashboardProduct },      //Products
       { path: 'provider', component: ChartDashboardProvider },    //Providers
       { path: 'customer', component: ChartDashboardCustomer },    //Customers
-      { path: 'purchase', component: ChartDashboardPurchase },    //Purchases
       { path: 'sale', component: ChartDashboardSale },            //Sale
       { path: 'bestseller', component: ChartBestSeller },
       { path: 'productsales', component: ChartProductSales },

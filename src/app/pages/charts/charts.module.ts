@@ -9,9 +9,8 @@ import { chartistJsProduct } from './components/chartistJsProduct/chartistJsProd
 import { chartistJsProductService } from './components/chartistJsProduct/chartistJsProduct.service';
 import { AppTranslationModule } from '../../app.translation.module';
 import { ChartDashboardProduct } from './components/chartistJsProduct/chartDashboard.component';
-import { ChartDashboardProvider } from './components/chartistJsProvider/chartDashboard.component';
+import { ChartDashboardProvider } from './components/chartistJsProvider/chartDashboard.component';  // include purchases urls
 import { ChartDashboardCustomer } from './components/chartistJsCustomer/chartDashboard.component';
-import { ChartDashboardPurchase } from './components/chartistJsPurchase/chartDashboard.component';
 import { ChartDashboardSale } from './components/chartistJsSale/chartDashboard.component';
 import { ChartBestSellerService } from './components/chartistJsProduct/product/bestseller/chartBestSeller.services';
 import { ChartBestSeller } from './components/chartistJsProduct/product/bestseller/chartBestSeller.component';
@@ -26,7 +25,6 @@ import { ChartProductPrice } from './components/chartistJsProduct/product/produc
 import { ChartsAPI } from './chartsAPI.services';
 
 import { chartistJsCustomerService } from './components/chartistJsCustomer/chartistJsCustomer.service';
-import { chartistJsPurchaseService } from './components/chartistJsPurchase/chartistJsPurchase.service';
 import { chartistJsSaleService } from './components/chartistJsSale/chartistJsSale.service';
 
 import { MdButtonModule } from '@angular/material';
@@ -56,7 +54,6 @@ import { MdAutocompleteModule } from '@angular/material';
     ChartDashboardProvider,
     ChartDashboardCustomer,
     ChartDashboardSale,
-    ChartDashboardPurchase,
     ChartBestSeller,
     ChartProductSales,
     ChartRankCategory,
@@ -73,7 +70,6 @@ import { MdAutocompleteModule } from '@angular/material';
     ChartProductPriceService,
     ChartsAPI,
     chartistJsCustomerService,
-    chartistJsPurchaseService,
     chartistJsSaleService,
   ],
   bootstrap: [AutocompleteOverview],

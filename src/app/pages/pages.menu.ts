@@ -51,14 +51,6 @@ export const PAGES_MENU = [
             }
           },
           {
-            path: 'purchase',
-            data: {
-              menu: {
-                title: 'general.menu.chartist_purchase',
-              }
-            }
-          },
-          {
             path: 'sale',
             data: {
               menu: {
