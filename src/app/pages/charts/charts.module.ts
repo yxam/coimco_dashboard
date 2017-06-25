@@ -44,6 +44,11 @@ import { ChartBestProductService } from './components/chartistJsCustomer/Custome
 import { ChartRankingCustomer } from './components/chartistJsCustomer/Customer/RankingCustomer/chartRankingCustomer.component';
 import { ChartRankingCustomerService } from './components/chartistJsCustomer/Customer/RankingCustomer/chartRankingCustomer.services'
 
+//providers - purchase
+import { ChartRankingPurchase } from './components/chartistJsProvider/Provider/RankingPurchase/chartRankingPurchase.component';
+import { ChartRankingPurchaseService } from './components/chartistJsProvider/Provider/RankingPurchase/chartRankingPurchase.services';
+import { ChartRankingProvider } from './components/chartistJsProvider/Provider/RankingProvider/chartRankingProvider.component';
+import { ChartRankingProviderService } from './components/chartistJsProvider/Provider/RankingProvider/chartRankingProvider.services';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
@@ -78,10 +83,16 @@ import { ChartRankingCustomerService } from './components/chartistJsCustomer/Cus
     ChartCollected,
     ChartBestProduct,
     ChartRankingCustomer,
+
+    //provider-purchase
+    ChartRankingPurchase,
+    ChartRankingProvider,
   ],
   providers: [
     chartistJsProductService,
     chartistJsCustomerService,
+    ChartsAPI,
+    chartistJsSaleService,
 
     //product
     ChartBestSellerService,
@@ -95,10 +106,11 @@ import { ChartRankingCustomerService } from './components/chartistJsCustomer/Cus
     ChartFrequencyService,
     ChartCollectedService,
     ChartBestProductService,
-    ChartRankingCustomerService ,
+    ChartRankingCustomerService,
 
-    ChartsAPI,
-    chartistJsSaleService,
+    //provider-purchase
+    ChartRankingPurchaseService,
+    ChartRankingProviderService,
   ],
   bootstrap: [AutocompleteOverview],
 })

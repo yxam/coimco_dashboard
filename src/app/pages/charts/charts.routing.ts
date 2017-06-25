@@ -18,8 +18,11 @@ import { ChartProductBuy } from './components/chartistJsCustomer/Customer/Produc
 import { ChartFrequency } from './components/chartistJsCustomer/Customer/Frequency/chartFrequency.component';
 import { ChartCollected } from './components/chartistJsCustomer/Customer/Collected/chartCollected.component';
 import { ChartBestProduct } from './components/chartistJsCustomer/Customer/BestProduct/chartBestProduct.component';
-import { ChartBestCustomer } from './components/chartistJsCustomer/Customer/BestCustomer/chartBestCustomer.component';
 import { ChartRankingCustomer } from './components/chartistJsCustomer/Customer/RankingCustomer/chartRankingCustomer.component';
+
+//provider-purchase
+import { ChartRankingPurchase } from './components/chartistJsProvider/Provider/RankingPurchase/chartRankingPurchase.component';
+import { ChartRankingProvider } from './components/chartistJsProvider/Provider/RankingProvider/chartRankingProvider.component';
 
 
 const routes: Routes = [
@@ -44,6 +47,9 @@ const routes: Routes = [
       { path: 'collected', component: ChartCollected },
       { path: 'bestproduct', component: ChartBestProduct },
       { path: 'rankingcustomer', component: ChartRankingCustomer },
+      //provider-purchase
+      { path: 'rankingpurchase', component: ChartRankingPurchase },
+      { path: 'RankingProvider', component: ChartRankingProvider },
 
     ],
   },

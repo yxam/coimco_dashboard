@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-
 import { BaThemeConfigProvider } from '../../../../../../theme';
+import { ChartsAPI } from './../../../../chartsAPI.services';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
-export class ChartBestSellerService {
-
+export class ChartRankingProviderService {
+  private dbdata: Observable<JSON[]>
+  private products: JSON[] = [];
+  private errorMessage: any;
   private _data = {
     simpleDonutData: {
       labels: ['Bananas', 'Apples', 'Grapes'],
@@ -12,21 +15,36 @@ export class ChartBestSellerService {
     },
 
   };
+  private dataSeller: JSON[] = [];
 
-  constructor(private _baConfig:BaThemeConfigProvider) {
+  constructor(
+    private _baConfig: BaThemeConfigProvider,
+    private _chartAPI: ChartsAPI) {
   }
 
-  public getAll() {
+  getAll() {
     return this._data;
   }
 
-  public getResponsive(padding, offset) {
+  getSeller(filter: JSON): any {
+
+    //Retorna el observable de la data
+    return this._chartAPI.getBestSeller(filter);
+  }
+  printDATA(data: any) {
+    console.log(data);
+  }
+  getData() {
+    return this.dataSeller;
+  }
+
+  getResponsive(padding, offset) {
     return [
       ['screen and (min-width: 1550px)', {
         chartPadding: padding,
         labelOffset: offset,
         labelDirection: 'explode',
-        labelInterpolationFnc: function (value) {
+        labelInterpolationFnc: function(value) {
           return value;
         }
       }],
@@ -34,14 +52,14 @@ export class ChartBestSellerService {
         chartPadding: padding,
         labelOffset: offset,
         labelDirection: 'explode',
-        labelInterpolationFnc: function (value) {
+        labelInterpolationFnc: function(value) {
           return value;
         }
       }],
       ['screen and (max-width: 600px)', {
         chartPadding: 0,
         labelOffset: 0,
-        labelInterpolationFnc: function (value) {
+        labelInterpolationFnc: function(value) {
           return value[0];
         }
       }]
