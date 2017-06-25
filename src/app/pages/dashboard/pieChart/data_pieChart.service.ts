@@ -48,14 +48,16 @@ export class Data_pieChart {
     //AQUI QUEDE CREAR EL BODY AÚN NO SABEMOS SI ES NECESARIO
     return null;
   }
-  getStats(): Observable<JSON[]> {
+  getStats(currentUser: JSON): Observable<JSON[]> {
     const headers = this.createHeaders();
     const body = this.createBody();
-    return this.http.get('https://coimco.herokuapp.com/api/products', headers)
-      .map(function(res: Response) {
-        return res.json() || {};
-      })
-
+    const user_id = currentUser['name'];
+    const role = currentUser['role'];
+    //const url = 'https://coimco.herokuapp.com/api/dashboard/'+ user_id +'/' + role;
+    const url = 'http://coimco.herokuapp.com/api/products';
+    return this.http.get(url, headers)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 
   }
 

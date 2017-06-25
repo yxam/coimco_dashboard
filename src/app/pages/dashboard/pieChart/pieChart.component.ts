@@ -15,11 +15,20 @@ export class PieChart {
   charts: Array<Object>;
   currentUser: any;
   private _init = false;
+  private dbdata: any;
 
   constructor(private _pieChartService: PieChartService) {
     //Obteniendo data
-    this.charts = this._pieChartService.getData();
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this._pieChartService.getDataStats(this.currentUser)
+      .subscribe(
+      data => {
+        this.dbdata = data['data'];
+        this.charts = this._pieChartService.setData(this.dbdata);
+
+      }
+      )
+
   }
 
   ngAfterViewInit() {
