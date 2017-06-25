@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { Data_pieChart } from './data_pieChart.service';
+import { Data_API } from './../data_API.service';
 
 @Injectable()
 export class PieChartService {
@@ -15,7 +15,7 @@ export class PieChartService {
   private searchTerms = new Subject<string>();
   constructor(
     private _baConfig: BaThemeConfigProvider,
-    private _data_pieChart: Data_pieChart) { }
+    private _data_pieChart: Data_API) { }
 
   getData() {
     const pieColor = this._baConfig.get().colors.custom.dashboardPieChart;
