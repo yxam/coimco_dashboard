@@ -55,6 +55,8 @@ import { ChartRankingProviderCategory } from './components/chartistJsProvider/Pr
 import { ChartRankingProviderCategoryService } from './components/chartistJsProvider/Provider/RankingProviderCategory/chartRankingProviderCategory.services';
 import { ChartRankingProduct } from './components/chartistJsProvider/Provider/RankingProduct/chartRankingProduct.component';
 import { ChartRankingProductService } from './components/chartistJsProvider/Provider/RankingProduct/chartRankingProduct.services';
+import { ChartRankingPurchaseCategory } from './components/chartistJsProvider/Provider/RankingPurchaseCategory/chartRankingPurchaseCategory.component';
+import { ChartRankingPurchaseCategoryService } from './components/chartistJsProvider/Provider/RankingPurchaseCategory/chartRankingPurchaseCategory.services';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
@@ -96,6 +98,7 @@ import { ChartRankingProductService } from './components/chartistJsProvider/Prov
     ChartRankingProviderInTime,
     ChartRankingProviderCategory,
     ChartRankingProduct,
+    ChartRankingPurchaseCategory,
   ],
   providers: [
     chartistJsProductService,
@@ -124,6 +127,7 @@ import { ChartRankingProductService } from './components/chartistJsProvider/Prov
     ChartRankingProviderInTimeService,
     ChartRankingProviderCategoryService,
     ChartRankingProductService,
+    ChartRankingPurchaseCategoryService,
   ],
   bootstrap: [AutocompleteOverview],
 })
