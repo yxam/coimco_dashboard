@@ -16,18 +16,17 @@ export class TrafficChart {
   active: boolean;
   aux: Array<Object>
   constructor(private trafficChartService: TrafficChartService) {
-
-    //this.doughnutData = trafficChartService.getData();
-
-    trafficChartService.getDataStats()
+    console.log("HOLA")
+    this.doughnutData = trafficChartService.getData2();
+    console.log(this.doughnutData);
+    /*trafficChartService.getDataStats()
       .subscribe(
       data => {
-
         this.dbdata = data['data'];
-        console.log(this.doughnutData)
+        console.log(this.doughnutData);
         this.doughnutData = trafficChartService.setData(this.dbdata);
 
-      });
+      });*/
 
   }
 
