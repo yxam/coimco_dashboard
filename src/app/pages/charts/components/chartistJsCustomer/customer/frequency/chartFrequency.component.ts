@@ -1,37 +1,37 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ChartBestSellerService } from './chartBestSeller.services';
+import { ChartFrequencyService } from './chartFrequency.services';
 import { ChartsAPI } from './../../../../chartsAPI.services';
 @Component({
-  selector: 'chartbest-seller',
-  templateUrl: './chartBestSeller.html',
-  styleUrls: ['./../../chartistJsProduct.scss'],
+  selector: 'chartproduct-buy',
+  templateUrl: './chartFrequency.html',
+  styleUrls: ['./../../chartistJsCustomer.scss'],
 })
 
-export class ChartBestSeller {
+export class ChartFrequency {
   data: any;
   dbdata: any;
   datos_aux: any;
   constructor(
-    private _chartBestSellerService: ChartBestSellerService,
+    private _chartFrequencyService: ChartFrequencyService,
     private _chartAPI: ChartsAPI) {
 
   }
   ngOnInit() {
-    this.data = this._chartBestSellerService.getAll();
+    this.data = this._chartFrequencyService.getAll();
   }
   getResponsive(padding, offset) {
-    return this._chartBestSellerService.getResponsive(padding, offset);
+    return this._chartFrequencyService.getResponsive(padding, offset);
   }
   onSubmit(f: NgForm) {
     console.log(f.value);
     console.log(f.valid);
-    this._chartBestSellerService.getSeller(f.value).subscribe(
+    this._chartFrequencyService.getSeller(f.value).subscribe(
       data => {
         console.log("Aqui -> ", data);
         this.dbdata = data['data'][0].ID;
         console.log(this.dbdata);
-        this.datos_aux = this._chartBestSellerService.getAll();
+        this.datos_aux = this._chartFrequencyService.getAll();
 
       },
       err => {

@@ -4,7 +4,7 @@ import { ChartsAPI } from './../../../../chartsAPI.services';
 import { Observable } from 'rxjs/Rx';
 
 @Injectable()
-export class ChartBestSellerService {
+export class ChartBestProductService {
   private dbdata: Observable<JSON[]>
   private products: JSON[] = [];
   private errorMessage: any;

@@ -14,6 +14,7 @@ import { ChartDashboardCustomer } from './components/chartistJsCustomer/chartDas
 import { ChartDashboardSale } from './components/chartistJsSale/chartDashboard.component';
 import { ChartBestSellerService } from './components/chartistJsProduct/product/bestseller/chartBestSeller.services';
 import { ChartBestSeller } from './components/chartistJsProduct/product/bestseller/chartBestSeller.component';
+
 import { ChartProductSalesService } from './components/chartistJsProduct/product/productsales/chartProductSales.services';
 import { ChartProductSales } from './components/chartistJsProduct/product/productsales/chartProductSales.component';
 import { ChartRankCategoryService } from './components/chartistJsProduct/product/rankcategory/chartRankCategory.services';
@@ -31,7 +32,17 @@ import { MdButtonModule } from '@angular/material';
 import { AutocompleteOverview } from './components/searcher/searcher.component';
 import { MdAutocompleteModule } from '@angular/material';
 
-
+//customers urls
+import { ChartProductBuy } from './components/chartistJsCustomer/Customer/ProductBuy/chartProductBuy.component';
+import { ChartProductBuyService } from './components/chartistJsCustomer/Customer/ProductBuy/chartProductBuy.services';
+import { ChartFrequency } from './components/chartistJsCustomer/Customer/Frequency/chartFrequency.component';
+import { ChartFrequencyService } from './components/chartistJsCustomer/Customer/Frequency/chartFrequency.services';
+import { ChartCollected } from './components/chartistJsCustomer/Customer/Collected/chartCollected.component';
+import { ChartCollectedService } from './components/chartistJsCustomer/Customer/Collected/chartCollected.services';
+import { ChartBestProduct } from './components/chartistJsCustomer/Customer/BestProduct/chartBestProduct.component';
+import { ChartBestProductService } from './components/chartistJsCustomer/Customer/BestProduct/chartBestProduct.services';
+import { ChartRankingCustomer } from './components/chartistJsCustomer/Customer/RankingCustomer/chartRankingCustomer.component';
+import { ChartRankingCustomerService } from './components/chartistJsCustomer/Customer/RankingCustomer/chartRankingCustomer.services'
 
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
@@ -60,16 +71,33 @@ import { MdAutocompleteModule } from '@angular/material';
     ChartRankBrand,
     ChartProductPrice,
     AutocompleteOverview,
+
+    //customer
+    ChartProductBuy,
+    ChartFrequency,
+    ChartCollected,
+    ChartBestProduct,
+    ChartRankingCustomer,
   ],
   providers: [
     chartistJsProductService,
+    chartistJsCustomerService,
+
+    //product
     ChartBestSellerService,
     ChartProductSalesService,
     ChartRankCategoryService,
     ChartRankBrandService,
     ChartProductPriceService,
+
+    //customer
+    ChartProductBuyService,
+    ChartFrequencyService,
+    ChartCollectedService,
+    ChartBestProductService,
+    ChartRankingCustomerService ,
+
     ChartsAPI,
-    chartistJsCustomerService,
     chartistJsSaleService,
   ],
   bootstrap: [AutocompleteOverview],

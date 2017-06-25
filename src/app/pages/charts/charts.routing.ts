@@ -12,6 +12,16 @@ import { ChartRankCategory } from './components/chartistJsProduct/product/rankca
 import { ChartRankBrand } from './components/chartistJsProduct/product/rankbrand/chartRankBrand.component';
 import { ChartProductPrice } from './components/chartistJsProduct/product/productprice/chartProductPrice.component';
 // noinspection TypeScriptValidateTypes
+
+//customer
+import { ChartProductBuy } from './components/chartistJsCustomer/Customer/ProductBuy/chartProductBuy.component';
+import { ChartFrequency } from './components/chartistJsCustomer/Customer/Frequency/chartFrequency.component';
+import { ChartCollected } from './components/chartistJsCustomer/Customer/Collected/chartCollected.component';
+import { ChartBestProduct } from './components/chartistJsCustomer/Customer/BestProduct/chartBestProduct.component';
+import { ChartBestCustomer } from './components/chartistJsCustomer/Customer/BestCustomer/chartBestCustomer.component';
+import { ChartRankingCustomer } from './components/chartistJsCustomer/Customer/RankingCustomer/chartRankingCustomer.component';
+
+
 const routes: Routes = [
   {
     path: '',
@@ -22,11 +32,19 @@ const routes: Routes = [
       { path: 'provider', component: ChartDashboardProvider },    //Providers
       { path: 'customer', component: ChartDashboardCustomer },    //Customers
       { path: 'sale', component: ChartDashboardSale },            //Sale
+      //product
       { path: 'bestseller', component: ChartBestSeller },
       { path: 'productsales', component: ChartProductSales },
       { path: 'rankcategory', component: ChartRankCategory },
       { path: 'rankbrand', component: ChartRankBrand },
       { path: 'productprice', component: ChartProductPrice },
+      //customer
+      { path: 'productbuy', component: ChartProductBuy },
+      { path: 'frequency', component: ChartFrequency },
+      { path: 'collected', component: ChartCollected },
+      { path: 'bestproduct', component: ChartBestProduct },
+      { path: 'rankingcustomer', component: ChartRankingCustomer },
+
     ],
   },
 ];
