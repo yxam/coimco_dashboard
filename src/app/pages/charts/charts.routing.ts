@@ -23,7 +23,7 @@ import { ChartRankingCustomer } from './components/chartistJsCustomer/Customer/R
 //provider-purchase
 import { ChartRankingPurchase } from './components/chartistJsProvider/Provider/RankingPurchase/chartRankingPurchase.component';
 import { ChartRankingProvider } from './components/chartistJsProvider/Provider/RankingProvider/chartRankingProvider.component';
-
+import { ChartRankingProviderInTime } from './components/chartistJsProvider/Provider/RankingProviderInTime/chartRankingProviderInTime.component';
 
 const routes: Routes = [
   {
@@ -50,6 +50,7 @@ const routes: Routes = [
       //provider-purchase
       { path: 'rankingpurchase', component: ChartRankingPurchase },
       { path: 'RankingProvider', component: ChartRankingProvider },
+      { path: 'RankingProviderInTime', component: ChartRankingProviderInTime },
 
     ],
   },
