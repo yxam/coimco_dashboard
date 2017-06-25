@@ -23,6 +23,7 @@ import { TodoService } from './todo/todo.service';
 import { TrafficChartService } from './trafficChart/trafficChart.service';
 import { UsersMapService } from './usersMap/usersMap.service';
 import { Data_pieChart } from './pieChart/data_pieChart.service';
+import { Data_API } from './data_API.service';
 
 @NgModule({
   imports: [
@@ -52,6 +53,7 @@ import { Data_pieChart } from './pieChart/data_pieChart.service';
     TrafficChartService,
     UsersMapService,
     Data_pieChart,
+    Data_API,
   ]
 })
-export class DashboardModule {}
+export class DashboardModule { }

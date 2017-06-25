@@ -11,11 +11,24 @@ import * as Chart from 'chart.js';
 
 // TODO: move chart.js to it's own component
 export class TrafficChart {
+  private dbdata: any;
+  public doughnutData: Array<Object>
+  active: boolean;
+  aux: Array<Object>
+  constructor(private trafficChartService: TrafficChartService) {
 
-  public doughnutData: Array<Object>;
+    //this.doughnutData = trafficChartService.getData();
 
-  constructor(private trafficChartService:TrafficChartService) {
-    this.doughnutData = trafficChartService.getData();
+    trafficChartService.getDataStats()
+      .subscribe(
+      data => {
+
+        this.dbdata = data['data'];
+        console.log(this.doughnutData)
+        this.doughnutData = trafficChartService.setData(this.dbdata);
+
+      });
+
   }
 
   ngAfterViewInit() {
@@ -26,7 +39,7 @@ export class TrafficChart {
     let el = jQuery('.chart-area').get(0) as HTMLCanvasElement;
     new Chart(el.getContext('2d')).Doughnut(this.doughnutData, {
       segmentShowStroke: false,
-      percentageInnerCutout : 64,
+      percentageInnerCutout: 64,
       responsive: true
     });
   }
