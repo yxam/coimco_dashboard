@@ -25,6 +25,7 @@ import { ChartRankingPurchase } from './components/chartistJsProvider/Provider/R
 import { ChartRankingProvider } from './components/chartistJsProvider/Provider/RankingProvider/chartRankingProvider.component';
 import { ChartRankingProviderInTime } from './components/chartistJsProvider/Provider/RankingProviderInTime/chartRankingProviderInTime.component';
 import { ChartRankingProviderCategory } from './components/chartistJsProvider/Provider/RankingProviderCategory/chartRankingProviderCategory.component';
+import { ChartRankingProduct } from './components/chartistJsProvider/Provider/RankingProduct/chartRankingProduct.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,7 @@ const routes: Routes = [
       { path: 'RankingProvider', component: ChartRankingProvider },
       { path: 'RankingProviderInTime', component: ChartRankingProviderInTime },
       { path: 'RankingProviderCategory', component: ChartRankingProviderCategory },
+      { path: 'RankingProduct', component: ChartRankingProduct },
 
     ],
   },
