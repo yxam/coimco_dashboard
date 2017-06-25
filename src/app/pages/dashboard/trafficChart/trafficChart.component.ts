@@ -19,6 +19,7 @@ export class TrafficChart {
     console.log("HOLA")
     this.doughnutData = trafficChartService.getData2();
     console.log(this.doughnutData);
+
     /*trafficChartService.getDataStats()
       .subscribe(
       data => {
