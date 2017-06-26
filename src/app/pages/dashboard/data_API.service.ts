@@ -51,8 +51,8 @@ export class Data_API {
     const body = this.createBody();
     const user_id = currentUser['name'];
     const role = currentUser['role'];
-    //const url = 'https://coimco.herokuapp.com/api/dashboard/'+ user_id +'/' + role;
-    const url = 'http://coimco.herokuapp.com/api/products';
+    const url = 'https://coimco.herokuapp.com/api/dashboard-info/' + role + '/' + user_id;
+    //const url = 'http://coimco.herokuapp.com/api/products';
     return this.http.get(url, headers)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
@@ -68,6 +68,18 @@ export class Data_API {
     const end = '2013-01-01T10:00:00Z';
     let body = JSON.stringify({ start: start, end: end });
     const url = 'https://coimco.herokuapp.com/api/productsrank-r/' + k;
+    return this.http.post(url, body, headers)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  getProviders(): Observable<JSON[]> {
+    const headers = this.createHeaders();
+    const k = '5';
+    const start = '2012-01-01T10:00:00Z';
+    const end = '2013-01-01T10:00:00Z';
+    let body = JSON.stringify({ start: start, end: end });
+    const url = 'https://0158c553.ngrok.io/api/providersrank-v/' + k;
     return this.http.post(url, body, headers)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
