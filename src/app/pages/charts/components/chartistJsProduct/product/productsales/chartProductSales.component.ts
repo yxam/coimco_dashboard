@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MdButtonModule } from '@angular/material';
 import { ChartProductSalesService } from './chartProductSales.services';
-import { AutocompleteOverview } from './../../../searcher/searcher.component';
+import { AutocompleteOverviewProduct } from './../../../searcher/product/searcherProduct.component';
 
 
 @Component({

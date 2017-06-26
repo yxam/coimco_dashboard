@@ -29,7 +29,9 @@ import { chartistJsCustomerService } from './components/chartistJsCustomer/chart
 import { chartistJsSaleService } from './components/chartistJsSale/chartistJsSale.service';
 
 import { MdButtonModule } from '@angular/material';
-import { AutocompleteOverview } from './components/searcher/searcher.component';
+import { AutocompleteOverviewProduct } from './components/searcher/product/searcherProduct.component';
+import { AutocompleteOverviewProvider } from './components/searcher/provider/searcherProvider.component';
+import { AutocompleteOverviewCustomer } from './components/searcher/customer/searcherCustomer.component';
 import { MdAutocompleteModule } from '@angular/material';
 
 //customers urls
@@ -83,8 +85,9 @@ import { ChartRankingPurchaseCategoryService } from './components/chartistJsProv
     ChartRankCategory,
     ChartRankBrand,
     ChartProductPrice,
-    AutocompleteOverview,
-
+    AutocompleteOverviewProduct,
+    AutocompleteOverviewProvider,
+    AutocompleteOverviewCustomer,
     //customer
     ChartProductBuy,
     ChartFrequency,
@@ -119,7 +122,7 @@ import { ChartRankingPurchaseCategoryService } from './components/chartistJsProv
     ChartCollectedService,
     ChartBestProductService,
     ChartRankingCustomerService,
-    
+
 
     //provider-purchase
     ChartRankingPurchaseService,
@@ -129,6 +132,10 @@ import { ChartRankingPurchaseCategoryService } from './components/chartistJsProv
     ChartRankingProductService,
     ChartRankingPurchaseCategoryService,
   ],
-  bootstrap: [AutocompleteOverview],
+  bootstrap: [
+    AutocompleteOverviewProduct,
+    AutocompleteOverviewProvider,
+    AutocompleteOverviewCustomer,
+  ],
 })
 export class ChartsModule { }

@@ -1,16 +1,16 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
-import { ChartsAPI } from './../../chartsAPI.services';
+import { ChartsAPI } from './../../../chartsAPI.services';
 import { NgForm } from '@angular/forms';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
 
 @Component({
-  selector: 'autocomplete-overview',
-  templateUrl: 'searcher.html',
+  selector: 'autocomplete-overviewCustomer',
+  templateUrl: 'searcherCustomer.html',
 })
-export class AutocompleteOverview {
+export class AutocompleteOverviewCustomer {
   stateCtrl: FormControl;
   filteredStates: any;
   dbdata: Observable<JSON[]>;
@@ -22,7 +22,7 @@ export class AutocompleteOverview {
   states_db = [];
   constructor(private _chartAPI: ChartsAPI) {
     this.active = false;
-    this._chartAPI.getProducts()
+    this._chartAPI.getCustomers()
       .subscribe(
       data => {
         this.dbdata = data['data'];

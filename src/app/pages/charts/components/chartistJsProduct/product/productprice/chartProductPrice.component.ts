@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MdButtonModule } from '@angular/material';
 import { ChartProductPriceService } from './chartProductPrice.services';
-import { AutocompleteOverview } from './../../../searcher/searcher.component';
+import { AutocompleteOverviewProduct } from './../../../searcher/product/searcherProduct.component';
 
 @Component({
   selector: 'chartProduct-price',
