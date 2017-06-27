@@ -38,11 +38,11 @@ const routes: Routes = [
       { path: 'customer', component: ChartDashboardCustomer },    //Customers
       { path: 'sale', component: ChartDashboardSale },            //Sale
       //product
-      { path: 'bestseller', component: ChartBestSeller },
-      { path: 'productsales', component: ChartProductSales },
-      { path: 'rankcategory', component: ChartRankCategory },
-      { path: 'rankbrand', component: ChartRankBrand },
-      { path: 'productprice', component: ChartProductPrice },
+      { path: 'bestseller', component: ChartBestSeller }, //ready
+      { path: 'productsales', component: ChartProductSales }, //ready
+      { path: 'rankcategory', component: ChartRankCategory }, //ready
+      { path: 'rankbrand', component: ChartRankBrand }, //ready
+      { path: 'productprice', component: ChartProductPrice }, //ready
       //customer
       { path: 'productbuy', component: ChartProductBuy },
       { path: 'frequency', component: ChartFrequency },
@@ -50,12 +50,12 @@ const routes: Routes = [
       { path: 'bestproduct', component: ChartBestProduct },
       { path: 'rankingcustomer', component: ChartRankingCustomer },
       //provider-purchase
-      { path: 'rankingpurchase', component: ChartRankingPurchase },
-      { path: 'RankingProvider', component: ChartRankingProvider },
-      { path: 'RankingProviderInTime', component: ChartRankingProviderInTime },
-      { path: 'RankingProviderCategory', component: ChartRankingProviderCategory },
-      { path: 'RankingPurchaseCategory', component: ChartRankingPurchaseCategory },
-      { path: 'RankingProduct', component: ChartRankingProduct },
+      { path: 'rankingpurchase', component: ChartRankingPurchase }, //ready
+      { path: 'RankingProvider', component: ChartRankingProvider }, //ready
+      { path: 'RankingProviderInTime', component: ChartRankingProviderInTime }, //ready
+      { path: 'RankingProviderCategory', component: ChartRankingProviderCategory }, //ready
+      { path: 'RankingPurchaseCategory', component: ChartRankingPurchaseCategory }, //read
+      { path: 'RankingProduct', component: ChartRankingProduct }, //ready
 
     ],
   },

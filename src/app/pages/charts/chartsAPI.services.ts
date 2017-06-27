@@ -175,8 +175,28 @@ export class ChartsAPI {
   getCustomers(): Observable<JSON[]> {
     const headers = this.createHeaders();
     const url = 'http://coimco.herokuapp.com/api/customers';
-    console.log(url);
     return this.http.get(url, headers)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+  getRankProductCustomer(filter: JSON): Observable<JSON[]> {
+    const headers = this.createHeaders();
+    const body = this.createBody(filter);
+    //const k = filter['k'];
+    const id = filter['id'];
+    const url = 'http://coimco.herokuapp.com/api/customersrec-p/' + id;
+    return this.http.post(url, body, headers)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+  getRankCustomer(filter: JSON): Observable<JSON[]> {
+    const headers = this.createHeaders();
+    const body = this.createBody(filter);
+    const k = filter['k'];
+    //const id = filter['id'];
+    const url = 'http://coimco.herokuapp.com/api/customersrank-k/' + k;
+    console.log(url);
+    return this.http.post(url, body, headers)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }

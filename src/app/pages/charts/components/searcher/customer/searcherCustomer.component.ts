@@ -36,7 +36,7 @@ export class AutocompleteOverviewCustomer {
           let data_db = JSON.parse(list[i]);
 
           let name = data_db.name;
-          let id = data_db.ID;
+          let id = data_db.rut;
           //states_id[name] = id;
           //console.log(states_id);
           this.states.push(name);
@@ -64,10 +64,9 @@ export class AutocompleteOverviewCustomer {
       this.get_id.emit({id: id})
     }*/
   filterStates(val: string) {
-    console.log(val);
     for (let i = 0; i < this.states_db.length; i++) {
       if (this.states_db[i].name === val) {
-        const id = this.states_db[i].ID;
+        const id = this.states_db[i].rut;
         console.log(id);
         this.getid.emit({ id: id });
       }

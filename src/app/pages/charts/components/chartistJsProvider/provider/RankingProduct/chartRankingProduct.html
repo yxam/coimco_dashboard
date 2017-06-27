@@ -26,10 +26,10 @@
               <div class="col-md-2">Cantidad:</div>
               <div class="col-md-5">
 
-                <input type="number" ngModel required #k="ngModel" name="k" min="1" value="5" max="15">
+                <input type="number" [ngModel]="5" required #k="ngModel" name="k" min="1" value="5" max="15">
               </div>
               <div class="col-md-5">
-                <button>submit</button>
+                <button>Buscar</button>
               </div>
             </h5>
 
