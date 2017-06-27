@@ -79,7 +79,7 @@ export class Data_API {
     const start = '2012-01-01T10:00:00Z';
     const end = '2013-01-01T10:00:00Z';
     let body = JSON.stringify({ start: start, end: end });
-    const url = 'https://0158c553.ngrok.io/api/providersrank-v/' + k;
+    const url = 'https://coimco.herokuapp.com/api/providersrank-v/' + k;
     return this.http.post(url, body, headers)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));

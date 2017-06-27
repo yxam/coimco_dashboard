@@ -3,12 +3,10 @@
   <div class="row">
 
     <div class="col-md-12">
-      <ba-card title="chart.pies_and_donuts" baCardClass="with-scroll">
+      <ba-card title="Productos más vendidos" baCardClass="with-scroll">
         <div class="row">
           <div class="col-md-12 col-lg-10">
-            <h5 translate>{{'chart.donut'}}</h5>
             <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-
             <h5 translate>
               <div class="col-md-2">Inicio:</div>
               <div class="col-md-10">
@@ -19,7 +17,7 @@
             <h5 translate>
               <div class="col-md-2">Fin:</div>
               <div class="col-md-10">
-                <input type="date" ngModel required #end="ngModel" name="end" step="1" min="2011-01-01" max="2015-12-31" value="2015-01-01">
+                <input type="date" [ngModel]="5" required #end="ngModel" name="end" step="1" min="2011-01-01" max="2015-12-31" value="2015-01-01">
               </div>
             </h5>
             <h5 translate>
@@ -39,7 +37,7 @@
                   <option value="Racks">Racks</option>
                 </select>
               </div>
-              <button>Filter</button>
+              <button md-raised-button><span style="color:#304787">Buscar</span></button>
             </h5>
 
           </form>
