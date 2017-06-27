@@ -77,7 +77,12 @@ import { ChartRankingSale } from './components/chartistJsSale/Sale/RankingSale/c
 import { ChartRankingSaleService } from './components/chartistJsSale/Sale/RankingSale/chartRankingSale.services';
 import { ChartRankingSaleCategory } from './components/chartistJsSale/Sale/RankingSaleCategory/chartRankingSaleCategory.component';
 import { ChartRankingSaleCategoryService } from './components/chartistJsSale/Sale/RankingSaleCategory/chartRankingSaleCategory.services';
-
+import { ChartRankingSaleProduct } from './components/chartistJsSale/Sale/RankingSaleProduct/chartRankingSaleProduct.component';
+import { ChartRankingSaleProductService } from './components/chartistJsSale/Sale/RankingSaleProduct/chartRankingSaleProduct.services';
+import { ChartRankingSaleBrand } from './components/chartistJsSale/Sale/RankingSaleBrand/chartRankingSaleBrand.component';
+import { ChartRankingSaleBrandService } from './components/chartistJsSale/Sale/RankingSaleBrand/chartRankingSaleBrand.services';
+import { ChartSaleRecord } from './components/chartistJsSale/Sale/SaleRecord/chartSaleRecord.component';
+import { ChartSaleRecordService } from './components/chartistJsSale/Sale/SaleRecord/chartSaleRecord.services';
 
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
@@ -132,6 +137,9 @@ import { ChartRankingSaleCategoryService } from './components/chartistJsSale/Sal
     ChartCustomerByBest,
     ChartCustomerByProduct,
     ChartRankingSaleCategory,
+    ChartRankingSaleProduct,
+    ChartRankingSaleBrand,
+    ChartSaleRecord,
     
 
   ],
@@ -173,6 +181,9 @@ import { ChartRankingSaleCategoryService } from './components/chartistJsSale/Sal
     ChartCustomerByProductService,
     ChartCustomerByBestService,
     ChartRankingSaleCategoryService,
+    ChartRankingSaleProductService,
+    ChartRankingSaleBrand,
+    ChartSaleRecordService, 
 
   ],
   bootstrap: [AutocompleteOverview],

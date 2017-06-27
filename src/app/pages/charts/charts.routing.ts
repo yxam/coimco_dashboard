@@ -37,6 +37,9 @@ import { ChartRankingSale } from './components/chartistJsSale/Sale/RankingSale/c
 import { ChartRankingSaleCategory } from './components/chartistJsSale/Sale/RankingSaleCategory/chartRankingSaleCategory.component';
 import { ChartCustomerByBest } from './components/chartistJsSale/Sale/CustomerByBest/chartCustomerByBest.component';
 import { ChartCustomerByProduct } from './components/chartistJsSale/Sale/CustomerByProduct/chartCustomerByProduct.component';
+import { ChartRankingSaleProduct } from './components/chartistJsSale/Sale/RankingSaleProduct/chartRankingSaleProduct.component';
+import { ChartRankingSaleBrand } from './components/chartistJsSale/Sale/RankingSaleBrand/chartRankingSaleBrand.component';
+import { ChartSaleRecord } from './components/chartistJsSale/Sale/SaleRecord/chartSaleRecord.component';
 
 const routes: Routes = [
   {
@@ -76,10 +79,10 @@ const routes: Routes = [
       { path: 'RankingSaleCategory', component: ChartRankingSaleCategory },
       { path: 'CustomerByBest', component: ChartCustomerByBest },
       { path: 'CustomerByProduct', component: ChartCustomerByProduct },
-      
-
-
-
+      { path: 'RankingSaleProduct', component: ChartRankingSaleProduct },
+      { path: 'RankingSaleBrand', component: ChartRankingSaleBrand },
+      { path: 'SaleRecord', component: ChartSaleRecord },
+      //Q.E.P.D
     ],
   },
 ];
