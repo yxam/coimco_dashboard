@@ -9,9 +9,15 @@ export class ChartRankingProviderService {
   private products: JSON[] = [];
   private errorMessage: any;
   private _data = {
-    simpleDonutData: {
-      labels: ['Bananas', 'Apples', 'Grapes'],
-      series: [20, 15, 40],
+    areaLineData: {
+      labels: [],
+      series: [],
+    },
+    areaLineOptions: {
+      fullWidth: true,
+      height: '300px',
+      low: 0,
+      showArea: true
     },
 
   };
@@ -26,11 +32,37 @@ export class ChartRankingProviderService {
     return this._data;
   }
 
-  getSeller(filter: JSON): any {
+  getProvider(filter: JSON): any {
 
     //Retorna el observable de la data
-    return this._chartAPI.getBestSeller(filter);
+    return this._chartAPI.getProviderTime(filter);
   }
+
+  removeData() {
+    this._data.areaLineData.labels.splice(0);
+    this._data.areaLineData.series.splice(0);
+  }
+
+  setData(dbdata: Array<JSON>) {
+    this.removeData();
+    let list: string[] = [];
+    console.log(dbdata);
+    dbdata.forEach(variable => {
+      list.push(JSON.stringify(variable))
+    });
+    console.log(list);
+    let data_chart: string[] = [];
+    for (let i = 0; i < list.length; i++) {
+      const data_db = JSON.parse(list[i]);
+      const name = data_db.Name;
+      const days = data_db.Days;
+      this._data.areaLineData.labels.push(name);
+      data_chart.push(days);
+    }
+    this._data.areaLineData.series.push(data_chart);
+    return this._data;
+  }
+
   printDATA(data: any) {
     console.log(data);
   }

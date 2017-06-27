@@ -10,29 +10,27 @@ import { ChartsAPI } from './../../../../chartsAPI.services';
 
 export class ChartRankingPurchaseCategory {
   data: any;
+  active: boolean;
   dbdata: any;
-  datos_aux: any;
   constructor(
     private _chartRankingPurchaseCategoryService: ChartRankingPurchaseCategoryService,
     private _chartAPI: ChartsAPI) {
 
   }
   ngOnInit() {
-    this.data = this._chartRankingPurchaseCategoryService.getAll();
+    //this.data = this._chartRankingPurchaseCategoryService.getAll();
+    this.active = false;
   }
   getResponsive(padding, offset) {
     return this._chartRankingPurchaseCategoryService.getResponsive(padding, offset);
   }
   onSubmit(f: NgForm) {
-    console.log(f.value);
-    console.log(f.valid);
-    this._chartRankingPurchaseCategoryService.getSeller(f.value).subscribe(
+    this.active = false;
+    this._chartRankingPurchaseCategoryService.getPurchaseCategory(f.value).subscribe(
       data => {
-        console.log("Aqui -> ", data);
-        this.dbdata = data['data'][0].ID;
-        console.log(this.dbdata);
-        this.datos_aux = this._chartRankingPurchaseCategoryService.getAll();
-
+        this.dbdata = data['data'];
+        this.data = this._chartRankingPurchaseCategoryService.setData(this.dbdata);
+        this.active = true;
       },
       err => {
         console.log(err)

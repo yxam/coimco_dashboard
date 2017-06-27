@@ -8,10 +8,20 @@ export class ChartRankingPurchaseCategoryService {
   private dbdata: Observable<JSON[]>
   private products: JSON[] = [];
   private errorMessage: any;
-  private _data = {
-    simpleDonutData: {
-      labels: ['Bananas', 'Apples', 'Grapes'],
-      series: [20, 15, 40],
+  private _dataCategory = {
+    stackedBarData: {
+      labels: [],
+      series: [],
+    },
+    stackedBarOptions: {
+      fullWidth: true,
+      height: '300px',
+      stackBars: true,
+      axisY: {
+        labelInterpolationFnc: function(value) {
+          return (value / 1000 + 'k');
+        }
+      }
     },
 
   };
@@ -23,13 +33,45 @@ export class ChartRankingPurchaseCategoryService {
   }
 
   getAll() {
-    return this._data;
+    return this._dataCategory;
   }
 
-  getSeller(filter: JSON): any {
+  getPurchaseCategory(filter: JSON): any {
 
     //Retorna el observable de la data
-    return this._chartAPI.getBestSeller(filter);
+    return this._chartAPI.getRankPurchaseC(filter);
+  }
+  removeData() {
+    this._dataCategory.stackedBarData.labels.splice(0);
+    this._dataCategory.stackedBarData.series.splice(0);
+
+  }
+  setData(dbdata: Array<JSON[]>) {
+    this.removeData();
+    let list: string[] = [];
+    dbdata.forEach(variable => {
+      list.push(JSON.stringify(variable))
+    });
+    console.log(list);
+    let data_chart: string[] = [];
+    for (let i = 0; i < list.length; i++) {
+      let data_db = JSON.parse(list[i]);
+      const name = data_db.Name;
+      const total = data_db.Total;
+      console.log(total);
+      this._dataCategory.stackedBarData.labels.push(name);
+      let data_series: any[] = [];
+      for (let j = 0; j < list.length; j++) {
+        if (j == i) {
+          data_series[j] = total;
+        } else {
+          data_series[j] = 0;
+        }
+      }
+      console.log(data_series);
+      this._dataCategory.stackedBarData.series.push(data_series);
+    }
+    return this._dataCategory;
   }
   printDATA(data: any) {
     console.log(data);

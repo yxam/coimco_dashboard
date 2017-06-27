@@ -57,18 +57,16 @@ export class ChartRankCategoryService {
 
   setData(dbdata: Array<JSON>) {
     this.removeData();
-    console.log(dbdata);
+
     let list: string[] = [];
     dbdata.forEach(variable => {
       list.push(JSON.stringify(variable))
     });
-    console.log(list);
     let data_chart: string[] = [];
     for (let i = 0; i < list.length; i++) {
       let data_db = JSON.parse(list[i]);
       let name = data_db.Name;
       let total = data_db.Total;
-      console.log(data_db.Total);
       this._dataCategory.stackedBarData.labels.push(name);
       data_chart.push(total);
 

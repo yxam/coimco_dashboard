@@ -34,19 +34,19 @@
             </h5>
 
           </form>
-            <ng-template [ngIf]="f.valid==true">
-            <ba-chartist-chart
-              baChartistChartClass="ct-chart stacked-bar"
-              baChartistChartType="Pie"
-              [baChartistChartData]="data['simpleDonutData']"
-              [baChartistChartOptions]="data['simpleDonutOptions']"
-              [baChartistChartResponsive]="getResponsive(25, 60)">
-            </ba-chartist-chart>
-            <h3>{{dbdata}}</h3>
+            <ng-template [ngIf]="active==true">
+              <ba-chartist-chart
+                baChartistChartClass="ct-chart stacked-bar"
+                baChartistChartType="Bar"
+                [baChartistChartData]="data['stackedBarData']"
+                [baChartistChartOptions]="data['stackedBarOptions']"></ba-chartist-chart>
           </ng-template>
           </div>
         </div>
       </ba-card>
+      <ng-template [ngIf]="active==true">
+      <data-tablesProvider [dataProvider]="dataProviders" ></data-tablesProvider>
+    </ng-template>
     </div>
   </div>
 </section>

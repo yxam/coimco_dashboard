@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgaModule } from '../../theme/nga.module';
 import { MaterialModule } from '@angular/material';
+import { DataTableModule } from 'angular2-datatable';
+
 import { routing } from './charts.routing';
 import { Charts } from './charts.component';
 import { chartistJsProduct } from './components/chartistJsProduct/chartistJsProduct.component';
@@ -59,7 +61,11 @@ import { ChartRankingProduct } from './components/chartistJsProvider/Provider/Ra
 import { ChartRankingProductService } from './components/chartistJsProvider/Provider/RankingProduct/chartRankingProduct.services';
 import { ChartRankingPurchaseCategory } from './components/chartistJsProvider/Provider/RankingPurchaseCategory/chartRankingPurchaseCategory.component';
 import { ChartRankingPurchaseCategoryService } from './components/chartistJsProvider/Provider/RankingPurchaseCategory/chartRankingPurchaseCategory.services';
-//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+/* Tabla proveedores*/
+import { DataTablesProvider } from './components/chartistJsProvider/provider/dataTables/dataTablesProvider.component';
+import { DataTablesProviderService } from './components/chartistJsProvider/provider/dataTables/dataTablesProvider.service';
+import { DataFilterProviderPipe } from './components/chartistJsProvider/provider/dataTables/data-filter.pipe';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -71,6 +77,7 @@ import { ChartRankingPurchaseCategoryService } from './components/chartistJsProv
     ReactiveFormsModule,
     MaterialModule,
     MdAutocompleteModule,
+    DataTableModule,
     //  BrowserAnimationsModule,
   ],
   declarations: [
@@ -102,12 +109,15 @@ import { ChartRankingPurchaseCategoryService } from './components/chartistJsProv
     ChartRankingProviderCategory,
     ChartRankingProduct,
     ChartRankingPurchaseCategory,
+    DataTablesProvider,
+    DataFilterProviderPipe,
   ],
   providers: [
     chartistJsProductService,
     chartistJsCustomerService,
     ChartsAPI,
     chartistJsSaleService,
+    DataTablesProviderService,
 
     //product
     ChartBestSellerService,
