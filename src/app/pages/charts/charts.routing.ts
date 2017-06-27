@@ -32,7 +32,7 @@ const routes: Routes = [
     path: '',
     component: Charts,
     children: [
-      
+
       { path: 'product', component: ChartDashboardProduct },      //Products
       { path: 'provider', component: ChartDashboardProvider },    //Providers
       { path: 'customer', component: ChartDashboardCustomer },    //Customers

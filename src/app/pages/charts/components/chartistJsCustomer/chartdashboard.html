@@ -1,28 +1,36 @@
-<div class="grid grid-pad"><!--listo -->
-  <a [routerLink]="['/pages/charts/rankingcustomer']" class="col-1-4">
-    <div class="module hero">
-      <h4>Ranking de clientes</h4>
-    </div>
-  </a>
-  <a [routerLink]="['/pages/charts/productbuy']" class="col-1-4"> <!--listo -->
-    <div class="module hero">
-      <h4>Compras de Producto por cliente</h4>
-    </div>
-  </a>
-  <a [routerLink]="['/pages/charts/collected']" class="col-1-4"> <!--listo -->
-    <div class="module hero">
-      <h4>Total dinero ingresado por cliente</h4>
-    </div>
-  </a>
-  <a [routerLink]="['/pages/charts/frequency']" class="col-1-4"> <!--listo -->
-    <div class="module hero">
-      <h4>Frecuencia de compra</h4>
-    </div>
-  </a>
-  <a [routerLink]="['/pages/charts/bestproduct']" class="col-1-4"> <!--listo -->
-    <div class="module hero">
-      <h4>Clientes que compran los Top productos de la empresa</h4>
-    </div>
-  </a>
-
+<div class="grid grid-pad">
+  <div class="col-md-1"></div>
+  <div class="col-md-9">
+    <table class="table" style="float:center">
+      <tr>
+        <th style="text-align:center">
+          <h5 translate>#</h5>
+        </th>
+        <th>
+          <h5 translate>Estadísticas de clientes</h5>
+        </th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>
+          <a [routerLink]="['/pages/charts/rankingcustomer']" style="color:lightblue">Ranking productos comprados por un cliente por cantidad</a>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>
+          <a [routerLink]="['/pages/charts/collected']" style="color:lightblue">
+            Recaudacion por cliente
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>
+          <a [routerLink]="['/pages/charts/frequency']" style="color:lightblue">Ranking de clients por su frecuencia de compras</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-2"></div>
 </div>
