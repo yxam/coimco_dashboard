@@ -9,7 +9,7 @@ import { chartistJsProduct } from './components/chartistJsProduct/chartistJsProd
 import { chartistJsProductService } from './components/chartistJsProduct/chartistJsProduct.service';
 import { AppTranslationModule } from '../../app.translation.module';
 import { ChartDashboardProduct } from './components/chartistJsProduct/chartDashboard.component';
-import { ChartDashboardProvider } from './components/chartistJsProvider/chartDashboard.component';  // include purchases urls
+import { ChartDashboardProvider } from './components/chartistJsProvider/chartDashboard.component';  
 import { ChartDashboardCustomer } from './components/chartistJsCustomer/chartDashboard.component';
 import { ChartDashboardSale } from './components/chartistJsSale/chartDashboard.component';
 import { ChartBestSellerService } from './components/chartistJsProduct/product/bestseller/chartBestSeller.services';
@@ -57,6 +57,28 @@ import { ChartRankingProduct } from './components/chartistJsProvider/Provider/Ra
 import { ChartRankingProductService } from './components/chartistJsProvider/Provider/RankingProduct/chartRankingProduct.services';
 import { ChartRankingPurchaseCategory } from './components/chartistJsProvider/Provider/RankingPurchaseCategory/chartRankingPurchaseCategory.component';
 import { ChartRankingPurchaseCategoryService } from './components/chartistJsProvider/Provider/RankingPurchaseCategory/chartRankingPurchaseCategory.services';
+
+//sales
+import { ChartProductByCategory} from './components/chartistJsSale/Sale/ProductByCategory/chartProductByCategory.component';
+import { ChartProductByCategoryService } from './components/chartistJsSale/Sale/ProductByCategory/chartProductByCategory.services';
+import { ChartRankingProductBrand} from './components/chartistJsSale/Sale/RankingProductBrand/chartRankingProductBrand.component';
+import { ChartRankingProductBrandService } from './components/chartistJsSale/Sale/RankingProductBrand/chartRankingProductBrand.services';
+import { ChartBest_Seller} from './components/chartistJsSale/Sale/Best_Seller/chartBest_Seller.component';
+import { ChartBest_SellerService } from './components/chartistJsSale/Sale/Best_Seller/chartBest_Seller.services';
+import { ChartRankingCollected} from './components/chartistJsSale/Sale/RankingCollected/chartRankingCollected.component';
+import { ChartRankingCollectedService } from './components/chartistJsSale/Sale/RankingCollected/chartRankingCollected.services';
+import { ChartCustomerByBest } from './components/chartistJsSale/Sale/CustomerByBest/chartCustomerByBest.component';
+import { ChartCustomerByBestService } from './components/chartistJsSale/Sale/CustomerByBest/chartCustomerByBest.services';
+import { ChartRankingTotalSale } from './components/chartistJsSale/Sale/RankingTotalSale/chartRankingTotalSale.component';
+import { ChartRankingTotalSaleService } from './components/chartistJsSale/Sale/RankingTotalSale/chartRankingTotalSale.services';
+import { ChartCustomerByProduct } from './components/chartistJsSale/Sale/CustomerByProduct/chartCustomerByProduct.component';
+import { ChartCustomerByProductService } from './components/chartistJsSale/Sale/CustomerByProduct/chartCustomerByProduct.services';
+import { ChartRankingSale } from './components/chartistJsSale/Sale/RankingSale/chartRankingSale.component';
+import { ChartRankingSaleService } from './components/chartistJsSale/Sale/RankingSale/chartRankingSale.services';
+import { ChartRankingSaleCategory } from './components/chartistJsSale/Sale/RankingSaleCategory/chartRankingSaleCategory.component';
+import { ChartRankingSaleCategoryService } from './components/chartistJsSale/Sale/RankingSaleCategory/chartRankingSaleCategory.services';
+
+
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
@@ -99,6 +121,19 @@ import { ChartRankingPurchaseCategoryService } from './components/chartistJsProv
     ChartRankingProviderCategory,
     ChartRankingProduct,
     ChartRankingPurchaseCategory,
+
+    //sales
+    ChartProductByCategory,
+    ChartRankingProductBrand,
+    ChartBest_Seller,
+    ChartRankingCollected,
+    ChartRankingTotalSale,
+    ChartRankingSale,
+    ChartCustomerByBest,
+    ChartCustomerByProduct,
+    ChartRankingSaleCategory,
+    
+
   ],
   providers: [
     chartistJsProductService,
@@ -119,7 +154,6 @@ import { ChartRankingPurchaseCategoryService } from './components/chartistJsProv
     ChartCollectedService,
     ChartBestProductService,
     ChartRankingCustomerService,
-    
 
     //provider-purchase
     ChartRankingPurchaseService,
@@ -128,6 +162,18 @@ import { ChartRankingPurchaseCategoryService } from './components/chartistJsProv
     ChartRankingProviderCategoryService,
     ChartRankingProductService,
     ChartRankingPurchaseCategoryService,
+
+    //sales
+    ChartProductByCategoryService,
+    ChartRankingProductBrandService,
+    ChartBest_SellerService,
+    ChartRankingCollectedService,
+    ChartRankingTotalSaleService,
+    ChartRankingSaleService,
+    ChartCustomerByProductService,
+    ChartCustomerByBestService,
+    ChartRankingSaleCategoryService,
+
   ],
   bootstrap: [AutocompleteOverview],
 })

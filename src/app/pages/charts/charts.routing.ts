@@ -27,6 +27,17 @@ import { ChartRankingProviderInTime } from './components/chartistJsProvider/Prov
 import { ChartRankingProviderCategory } from './components/chartistJsProvider/Provider/RankingProviderCategory/chartRankingProviderCategory.component';
 import { ChartRankingPurchaseCategory } from './components/chartistJsProvider/Provider/RankingPurchaseCategory/chartRankingPurchaseCategory.component';
 
+//sales
+import { ChartProductByCategory } from './components/chartistJsSale/Sale/ProductByCategory/chartProductByCategory.component';
+import { ChartRankingProductBrand} from './components/chartistJsSale/Sale/RankingProductBrand/chartRankingProductBrand.component';
+import { ChartBest_Seller } from './components/chartistJsSale/Sale/Best_Seller/chartBest_Seller.component';
+import { ChartRankingCollected } from './components/chartistJsSale/Sale/RankingCollected/chartRankingCollected.component';
+import { ChartRankingTotalSale } from './components/chartistJsSale/Sale/RankingTotalSale/chartRankingTotalSale.component';
+import { ChartRankingSale } from './components/chartistJsSale/Sale/RankingSale/chartRankingSale.component';
+import { ChartRankingSaleCategory } from './components/chartistJsSale/Sale/RankingSaleCategory/chartRankingSaleCategory.component';
+import { ChartCustomerByBest } from './components/chartistJsSale/Sale/CustomerByBest/chartCustomerByBest.component';
+import { ChartCustomerByProduct } from './components/chartistJsSale/Sale/CustomerByProduct/chartCustomerByProduct.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -55,6 +66,19 @@ const routes: Routes = [
       { path: 'RankingProviderInTime', component: ChartRankingProviderInTime },
       { path: 'RankingProviderCategory', component: ChartRankingProviderCategory },
       { path: 'RankingPurchaseCategory', component: ChartRankingPurchaseCategory },
+      //sale
+      { path: 'ProductByCategory', component: ChartProductByCategory },
+      { path: 'Best_Seller', component: ChartBest_Seller },
+      { path: 'RankingCollected', component: ChartRankingCollected },
+      { path: 'RankingTotalSale', component: ChartRankingTotalSale },
+      { path: 'RankingProductBrand', component: ChartRankingProductBrand },
+      { path: 'RankingSale', component: ChartRankingSale },
+      { path: 'RankingSaleCategory', component: ChartRankingSaleCategory },
+      { path: 'CustomerByBest', component: ChartCustomerByBest },
+      { path: 'CustomerByProduct', component: ChartCustomerByProduct },
+      
+
+
 
     ],
   },
