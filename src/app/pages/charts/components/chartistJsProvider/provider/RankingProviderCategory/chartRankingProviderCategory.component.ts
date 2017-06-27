@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MdButtonModule } from '@angular/material';
+import { AutocompleteOverviewProvider } from './../../../searcher/provider/searcherProvider.component';
 import { ChartRankingProviderCategoryService } from './chartRankingProviderCategory.services';
 import { ChartsAPI } from './../../../../chartsAPI.services';
 @Component({
@@ -11,27 +13,42 @@ import { ChartsAPI } from './../../../../chartsAPI.services';
 export class ChartRankingProviderCategory {
   data: any;
   dbdata: any;
-  datos_aux: any;
+  provider_id: any;
+  active: boolean;
   constructor(
     private _chartRankingProviderCategoryService: ChartRankingProviderCategoryService,
     private _chartAPI: ChartsAPI) {
 
   }
   ngOnInit() {
-    this.data = this._chartRankingProviderCategoryService.getAll();
+    this.active = false;
+    //this.data = this._chartRankingProviderCategoryService.getAll();
   }
   getResponsive(padding, offset) {
     return this._chartRankingProviderCategoryService.getResponsive(padding, offset);
   }
+  showId(event): void {
+    if (event.id !== null) {
+      this.provider_id = event.id;
+    }
+  }
   onSubmit(f: NgForm) {
-    console.log(f.value);
-    console.log(f.valid);
-    this._chartRankingProviderCategoryService.getSeller(f.value).subscribe(
+    this.active = false;
+    if (this.provider_id === null) {
+      alert("Debe elegir un proveedor");
+    }
+    let form = JSON.stringify({
+      start: f.value.start,
+      end: f.value.end,
+      k: f.value.k,
+      id: this.provider_id
+    });
+    const filter = JSON.parse(form);
+    this._chartRankingProviderCategoryService.getProviders(filter).subscribe(
       data => {
-        console.log("Aqui -> ", data);
-        this.dbdata = data['data'][0].ID;
-        console.log(this.dbdata);
-        this.datos_aux = this._chartRankingProviderCategoryService.getAll();
+        this.dbdata = data['data'];
+        this.data = this._chartRankingProviderCategoryService.setData(this.dbdata);
+        this.active = true;
 
       },
       err => {

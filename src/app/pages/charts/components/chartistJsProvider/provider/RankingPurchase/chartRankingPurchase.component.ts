@@ -12,13 +12,15 @@ export class ChartRankingPurchase {
   data: any;
   dbdata: any;
   datos_aux: any;
+  active: boolean;
   constructor(
     private _chartRankingPurchaseService: ChartRankingPurchaseService,
     private _chartAPI: ChartsAPI) {
 
   }
   ngOnInit() {
-    this.data = this._chartRankingPurchaseService.getAll();
+    this.active = false;
+    //this.data = this._chartRankingPurchaseService.getAll();
   }
   getResponsive(padding, offset) {
     return this._chartRankingPurchaseService.getResponsive(padding, offset);
@@ -26,13 +28,16 @@ export class ChartRankingPurchase {
   onSubmit(f: NgForm) {
     console.log(f.value);
     console.log(f.valid);
-    this._chartRankingPurchaseService.getSeller(f.value).subscribe(
+    this.active = false;
+    this._chartRankingPurchaseService.getPurchase(f.value).subscribe(
       data => {
         console.log("Aqui -> ", data);
-        this.dbdata = data['data'][0].ID;
+        this.dbdata = data['data'];
         console.log(this.dbdata);
-        this.datos_aux = this._chartRankingPurchaseService.getAll();
+        this.data = this._chartRankingPurchaseService.setData(this.dbdata);
+        //this.datos_aux = this._chartRankingPurchaseService.getAll();
 
+        this.active = true;
       },
       err => {
         console.log(err)

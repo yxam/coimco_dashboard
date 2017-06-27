@@ -52,21 +52,18 @@ export class PieChartService {
     return this._data_pieChart.getStats(currentUser);
 
   }
-  setData(dbdata: Array<JSON>) {
+  setData(dbdata: JSON) {
     //Cuando el farid tenga listo el dashboard en la api, debo cambiar de array a sólo JSON
     //const list: string[] = [];
     const data_dash: string[] = [];
     const data_db = dbdata;
     //Cuando este listo el metodo en la api se agregará esto
-    /*const money_sale = data_db.cash_sales;
-    const sale_last = data_db.sale_last;
-    const money_purchase = data_db.cash_purchase;
-    const purchase_last = data_db.purchase_last;*/
+    const money_sale = data_db['Sale_Total'];
+    const sale_last = data_db['LastSale'];
+    const money_purchase = data_db['PurchaseTotal'];
+    const purchase_last = data_db['LastPurchase'];
 
-    const money_sale = '10000';
-    const sale_last = '5000';
-    const money_purchase = '9000';
-    const purchase_last = '500';
+
     const pieColor = this._baConfig.get().colors.custom.dashboardPieChart;
     return [
       {

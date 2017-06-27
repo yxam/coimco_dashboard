@@ -10,8 +10,18 @@ export class ChartRankingProviderCategoryService {
   private errorMessage: any;
   private _data = {
     simpleDonutData: {
-      labels: ['Bananas', 'Apples', 'Grapes'],
-      series: [20, 15, 40],
+      labels: [],
+      series: [],
+    },
+    simpleDonutOptions: {
+      fullWidth: true,
+      donut: true,
+      height: '300px',
+      weight: '300px',
+      labelDirection: 'explode',
+      labelInterpolationFnc: function(value) {
+        return value[0];
+      },
     },
 
   };
@@ -26,11 +36,34 @@ export class ChartRankingProviderCategoryService {
     return this._data;
   }
 
-  getSeller(filter: JSON): any {
-
+  getProviders(filter: JSON): any {
     //Retorna el observable de la data
-    return this._chartAPI.getBestSeller(filter);
+    return this._chartAPI.getRankProviderPP(filter);
   }
+  removeData() {
+    this._data.simpleDonutData.labels.splice(0);
+    this._data.simpleDonutData.series.splice(0);
+
+  }
+  setData(dbdata: Array<JSON>) {
+    this.removeData();
+    let list: string[] = [];
+    dbdata.forEach(variable => {
+      list.push(JSON.stringify(variable))
+    });
+    let data_chart: string[] = [];
+    for (let i = 0; i < list.length; i++) {
+      const data_db = JSON.parse(list[i]);
+      const name = data_db.Name;
+      const price = data_db.Price;
+      this._data.simpleDonutData.labels.push(name);
+      this._data.simpleDonutData.series.push(price);
+    }
+    return this._data;
+  }
+
+
+
   printDATA(data: any) {
     console.log(data);
   }

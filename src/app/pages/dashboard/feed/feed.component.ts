@@ -9,20 +9,28 @@ import {FeedService} from './feed.service';
 })
 export class Feed {
 
-  public feed:Array<Object>;
-
-  constructor(private _feedService:FeedService) {
+  public feed: Array<Object>;
+  dbdata: any;
+  constructor(private _feedService: FeedService) {
   }
 
   ngOnInit() {
     this._loadFeed();
   }
 
-  expandMessage (message){
+  expandMessage(message) {
     message.expanded = !message.expanded;
   }
-
   private _loadFeed() {
-    this.feed = this._feedService.getData();
+    this._feedService.getDataProviders()
+      .subscribe(
+      data => {
+        this.dbdata = data['data'];
+        //this.feed = this._feedService.getData();
+        this.feed = this._feedService.setData(this.dbdata);
+      }
+      );
+
+
   }
 }

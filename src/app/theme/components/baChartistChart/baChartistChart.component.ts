@@ -1,10 +1,10 @@
 import {
-    Component,
-    ViewChild,
-    Input,
-    Output,
-    ElementRef,
-    EventEmitter
+  Component,
+  ViewChild,
+  Input,
+  Output,
+  ElementRef,
+  EventEmitter
 } from '@angular/core';
 
 import * as Chartist from 'chartist';
@@ -16,11 +16,11 @@ import * as Chartist from 'chartist';
 })
 export class BaChartistChart {
 
-  @Input() baChartistChartType:string;
-  @Input() baChartistChartData:Object;
-  @Input() baChartistChartOptions:Object;
-  @Input() baChartistChartResponsive:Object;
-  @Input() baChartistChartClass:string;
+  @Input() baChartistChartType: string;
+  @Input() baChartistChartData: Object;
+  @Input() baChartistChartOptions: Object;
+  @Input() baChartistChartResponsive: Object;
+  @Input() baChartistChartClass: string;
   @Output() onChartReady = new EventEmitter<any>();
 
   @ViewChild('baChartistChart') public _selector: ElementRef;

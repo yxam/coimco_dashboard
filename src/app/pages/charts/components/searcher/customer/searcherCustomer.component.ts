@@ -1,16 +1,16 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
-import { ChartsAPI } from './../../chartsAPI.services';
+import { ChartsAPI } from './../../../chartsAPI.services';
 import { NgForm } from '@angular/forms';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
 
 @Component({
-  selector: 'autocomplete-overview',
-  templateUrl: 'searcher.html',
+  selector: 'autocomplete-overviewCustomer',
+  templateUrl: 'searcherCustomer.html',
 })
-export class AutocompleteOverview {
+export class AutocompleteOverviewCustomer {
   stateCtrl: FormControl;
   filteredStates: any;
   dbdata: Observable<JSON[]>;
@@ -22,7 +22,7 @@ export class AutocompleteOverview {
   states_db = [];
   constructor(private _chartAPI: ChartsAPI) {
     this.active = false;
-    this._chartAPI.getProducts()
+    this._chartAPI.getCustomers()
       .subscribe(
       data => {
         this.dbdata = data['data'];
@@ -36,7 +36,7 @@ export class AutocompleteOverview {
           let data_db = JSON.parse(list[i]);
 
           let name = data_db.name;
-          let id = data_db.ID;
+          let id = data_db.rut;
           //states_id[name] = id;
           //console.log(states_id);
           this.states.push(name);
@@ -64,10 +64,9 @@ export class AutocompleteOverview {
       this.get_id.emit({id: id})
     }*/
   filterStates(val: string) {
-    console.log(val);
     for (let i = 0; i < this.states_db.length; i++) {
       if (this.states_db[i].name === val) {
-        const id = this.states_db[i].ID;
+        const id = this.states_db[i].rut;
         console.log(id);
         this.getid.emit({ id: id });
       }

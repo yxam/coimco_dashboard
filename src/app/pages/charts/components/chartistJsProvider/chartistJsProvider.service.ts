@@ -166,8 +166,8 @@ export class chartistJsProviderService {
       labelDirection: 'explode',
       labelInterpolationFnc: function(value) {
         return value[0];
-      }
-    }
+      },
+    },
   };
 
   constructor(private _baConfig: BaThemeConfigProvider) {
