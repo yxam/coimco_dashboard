@@ -200,4 +200,14 @@ export class ChartsAPI {
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
+  getCustomerBP(filter: JSON): Observable<JSON[]> {
+    const headers = this.createHeaders();
+    const body = this.createBody(filter);
+    const k = filter['k'];
+    const l = filter['l'];
+    const url = 'http://coimco.herokuapp.com/api/customersrank-p/' + k + '/' + l;
+    return this.http.post(url, body, headers)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
 }

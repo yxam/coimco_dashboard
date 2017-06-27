@@ -57,8 +57,6 @@ export class ChartRankingCustomerService {
       const data_db = JSON.parse(list[i]);
       const name = data_db.Name;
       const total = data_db.Cash;
-      console.log(name);
-      console.log(total);
       this._data.stackedBarData.labels.push(name);
       let data_series: any[] = [];
       for (let j = 0; j < list.length; j++) {
@@ -68,10 +66,11 @@ export class ChartRankingCustomerService {
           data_series[j] = 0;
         }
       }
+
       this._data.stackedBarData.series.push(data_series);
-      console.log(data_series);
+
     }
-    console.log(this._data);
+
     return this._data;
   }
   printDATA(data: any) {

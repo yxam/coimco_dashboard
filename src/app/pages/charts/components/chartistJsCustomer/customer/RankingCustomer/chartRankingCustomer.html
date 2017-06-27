@@ -1,12 +1,11 @@
 <section class="chartist">
 
   <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <ba-card title="chart.pies_and_donuts" baCardClass="with-scroll">
+    <div class="col-md-12">
+      <ba-card title="Ranking Clientes" baCardClass="with-scroll">
         <div class="row">
           <div class="col-md-12 col-lg-10">
-            <h5 translate>Ranking Clientes</h5>
+            <h5 translate></h5>
             <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
 
             <h5 translate>
@@ -23,11 +22,8 @@
               </div>
             </h5>
             <h5 translate>
-              <div class="col-md-2">Cantidad:</div>
-              <div class="col-md-5">
-
-                <input type="number" [ngModel]="5" required #k="ngModel" name="k" min="1" value="5" max="15">
-
+              <div class="col-md-7">
+                Cantidad: <input type="number" [ngModel]="5" required #k="ngModel" name="k" min="1" value="5" max="15">
               </div>
 
               <div class="col-md-5">

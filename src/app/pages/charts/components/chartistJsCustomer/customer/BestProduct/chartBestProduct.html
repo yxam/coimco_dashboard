@@ -1,12 +1,10 @@
 <section class="chartist">
 
   <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <ba-card title="chart.pies_and_donuts" baCardClass="with-scroll">
+    <div class="col-md-12">
+      <ba-card title="Clientes consumidores del Top de productos" baCardClass="with-scroll">
         <div class="row">
           <div class="col-md-12 col-lg-10">
-            <h5 translate>{{'chart.donut'}}</h5>
             <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
 
             <h5 translate>
@@ -23,26 +21,25 @@
               </div>
             </h5>
             <h5 translate>
-              <div class="col-md-2">Cantidad:</div>
-              <div class="col-md-5">
-
-                <input type="number" ngModel required #k="ngModel" name="k" min="1" value="5" max="15">
+              <div class="col-md-4">
+                Nº Clientes: <input type="number" [ngModel]="5" required #k="ngModel" name="k" min="1" value="5" max="15">
               </div>
-              <div class="col-md-5">
-                <button>submit</button>
+              <div class="col-md-4">
+                Top productos: <input type="number" [ngModel]="5" required #l="ngModel" name="l" min="1" value="5" max="15">
+              </div>
+              <div class="col-md-4">
+                <button md-raised-button><span style="color:#304787">Buscar</span></button>
               </div>
             </h5>
 
           </form>
-            <ng-template [ngIf]="f.valid==true">
-            <ba-chartist-chart
-              baChartistChartClass="ct-chart stacked-bar"
-              baChartistChartType="Pie"
-              [baChartistChartData]="data['simpleDonutData']"
-              [baChartistChartOptions]="data['simpleDonutOptions']"
-              [baChartistChartResponsive]="getResponsive(25, 60)">
-            </ba-chartist-chart>
-            <h3>{{dbdata}}</h3>
+            <ng-template [ngIf]="active==true">
+              <ba-chartist-chart
+                baChartistChartClass="ct-chart stacked-bar"
+                baChartistChartType="Bar"
+                [baChartistChartData]="data['stackedBarData']"
+                [baChartistChartOptions]="data['stackedBarOptions']">
+              </ba-chartist-chart>
           </ng-template>
           </div>
         </div>
