@@ -1,28 +1,88 @@
 <div class="grid grid-pad">
-  <a [routerLink]="['/pages/charts/bestseller']" class="col-1-4">
-    <div class="module hero">
-      <h4>Top clientes por fecha</h4>
-    </div>
-  </a>
-  <a [routerLink]="['/pages/charts/productsales']" class="col-1-4">
-    <div class="module hero">
-      <h4>Compras de Producto por cliente</h4>
-    </div>
-  </a>
-  <a [routerLink]="['/pages/charts/rankcategory']" class="col-1-4">
-    <div class="module hero">
-      <h4>Total dinero ingresado por cliente</h4>
-    </div>
-  </a>
-  <a [routerLink]="['/pages/charts/rankbrand']" class="col-1-4">
-    <div class="module hero">
-      <h4>Frecuencia de compra</h4>
-    </div>
-  </a>
-  <a [routerLink]="['/pages/charts/productprice']" class="col-1-4">
-    <div class="module hero">
-      <h4>Clientes que compran los Top productos de la empresa</h4>
-    </div>
-  </a>
-
+  <div class="col-md-1"></div>
+  <div class="col-md-9">
+    <table class="table" style="float:center">
+      <tr>
+        <th style="text-align:center">
+          <h5 translate>#</h5>
+        </th>
+        <th>
+          <h5 translate>Estadísticas de productos</h5>
+        </th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>
+          <a [routerLink]="['/pages/charts/ProductByCategory']" style="color:lightblue">Cantidad de ventas de los productos por categoria</a>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>
+          <a [routerLink]="['/pages/charts/RankingProductBrand']" style="color:lightblue">Ranking de productos vendidos segun marca</a>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>
+          <a [routerLink]="['/pages/charts/Best_Seller']" style="color:lightblue">Ranking por cantidad demandada</a>
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>
+          <a [routerLink]="['/pages/charts/RankingCollected']" style="color:lightblue">Ranking por rentabilidad del producto</a>
+        </td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>
+          <a [routerLink]="['/pages/charts/RankingTotalSale']" style="color:lightblue">Ranking de clientes en base a total de compras</a>
+        </td>
+      </tr>     
+      <tr>           
+        <td>6</td>
+        <td>
+          <a [routerLink]="['/pages/charts/CustomerByBest']" style="color:lightblue">Ranking de clientes que compran los ‘L’ productos más vendidos</a>
+        </td>
+      </tr>      
+      <tr>           
+        <td>7</td>
+        <td>
+          <a [routerLink]="['/pages/charts/CustomerByProduct']" style="color:lightblue">Ranking de clientes por variedad de productos comprados</a>
+        </td>
+      </tr> 
+      <tr>
+        <td>8</td>
+        <td>
+          <a [routerLink]="['/pages/charts/RankingSale']" style="color:lightblue">Ranking de ventas realizadas </a>
+        </td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>
+          <a [routerLink]="['/pages/charts/RankingSaleCategory']" style="color:lightblue">Ranking de ventas realizadas por categoria</a>
+        </td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>
+          <a [routerLink]="['/pages/charts/RankingSaleProduct']" style="color:lightblue">Ranking de ventas realizadas por cantidad de producto</a>
+        </td>
+      </tr>     
+      <!--<tr>    SE BUGEA NO SE POR QUÉ       
+        <td>12</td>
+        <td>
+          <a [routerLink]="['/pages/charts/RankingSaleBrand']" style="color:lightblue">Ventas en un rango de fechas</a>
+        </td>
+      </tr>  -->  
+      <tr>           
+        <td>11</td>
+        <td>
+          <a [routerLink]="['/pages/charts/SaleRecord']" style="color:lightblue">Ventas en un rango de fechas</a>
+        </td>
+      </tr>                  
+    </table>
+  </div>
+  <div class="col-md-2"></div>
 </div>
