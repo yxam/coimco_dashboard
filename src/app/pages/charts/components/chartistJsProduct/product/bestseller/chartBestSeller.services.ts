@@ -73,8 +73,8 @@ export class ChartBestSellerService {
     for (let i = 0; i < list.length; i++) {
       const data_db = JSON.parse(list[i]);
       const name = data_db.name;
-      const sales = data_db.ID;
-      this._dataSeller.simpleDonutData.labels.push(name);
+      const sales = data_db.Cant;
+      this._dataSeller.simpleDonutData.labels.push(name + " Cantidad: " + sales);
       this._dataSeller.simpleDonutData.series.push(sales);
     }
     console.log(this._dataSeller);
@@ -87,16 +87,16 @@ export class ChartBestSellerService {
   getResponsive(padding, offset) {
     return [
       ['screen and (min-width: 640px)', {
-        chartPadding: 30,
-        labelOffset: 100,
+        chartPadding: padding,
+        labelOffset: offset,
         labelDirection: 'explode',
         labelInterpolationFnc: function(value) {
           return value;
         }
       }],
       ['screen and (min-width: 1024px)', {
-        labelOffset: 80,
-        chartPadding: 20
+        labelOffset: padding,
+        chartPadding: offset
       }]
     ];
   }

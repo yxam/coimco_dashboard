@@ -33,18 +33,18 @@ export class TrafficChartService {
         }
 
         const object1 = {
-          value: data_chart[0]['Rent'],
+          value: parseFloat(data_chart[0]['Rent']).toFixed(2),
           color: dashboardColors.white,
           highlight: colorHelper.shade(dashboardColors.white, 15),
           label: data_chart[0]['Name'],
           percentage: 87,
           order: 1,
         };
-        console.log(object1);
+        console.log("OBJECT -> ", object1);
         //this.data_traffic.push(object1);
 
         const object2 = {
-          value: data_chart[1]['Rent'],
+          value: parseFloat(data_chart[1]['Rent']).toFixed(2),
           color: dashboardColors.gossip,
           highlight: colorHelper.shade(dashboardColors.gossip, 15),
           label: data_chart[1]['Name'],
@@ -54,7 +54,7 @@ export class TrafficChartService {
         //this.data_traffic.push(object2);
 
         const object3 = {
-          value: data_chart[2]['Rent'],
+          value: parseFloat(data_chart[2]['Rent']).toFixed(2),
           color: dashboardColors.silverTree,
           highlight: colorHelper.shade(dashboardColors.silverTree, 15),
           label: data_chart[2]['Name'],
@@ -64,7 +64,7 @@ export class TrafficChartService {
         //this.data_traffic.push(object3);
 
         const object4 = {
-          value: data_chart[3]['Rent'],
+          value: parseFloat(data_chart[3]['Rent']).toFixed(2),
           color: dashboardColors.surfieGreen,
           highlight: colorHelper.shade(dashboardColors.surfieGreen, 15),
           label: data_chart[3]['Name'],
@@ -74,7 +74,7 @@ export class TrafficChartService {
         //this.data_traffic.push(object4);
 
         const object5 = {
-          value: data_chart[4]['Rent'],
+          value: parseFloat(data_chart[4]['Rent']).toFixed(2),
           color: dashboardColors.blueStone,
           highlight: colorHelper.shade(dashboardColors.blueStone, 15),
           label: data_chart[4]['Name'],
@@ -151,35 +151,35 @@ export class TrafficChartService {
     }
     console.log(data_chart);
     return [{
-      value: data_chart[0]['Rent'],
+      value: parseFloat(data_chart[0]['Rent']).toFixed(0),
       color: dashboardColors.white,
       highlight: colorHelper.shade(dashboardColors.white, 15),
       label: data_chart[0]['Name'],
       percentage: 87,
       order: 1,
     }, {
-        value: data_chart[1]['Rent'],
+        value: parseFloat(data_chart[1]['Rent']).toFixed(0),
         color: dashboardColors.gossip,
         highlight: colorHelper.shade(dashboardColors.gossip, 15),
         label: data_chart[1]['Name'],
         percentage: 22,
         order: 4,
       }, {
-        value: data_chart[2]['Rent'],
+        value: parseFloat(data_chart[2]['Rent']).toFixed(0),
         color: dashboardColors.silverTree,
         highlight: colorHelper.shade(dashboardColors.silverTree, 15),
         label: data_chart[2]['Name'],
         percentage: 70,
         order: 3,
       }, {
-        value: data_chart[3]['Rent'],
+        value: parseFloat(data_chart[3]['Rent']).toFixed(0),
         color: dashboardColors.surfieGreen,
         highlight: colorHelper.shade(dashboardColors.surfieGreen, 15),
         label: data_chart[3]['Name'],
         percentage: 38,
         order: 2,
       }, {
-        value: data_chart[4]['Rent'],
+        value: parseFloat(data_chart[4]['Rent']).toFixed(0),
         color: dashboardColors.blueStone,
         highlight: colorHelper.shade(dashboardColors.blueStone, 15),
         label: data_chart[4]['Name'],

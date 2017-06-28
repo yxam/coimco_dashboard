@@ -3,7 +3,7 @@
   <div class="row">
 
     <div class="col-md-12">
-      <ba-card title="Productos más vendidos" baCardClass="with-scroll">
+      <ba-card title="Productos más vendidos (unidades)" baCardClass="with-scroll">
         <div class="row">
           <div class="col-md-12 col-lg-10">
             <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
@@ -27,7 +27,7 @@
               </h5>
 
               <h5 translate>
-                <div class="col-md-9">
+                <div class="col-md-3">
                   <md-input-container>
                     <input
                       mdInput
@@ -44,7 +44,7 @@
                 </div>
               </h5>
               <h5 translate>
-                <div class="col-md-4">
+                <div class="col-md-3">
                   Cantidad:
                   <md-slider
                     ngModel
@@ -60,38 +60,22 @@
                     [ngModel]="value"
                     [vertical]="vertical"></md-slider>
                 </div>
-                <div class="col-md-4">
-                  <md-select
-                    placeholder="Categoría"
-                    ngModel
-                    required
-                    style="color:white"
-                    #category="ngModel"
-                    [ngModel]="category_default"
-                    name="category">
-                    <md-option *ngFor="let category of categories" [value]="category.value">
-                      {{category.viewValue}}
-                    </md-option>
-                  </md-select>
-                </div>
+
                 <button md-raised-button style="color:white;background-color:#A9E2F3">Filtrar</button>
               </h5>
 
             </form>
-
           </div>
         </div>
       </ba-card>
       <div class="col-md-12">
-
-        <ng-template [ngIf]="active==true">
+        <ng-template [ngIf]="active==true" style="padding-bottom:2cm;margin-bottom:2cm">
           <ba-chartist-chart
-            style="padding-bottom:20cm;margin-bottom:20cm"
             baChartistChartClass="ct-chart stacked-bar"
             baChartistChartType="Pie"
             [baChartistChartData]="data['simpleDonutData']"
             [baChartistChartOptions]="data['simpleDonutOptions']"
-            [baChartistChartResponsive]="getResponsive(80, 100)"></ba-chartist-chart>
+            [baChartistChartResponsive]="getResponsive(2, 8)"></ba-chartist-chart>
 
         </ng-template>
       </div>

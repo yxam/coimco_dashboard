@@ -57,7 +57,7 @@ export const PAGES_MENU = [
                 title: 'general.menu.chartist_sale',
               }
             }
-          },                    
+          },
         ]
       }
     ]
