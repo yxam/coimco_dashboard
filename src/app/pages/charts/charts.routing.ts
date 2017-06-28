@@ -11,6 +11,9 @@ import { ChartProductSales } from './components/chartistJsProduct/product/produc
 import { ChartRankCategory } from './components/chartistJsProduct/product/rankcategory/chartRankCategory.component';
 import { ChartRankBrand } from './components/chartistJsProduct/product/rankbrand/chartRankBrand.component';
 import { ChartProductPrice } from './components/chartistJsProduct/product/productprice/chartProductPrice.component';
+import { ChartRankPPrice } from './components/chartistJsProduct/product/RankPPrice/chartRankPPrice.component';
+import { ChartProductPriceTime } from './components/chartistJsProduct/product/ProductPriceTime/chartProductPriceTime.component';
+import { ChartProductPriceTimeService } from './components/chartistJsProduct/product/ProductPriceTime/chartProductPriceTime.service';
 // noinspection TypeScriptValidateTypes
 
 //customer
@@ -60,6 +63,8 @@ const routes: Routes = [
       { path: 'rankcategory', component: ChartRankCategory }, //ready
       { path: 'rankbrand', component: ChartRankBrand }, //ready
       { path: 'productprice', component: ChartProductPrice }, //ready
+      { path: 'RankPPrice', component: ChartRankPPrice },
+      { path: 'productpricetime', component: ChartProductPriceTime },
       //customer
       { path: 'productbuy', component: ChartProductBuy },
       { path: 'frequency', component: ChartFrequency },
@@ -78,9 +83,9 @@ const routes: Routes = [
       { path: 'Best_Seller', component: ChartBest_Seller },
       { path: 'RankingCollected', component: ChartRankingCollected },
       { path: 'RankingTotalSale', component: ChartRankingTotalSale },
-      { path: 'RankingProductBrand', component: ChartRankingProductBrand },
+      { path: 'RankingProductBrand', component: ChartRankingProductBrand },//Ya implementadas
       { path: 'RankingSale', component: ChartRankingSale },
-      { path: 'RankingSaleCategory', component: ChartRankingSaleCategory },
+      { path: 'RankingSaleCategory', component: ChartRankingSaleCategory }, //Ya implementa
       { path: 'CustomerByBest', component: ChartCustomerByBest },
       { path: 'CustomerByProduct', component: ChartCustomerByProduct },
       { path: 'RankingSaleProduct', component: ChartRankingSaleProduct },

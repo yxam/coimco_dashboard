@@ -29,6 +29,10 @@ import { ChartProductPrice } from './components/chartistJsProduct/product/produc
 import { trafficChartProductService} from './components/chartistJsProduct/trafficChartProduct/trafficChartProduct.service';
 import { TrafficChartProduct } from './components/chartistJsProduct/trafficChartProduct/trafficChartProduct.component';
 import { ChartsAPI } from './chartsAPI.services';
+import { ChartRankPPriceService } from './components/chartistJsProduct/product/RankPPrice/chartRankPPrice.service';
+import { ChartRankPPrice } from './components/chartistJsProduct/product/RankPPrice/chartRankPPrice.component';
+import { ChartProductPriceTime } from './components/chartistJsProduct/product/ProductPriceTime/chartProductPriceTime.component';
+import { ChartProductPriceTimeService } from './components/chartistJsProduct/product/ProductPriceTime/chartProductPriceTime.service';
 
 import { chartistJsCustomerService } from './components/chartistJsCustomer/chartistJsCustomer.service';
 import { chartistJsSaleService } from './components/chartistJsSale/chartistJsSale.service';
@@ -131,6 +135,8 @@ import { DataFilterProviderPipe } from './components/chartistJsProvider/provider
     AutocompleteOverviewProvider,
     AutocompleteOverviewCustomer,
     TrafficChartProduct,
+    ChartRankPPrice,
+    ChartProductPriceTime,
     //customer
     ChartProductBuy,
     ChartFrequency,
@@ -176,6 +182,8 @@ import { DataFilterProviderPipe } from './components/chartistJsProvider/provider
     chartistJsSaleService,
     DataTablesProviderService,
     trafficChartProductService,
+    ChartRankPPriceService,
+    ChartProductPriceTimeService,
 
     //product
     ChartBestSellerService,

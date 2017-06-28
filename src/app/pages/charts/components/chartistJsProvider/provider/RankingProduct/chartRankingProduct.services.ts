@@ -86,7 +86,6 @@ export class ChartRankingProductService {
         chartPadding: padding,
         labelOffset: offset,
         labelDirection: 'explode',
-        chartPadding: 30,
         labelInterpolationFnc: function(value) {
           return value;
         }

@@ -100,6 +100,29 @@ export class ChartsAPI {
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
+  getRankPPrice(filter: JSON): Observable<JSON[]> {
+    const headers = this.createHeaders();
+    const id = filter['id'];
+    const url = 'https://coimco.herokuapp.com/api/purchasesrec-p/' + id;
+    let body = this.createBody(filter);
+    console.log(body);
+    console.log(url);
+    return this.http.post(url, body, headers)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  getProductPriceTime(filter: JSON): Observable<JSON[]> {
+    const headers = this.createHeaders();
+    const id = filter['id'];
+    const url = 'https://coimco.herokuapp.com/api/salesrec-p/' + id;
+    let body = this.createBody(filter);
+    console.log(body);
+    console.log(url);
+    return this.http.post(url, body, headers)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
 
 
   /* PROVIDERS */
@@ -213,4 +236,26 @@ export class ChartsAPI {
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
+  getRankingCollected(filter: JSON): Observable<JSON[]> {
+    const headers = this.createHeaders();
+    const body = this.createBody(filter);
+    const k = filter['k'];
+    const url = 'http://coimco.herokuapp.com/api/productsrank-r/' + k;
+    return this.http.post(url, body, headers)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+  getRankTotalSale(filter: JSON): Observable<JSON[]> {
+    const headers = this.createHeaders();
+    const body = this.createBody(filter);
+    const k = filter['k'];
+    const url = 'http://coimco.herokuapp.com/api/customersrank-k/' + k;
+    return this.http.post(url, body, headers)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+
+
+
 }

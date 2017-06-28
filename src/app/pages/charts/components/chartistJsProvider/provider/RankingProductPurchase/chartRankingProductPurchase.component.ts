@@ -31,12 +31,9 @@ export class ChartRankingProductPurchase {
     return this._chartRankingProductPurchaseService.getResponsive(padding, offset);
   }
   onSubmit(f: NgForm) {
-    console.log(f.value);
-    console.log(f.valid);
     this.active = false;
     this._chartRankingProductPurchaseService.getInfoProvider(f.value).subscribe(
       data => {
-        console.log("Aqui -> ", data);
         this.dbdata = data['data'];
         //console.log(this.dbdata);
         this.dataProviders = this.dbdata;
