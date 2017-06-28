@@ -16,23 +16,23 @@ export class TrafficChart {
   active: boolean;
   aux: Array<Object>
   constructor(private trafficChartService: TrafficChartService) {
-    console.log("HOLA")
-    this.doughnutData = trafficChartService.getData2();
-    console.log(this.doughnutData);
+    //this.doughnutData = trafficChartService.getData2();
+    //console.log(this.doughnutData);
 
-    /*trafficChartService.getDataStats()
+  }
+  ngOnInit() {
+    this.trafficChartService.getDataStats()
       .subscribe(
       data => {
         this.dbdata = data['data'];
+        console.log(this.dbdata);
+        this.doughnutData = this.trafficChartService.setData(this.dbdata);
         console.log(this.doughnutData);
-        this.doughnutData = trafficChartService.setData(this.dbdata);
-
-      });*/
-
+        this._loadDoughnutCharts();
+      });
   }
-
   ngAfterViewInit() {
-    this._loadDoughnutCharts();
+    //  this._loadDoughnutCharts();
   }
 
   private _loadDoughnutCharts() {

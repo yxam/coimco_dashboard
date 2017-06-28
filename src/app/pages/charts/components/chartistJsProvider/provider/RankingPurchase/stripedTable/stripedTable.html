@@ -1,0 +1,24 @@
+<div class="vertical-scroll">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="table-id">#</th>
+      <th>Nombre Proveedor</th>
+      <th>Producto más comprado</th>
+      <th>Cantidad</th>
+      <th>Inversión</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of smartTableData">
+      <td class="table-id">{{ item.PurchaseId}}</td>
+      <td>{{ item.ProductName}}</td>
+      <td>{{ item.ProviderName}}</td>
+      <td>{{ item.Quantity }}</td>
+      <td>{{ item.Total }}</td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -6,26 +6,7 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class ChartRankCategoryService {
   private dbdata: Observable<JSON[]>;
-  private _data = {
-    stackedBarData: {
-      labels: ['Quarter 1', 'Quarter 2', 'Quarter 3', 'Quarter 4', 'Quarter 5'],
-      series: [
-        [800000, 1200000, 1400000, 4020000, 300000],
 
-      ],
-    },
-    stackedBarOptions: {
-      fullWidth: true,
-      height: '300px',
-      stackBars: true,
-      axisY: {
-        labelInterpolationFnc: function(value) {
-          return (value / 1000) + 'k';
-        }
-      }
-    },
-
-  };
   private _dataCategory = {
     stackedBarData: {
       labels: [],
@@ -57,31 +38,36 @@ export class ChartRankCategoryService {
 
   setData(dbdata: Array<JSON>) {
     this.removeData();
-    console.log(dbdata);
+
     let list: string[] = [];
     dbdata.forEach(variable => {
       list.push(JSON.stringify(variable))
     });
-    console.log(list);
     let data_chart: string[] = [];
     for (let i = 0; i < list.length; i++) {
-      let data_db = JSON.parse(list[i]);
-      let name = data_db.Name;
-      let total = data_db.Total;
-      console.log(data_db.Total);
+      const data_db = JSON.parse(list[i]);
+      const name = data_db.Name;
+      const total = data_db.Total;
       this._dataCategory.stackedBarData.labels.push(name);
       data_chart.push(total);
 
-      this._dataCategory.stackedBarData.series.push(data_chart);
+      let data_series: any[] = [];
+      //Para que tengan color distintos, ASI ESTA CONSTRUIDO EL GRAFICO, MÁS INFORMACIÓN VER ARCHIVO chartistJsProduct.services.ts y pagina de akveo
+      for (let j = 0; j < list.length; j++) {
+        if (j === i) {
+          data_series[j] = total;
+        } else {
+          data_series[j] = 0;
+        }
+      }
+      this._dataCategory.stackedBarData.series.push(data_series);
+
     }
 
     console.log(this._dataCategory);
     return this._dataCategory;
   }
 
-  getAll() {
-    return this._data;
-  }
 
   getCategory(filter: JSON): any {
     return this._chartAPI.getRankCategory(filter);

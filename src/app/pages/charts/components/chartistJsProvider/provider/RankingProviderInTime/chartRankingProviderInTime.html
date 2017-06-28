@@ -5,7 +5,8 @@
       <ba-card title="chart.pies_and_donuts" baCardClass="with-scroll">
         <div class="row">
           <div class="col-md-12 col-lg-12">
-            <h5 translate>{{'chart.donut'}}</h5>
+            <h5 translate>Ranking de proveedores por tiempo de entrega</h5>
+            <br>
             <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
 
             <h5 translate>
@@ -22,26 +23,21 @@
               </div>
             </h5>
             <h5 translate>
-              <div class="col-md-2">Cantidad:</div>
-              <div class="col-md-10">
-
-                <input type="number" ngModel required #k="ngModel" name="k" min="1" value="5" max="15">
+              <div class="col-md-5">
+                Cantidad: <input type="number" ngModel required #k="ngModel" name="k" min="1" max="15">
               </div>
-              <div class= "col-md-6">
-                <autocomplete-overviewProvider (getid)="showId($event)" ></autocomplete-overviewProvider>
-              </div>
-              <div class="col-md-6">
-                <button md-raised-button><span style="color:#304787">Buscar</span></button>
+              <div class="col-md-7">
+              <button md-raised-button><span style="color:#304787">Buscar</span></button>
               </div>
             </h5>
 
           </form>
             <ng-template [ngIf]="active==true">
-              <ba-chartist-chart
-                baChartistChartClass="ct-chart stacked-bar"
-                baChartistChartType="Bar"
-                [baChartistChartData]="data['stackedBarData']"
-                [baChartistChartOptions]="data['stackedBarOptions']"></ba-chartist-chart>
+              <ba-chartist-chart baChartistChartClass="ct-chart"
+                                 baChartistChartType="Line"
+                                 [baChartistChartData]="data['areaLineData']"
+                                 [baChartistChartOptions]="data['areaLineOptions']">
+              </ba-chartist-chart>
           </ng-template>
           </div>
         </div>

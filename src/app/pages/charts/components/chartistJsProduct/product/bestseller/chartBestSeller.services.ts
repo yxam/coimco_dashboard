@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { BaThemeConfigProvider } from '../../../../../../theme';
 import { ChartsAPI } from './../../../../chartsAPI.services';
 import { Observable } from 'rxjs/Rx';
+import { BaThemeConfigProvider, colorHelper } from '../../../../../../theme';
 
 @Injectable()
 export class ChartBestSellerService {
-  private dbdata: Observable<JSON[]>
+  private dbdata: any;
   private products: JSON[] = [];
   private errorMessage: any;
+  private data_traffic: Array<Object>;
   private _data = {
     simpleDonutData: {
       labels: ['Bananas', 'Apples', 'Grapes'],
@@ -110,4 +111,37 @@ export class ChartBestSellerService {
       }]
     ];
   }
+  /*
+  setData(data: Array<JSON>) {
+    const dashboardColors = this._baConfig.get().colors.dashboard;
+
+    this.dbdata = data;
+    const list: string[] = [];
+    this.dbdata.forEach(variable =>
+      list.push(JSON.stringify(variable))
+    );
+    let data_chart: JSON[] = [];
+    let data_aux: any[] = [];
+    let key: any[] = [];
+    for (let p in dashboardColors) {
+      key.push(p);
+    }
+    for (let i = 0; i < list.length; i++) {
+      data_chart.push(JSON.parse(list[i]));
+      const object1 = {
+        value: data_chart[i]['category'],
+        color: dashboardColors[key[i]],
+        highlight: colorHelper.shade(dashboardColors[key[i]], 15),
+        label: data_chart[i]['name'],
+        percentage: 87,
+        order: i,
+      };
+      //const aux = JSON.parse(object1);
+      data_aux.push(object1);
+    }
+    this.data_traffic = data_aux;
+    return this.data_traffic;
+
+  }*/
+
 }

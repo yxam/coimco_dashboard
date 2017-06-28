@@ -1,10 +1,8 @@
 <section class="chartist">
   <div class="row">
     <div class="col-md-12">
-      <ba-card title="chart.lines" baCardClass="with-scroll">
-        <h5 translate>{{'chart.stacked_bar_chart'}}</h5>
+      <ba-card title="Ranking Productos vendidos por categoría" baCardClass="with-scroll">
         <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-
         <h5 translate>
           <div class="col-md-2">Inicio:</div>
           <div class="col-md-10">
@@ -25,6 +23,7 @@
             <input type="number" ngModel required #k="ngModel" name="k" min="1" max="15">
           </div>
           <div class="col-md-7">
+            Categorias:
             <select name="category"  ngModel required #category="ngModel">
               <option value="Accesorios">Accesorios</option>
               <option value="Conectividad">Conectividad</option>

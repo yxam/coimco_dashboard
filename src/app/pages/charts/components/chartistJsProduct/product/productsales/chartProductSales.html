@@ -1,8 +1,8 @@
 <section class="chartist">
   <div class="row">
     <div class="col-md-12">
-      <ba-card title="chart.lines" baCardClass="with-scroll">
-        <h5 translate>{{'chart.simple_line_chart'}}</h5>
+      <ba-card title="Ranking Productos " baCardClass="with-scroll">
+        <div class ="col-md-12">
 
         <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
 
@@ -24,7 +24,7 @@
 
 
           <div class="col-md-9">
-            Producto:<autocomplete-overviewProduct (getid)="showId($event)" ></autocomplete-overviewProduct>
+            <autocomplete-overviewProduct (getid)="showId($event)" ></autocomplete-overviewProduct>
 
             <!--<select name="product"  ngModel required #product="ngModel">
                 <option value="190">Patch Panel #1</option>
@@ -35,6 +35,8 @@
         </h5>
 
       </form>
+
+    <div class="col-md-10">
     <ng-template [ngIf]="active==true">
       <ba-chartist-chart
         baChartistChartClass="ct-chart"
@@ -43,7 +45,15 @@
         [baChartistChartOptions]="data['areaLineOptions']">
       </ba-chartist-chart>
     </ng-template>
-      </ba-card>
+
+      <div class="col-md-2">
+
     </div>
+
   </div>
+
+  </div>
+  </ba-card>
+  </div>
+</div>
 </section>

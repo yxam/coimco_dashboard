@@ -37,19 +37,17 @@ export class ChartRankingProviderCategoryService {
   }
 
   getProviders(filter: JSON): any {
-
     //Retorna el observable de la data
     return this._chartAPI.getRankProviderPP(filter);
   }
   removeData() {
     this._data.simpleDonutData.labels.splice(0);
     this._data.simpleDonutData.series.splice(0);
-    console.log(this._data);
+
   }
   setData(dbdata: Array<JSON>) {
     this.removeData();
     let list: string[] = [];
-    console.log(dbdata);
     dbdata.forEach(variable => {
       list.push(JSON.stringify(variable))
     });
@@ -61,7 +59,7 @@ export class ChartRankingProviderCategoryService {
       this._data.simpleDonutData.labels.push(name);
       this._data.simpleDonutData.series.push(price);
     }
-    return this._data
+    return this._data;
   }
 
 

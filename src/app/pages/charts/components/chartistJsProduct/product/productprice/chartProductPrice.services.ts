@@ -61,9 +61,27 @@ export class ChartProductPriceService {
     let data_chart: string[] = [];
     for (let i = 0; i < list.length; i++) {
       const data_db = JSON.parse(list[i]);
-      const date = data_db.Date;
       const price = data_db.Price;
-      this._dataPrices.areaLineData.labels.push(date);
+      const date = data_db.Date;
+      const aux: Date = new Date(date);
+      let fecha: any;
+      //aux.getDay() + '-' + aux.getMonth() + '-' + aux.getFullYear;
+      if (aux.getDay() < 10 && aux.getMonth() < 10) {
+        console.log(aux.getDay());
+        if (aux.getDay() === 0) { //Is sunday
+          fecha = '01' + aux.getDay() + '-0' + aux.getMonth() + '-' + aux.getFullYear();
+        } else {
+          fecha = '0' + aux.getDay() + '-0' + aux.getMonth() + '-' + aux.getFullYear();
+        }
+      } else if (aux.getDay() < 10 && aux.getMonth() > 10) {
+        fecha = '0' + aux.getDay() + '-' + aux.getMonth() + '-' + aux.getFullYear();
+      } else if (aux.getDay() > 10 && aux.getMonth() < 10) {
+
+        fecha = aux.getDay() + '-0' + aux.getMonth() + '-' + aux.getFullYear();
+      } else {
+        fecha = aux.getDay() + '-' + aux.getMonth() + '-' + aux.getFullYear();
+      }
+      this._dataPrices.areaLineData.labels.push(fecha);
       data_chart.push(price);
     }
     this._dataPrices.areaLineData.series.push(data_chart);

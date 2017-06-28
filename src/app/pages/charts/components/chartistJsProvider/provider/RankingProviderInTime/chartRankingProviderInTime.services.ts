@@ -55,9 +55,9 @@ export class ChartRankingProviderInTimeService {
     return this._chartAPI.getRankProviderTime(filter);
   }
   removeData() {
-    this._dataPrices.areaLineData.labels.splice(0);
-    this._dataPrices.areaLineData.series.splice(0);
-    console.log(this._dataPrices);
+    this._data.stackedBarData.labels.splice(0);
+    this._data.stackedBarData.series.splice(0);
+    //console.log(this._data);
   }
   setData(dbdata: Array<JSON>) {
     this.removeData();

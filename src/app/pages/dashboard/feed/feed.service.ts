@@ -79,7 +79,6 @@ export class FeedService {
     dbdata.forEach(variable => {
       list.push(JSON.stringify(variable))
     });
-    console.log(list);
     let data_chart: string[] = [];
     for (let i = 0; i < list.length; i++) {
       const data_db = JSON.parse(list[i]);
@@ -89,7 +88,7 @@ export class FeedService {
       this._data[i].surname = 'Productos comprados: ' + data_db.Quantity;
       this._data[i].photo = '' + i;
     }
-    console.log(this._data);
+
     return this._data;
 
   }

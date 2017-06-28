@@ -1,7 +1,7 @@
 <section class="chartist">
   <div class="row">
     <div class="col-md-12">
-      <ba-card title="chart.bars" baCardClass="with-scroll">
+      <ba-card title="Ranking de productos por marca" baCardClass="with-scroll">
         <!--<h5 translate>{{'chart.simple_bar_chart'}}</h5>-->
 
 
@@ -23,7 +23,7 @@
 
         <h5 translate>
 
-          <div class="col-md-4">Cantidad:<input type="number" ngModel required #k="ngModel" name="k" min="1" max="10">
+          <div class="col-md-4">Cantidad:<input type="number" [ngModel]="5" required #k="ngModel" name="k" min="1" max="10">
           </div>
           <div class="col-md-5">
             Marca:<select name="brand"  ngModel required #brand="ngModel">

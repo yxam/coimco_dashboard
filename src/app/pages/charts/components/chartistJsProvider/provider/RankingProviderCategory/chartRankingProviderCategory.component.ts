@@ -33,8 +33,6 @@ export class ChartRankingProviderCategory {
     }
   }
   onSubmit(f: NgForm) {
-    console.log(f.value);
-    console.log(f.valid);
     this.active = false;
     if (this.provider_id === null) {
       alert("Debe elegir un proveedor");
@@ -48,9 +46,7 @@ export class ChartRankingProviderCategory {
     const filter = JSON.parse(form);
     this._chartRankingProviderCategoryService.getProviders(filter).subscribe(
       data => {
-        console.log("Aqui -> ", data);
         this.dbdata = data['data'];
-        console.log(this.dbdata);
         this.data = this._chartRankingProviderCategoryService.setData(this.dbdata);
         this.active = true;
 

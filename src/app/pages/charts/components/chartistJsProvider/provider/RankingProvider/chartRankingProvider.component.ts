@@ -10,28 +10,28 @@ import { ChartsAPI } from './../../../../chartsAPI.services';
 
 export class ChartRankingProvider {
   data: any;
+  active: boolean;
   dbdata: any;
-  datos_aux: any;
   constructor(
     private _chartRankingProviderService: ChartRankingProviderService,
     private _chartAPI: ChartsAPI) {
 
   }
   ngOnInit() {
-    this.data = this._chartRankingProviderService.getAll();
+    this.active = false;
+    //this.data = this._chartRankingProviderService.getAll();
   }
   getResponsive(padding, offset) {
     return this._chartRankingProviderService.getResponsive(padding, offset);
   }
   onSubmit(f: NgForm) {
-    console.log(f.value);
-    console.log(f.valid);
-    this._chartRankingProviderService.getSeller(f.value).subscribe(
+    this.active = false;
+    this._chartRankingProviderService.getProvider(f.value).subscribe(
       data => {
-        console.log("Aqui -> ", data);
-        this.dbdata = data['data'][0].ID;
+        this.dbdata = data['data'];
         console.log(this.dbdata);
-        this.datos_aux = this._chartRankingProviderService.getAll();
+        this.data = this._chartRankingProviderService.setData(this.dbdata);
+        this.active = true;
 
       },
       err => {

@@ -59,7 +59,7 @@ export class ChartRankingPurchaseService {
       const nameProvider = data_db.ProviderName;
       const nameProduct = data_db.ProductName;
       //const price = data_db.Price;
-      const label = 'Proveedor: ' + nameProvider + '\n Producto: ' + nameProduct;
+      const label = nameProvider + '\n' + nameProduct;
       const total = data_db.Total;
       this._data.stackedBarData.labels.push(label);
       let data_series: any[] = [];

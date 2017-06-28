@@ -7,22 +7,16 @@
 <div class="row">
   <ba-card
     class="col-xlg-6 col-xl-6 col-lg-12 col-sm-12 col-12"
-    title="dashboard.acquisition_channels"
+    title="Productos más vendidos"
     baCardClass="traffic-panel medium-card">
     <traffic-chart></traffic-chart>
   </ba-card>
 
-  <div class="col-xlg-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-    <ba-card title="dashboard.feed" baCardClass="large-card with-scroll feed-panel">
-      <feed></feed>
-    </ba-card>
-  </div>
-
   <div
-    *ngIf="currentUser.role!=2"
+    *ngIf="currentUser.role!=0"
     class="col-xlg-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
     <ba-card
-      title="dashboard.feed2"
+      title="Top proveedores"
       baCardClass="large-card with-scroll feed-panel">
       <feed></feed>
     </ba-card>

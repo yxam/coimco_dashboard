@@ -4,6 +4,7 @@ import { ChartBestSellerService } from './chartBestSeller.services';
 import { MdButtonModule } from '@angular/material';
 import 'hammerjs';
 
+
 @Component({
   selector: 'chartbest-seller',
   templateUrl: './chartBestSeller.html',
@@ -41,17 +42,12 @@ export class ChartBestSeller {
     return this._chartBestSellerService.getResponsive(padding, offset);
   }
   onSubmit(f: NgForm) {
-    console.log("1 - ", f.value);
-
-    console.log("2 - ", f.valid);
+    this.active = false;
     this._chartBestSellerService.getSeller(f.value).subscribe(
       data => {
-        console.log("Aqui -> ", data);
-        //this.dbdata = data['data'][0];
         this.dbdata = data['data'];
-        console.log(this.dbdata);
-        this.active = true;
         this.data = this._chartBestSellerService.setData(this.dbdata);
+        this.active = true;
       },
       err => {
         console.log("ERROR");
