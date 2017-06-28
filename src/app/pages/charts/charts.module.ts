@@ -16,6 +16,7 @@ import { ChartDashboardCustomer } from './components/chartistJsCustomer/chartDas
 import { ChartDashboardSale } from './components/chartistJsSale/chartDashboard.component';
 import { ChartBestSellerService } from './components/chartistJsProduct/product/bestseller/chartBestSeller.services';
 import { ChartBestSeller } from './components/chartistJsProduct/product/bestseller/chartBestSeller.component';
+import { StripedTablePurchase } from './components/chartistJsProvider/provider/RankingPurchase/stripedTable/stripedTable.component';
 
 import { ChartProductSalesService } from './components/chartistJsProduct/product/productsales/chartProductSales.services';
 import { ChartProductSales } from './components/chartistJsProduct/product/productsales/chartProductSales.component';
@@ -49,7 +50,8 @@ import { ChartBestProduct } from './components/chartistJsCustomer/Customer/BestP
 import { ChartBestProductService } from './components/chartistJsCustomer/Customer/BestProduct/chartBestProduct.services';
 import { ChartRankingCustomer } from './components/chartistJsCustomer/Customer/RankingCustomer/chartRankingCustomer.component';
 import { ChartRankingCustomerService } from './components/chartistJsCustomer/Customer/RankingCustomer/chartRankingCustomer.services'
-
+import { DataTablesCustomerService } from './components/chartistJsCustomer/Customer/dataTables/dataTablesCustomer.service';
+import { DataTablesCustomer} from './components/chartistJsCustomer/Customer/dataTables/dataTablesCustomer.component';
 //providers - purchase
 import { ChartRankingPurchase } from './components/chartistJsProvider/Provider/RankingPurchase/chartRankingPurchase.component';
 import { ChartRankingPurchaseService } from './components/chartistJsProvider/Provider/RankingPurchase/chartRankingPurchase.services';
@@ -134,6 +136,7 @@ import { DataFilterProviderPipe } from './components/chartistJsProvider/provider
     ChartCollected,
     ChartBestProduct,
     ChartRankingCustomer,
+    DataTablesCustomer,
 
     //provider-purchase
     ChartRankingPurchase,
@@ -142,7 +145,7 @@ import { DataFilterProviderPipe } from './components/chartistJsProvider/provider
     ChartRankingProviderCategory,
     ChartRankingProduct,
     ChartRankingPurchaseCategory,
-
+    StripedTablePurchase,
 
     //sales
     ChartProductByCategory,
@@ -185,6 +188,7 @@ import { DataFilterProviderPipe } from './components/chartistJsProvider/provider
     ChartCollectedService,
     ChartBestProductService,
     ChartRankingCustomerService,
+    DataTablesCustomerService,
 
 
     //provider-purchase

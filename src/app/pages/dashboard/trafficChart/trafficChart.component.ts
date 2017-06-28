@@ -25,6 +25,7 @@ export class TrafficChart {
       .subscribe(
       data => {
         this.dbdata = data['data'];
+        console.log(this.dbdata);
         this.doughnutData = this.trafficChartService.setData(this.dbdata);
         console.log(this.doughnutData);
         this._loadDoughnutCharts();

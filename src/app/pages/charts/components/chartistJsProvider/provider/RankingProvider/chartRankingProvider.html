@@ -1,12 +1,10 @@
 <section class="chartist">
-
   <div class="row">
-
     <div class="col-md-12">
-      <ba-card title="chart.pies_and_donuts" baCardClass="with-scroll">
+      <ba-card title="Ranking proveedores por tiempo de entrega" baCardClass="with-scroll">
         <div class="row">
           <div class="col-md-12 col-lg-10">
-            <h5 translate>Ranking proveedores por tiempo de entrega</h5>
+
             <br>
             <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
 
@@ -33,16 +31,20 @@
             </h5>
 
           </form>
+          <div class="col-md-10">
             <ng-template [ngIf]="active==true">
               <ba-chartist-chart baChartistChartClass="ct-chart"
                                  baChartistChartType="Line"
                                  [baChartistChartData]="data['areaLineData']"
                                  [baChartistChartOptions]="data['areaLineOptions']">
               </ba-chartist-chart>
+            </div>
+            <div class="col-md-2"></div>
           </ng-template>
           </div>
         </div>
       </ba-card>
     </div>
   </div>
+
 </section>

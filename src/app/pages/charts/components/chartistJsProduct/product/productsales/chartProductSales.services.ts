@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class ChartProductSalesService {
-
+  aux = new Date();
   private _data = {
     areaLineData: {
       labels: [1, 2, 3, 4, 5, 6, 7, 8],
@@ -54,20 +54,42 @@ export class ChartProductSalesService {
 
   setData(dbdata: Array<JSON>) {
     this.removeData();
-    console.log(dbdata);
+
     let list: string[] = [];
     dbdata.forEach(variable => {
       list.push(JSON.stringify(variable))
     });
-    console.log(list);
+
+    //let aux: Date;
+
     let data_chart: string[] = [];
     for (let i = 0; i < list.length; i++) {
       const data_db = JSON.parse(list[i]);
       const date = data_db.Date;
+      const aux: Date = new Date(date);
+      //aux.setDate(date: 'dd-mm-aaaa');
+      let fecha: any;
+      aux.getDay() + '-' + aux.getMonth() + '-' + aux.getFullYear;
+      if (aux.getDay() < 10 && aux.getMonth() < 10) {
+        fecha = '0' + aux.getDay() + '-0' + aux.getMonth() + '-' + aux.getFullYear();
+      }
+      else if (aux.getDay() < 10 && aux.getMonth() > 10) {
+        fecha = '0' + aux.getDay() + '-' + aux.getMonth() + '-' + aux.getFullYear();
+      }
+      else if (aux.getDay() > 10 && aux.getMonth() < 10) {
+        fecha = aux.getDay() + '-0' + aux.getMonth() + '-' + aux.getFullYear();
+      }
+      else {
+        fecha = aux.getDay() + '-' + aux.getMonth() + '-' + aux.getFullYear();
+      }
+
+      console.log(fecha); //aux.getDay() + '-' + aux.getMonth() + '-' + aux.getFullYear;
       const total = data_db.Total;
-      this._dataSales.areaLineData.labels.push(date);
+      this._dataSales.areaLineData.labels.push(fecha);
       data_chart.push(total);
     }
+    //this._dataSales.areaLineData.labels.push("");
+    //data_chart.push("");
     this._dataSales.areaLineData.series.push(data_chart);
     console.log(this._dataSales);
     return this._dataSales;

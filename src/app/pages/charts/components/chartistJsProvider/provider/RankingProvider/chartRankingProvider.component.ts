@@ -29,6 +29,7 @@ export class ChartRankingProvider {
     this._chartRankingProviderService.getProvider(f.value).subscribe(
       data => {
         this.dbdata = data['data'];
+        console.log(this.dbdata);
         this.data = this._chartRankingProviderService.setData(this.dbdata);
         this.active = true;
 
