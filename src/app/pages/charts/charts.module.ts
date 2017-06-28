@@ -60,6 +60,7 @@ import { ChartRankingProductService } from './components/chartistJsProvider/Prov
 import { ChartRankingPurchaseCategory } from './components/chartistJsProvider/Provider/RankingPurchaseCategory/chartRankingPurchaseCategory.component';
 import { ChartRankingPurchaseCategoryService } from './components/chartistJsProvider/Provider/RankingPurchaseCategory/chartRankingPurchaseCategory.services';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import 'hammerjs';
 @NgModule({
   imports: [
     CommonModule,

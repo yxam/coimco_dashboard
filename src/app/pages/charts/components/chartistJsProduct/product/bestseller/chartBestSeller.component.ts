@@ -13,11 +13,15 @@ export class ChartBestSeller {
   data: any;
   dbdata: any;
   active: boolean;
+  value: number;
+  startDate = new Date('2011/01/01');
+  endDate = Date.now();
   constructor(
     private _chartBestSellerService: ChartBestSellerService) {
 
   }
   ngOnInit() {
+    this.value = 5;
     //this.data = this._chartBestSellerService.getAll();
     this.active = false;
   }
@@ -25,8 +29,9 @@ export class ChartBestSeller {
     return this._chartBestSellerService.getResponsive(padding, offset);
   }
   onSubmit(f: NgForm) {
-    console.log(f.value);
-    console.log(f.valid);
+    console.log("1 - ", f.value);
+
+    console.log("2 - ", f.valid);
     this._chartBestSellerService.getSeller(f.value).subscribe(
       data => {
         console.log("Aqui -> ", data);
@@ -37,7 +42,8 @@ export class ChartBestSeller {
         this.data = this._chartBestSellerService.setData(this.dbdata);
       },
       err => {
-        console.log(err)
+        console.log("ERROR");
+        console.log(err);
       });
   }
 }

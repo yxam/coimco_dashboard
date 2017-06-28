@@ -1,5 +1,7 @@
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MdInputModule, MdCard, MdCardContent } from '@angular/material';
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -53,6 +55,7 @@ export type StoreType = {
     NgaModule.forRoot(),
     NgbModule.forRoot(),
     PagesModule,
+    MdInputModule,
     routing,
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

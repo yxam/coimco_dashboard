@@ -34,8 +34,9 @@ export class ChartsAPI {
     const body = this.createBody(filter);
     const k = filter['k'];
     const url = 'https://coimco.herokuapp.com/api/productsrank-k/' + k;
-    console.log(headers);
-    console.log(body);
+    console.log("aqui vamos");
+    console.log("headers -> ", headers);
+    console.log("body -> ", body);
     return this.http.post(url, body, headers)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
