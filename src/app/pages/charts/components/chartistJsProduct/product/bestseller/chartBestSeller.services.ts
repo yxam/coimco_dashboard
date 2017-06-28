@@ -34,8 +34,8 @@ export class ChartBestSellerService {
     simpleDonutOptions: {
       fullWidth: true,
       donut: true,
-      height: '300px',
-      weight: '300px',
+      height: '450px',
+      weight: '450px',
       labelDirection: 'explode',
       labelInterpolationFnc: function(value) {
         return value[0];
@@ -86,28 +86,17 @@ export class ChartBestSellerService {
 
   getResponsive(padding, offset) {
     return [
-      ['screen and (min-width: 1550px)', {
-        chartPadding: padding,
-        labelOffset: offset,
+      ['screen and (min-width: 640px)', {
+        chartPadding: 30,
+        labelOffset: 100,
         labelDirection: 'explode',
         labelInterpolationFnc: function(value) {
           return value;
         }
       }],
-      ['screen and (max-width: 1200px)', {
-        chartPadding: padding,
-        labelOffset: offset,
-        labelDirection: 'explode',
-        labelInterpolationFnc: function(value) {
-          return value;
-        }
-      }],
-      ['screen and (max-width: 600px)', {
-        chartPadding: 0,
-        labelOffset: 0,
-        labelInterpolationFnc: function(value) {
-          return value[0];
-        }
+      ['screen and (min-width: 1024px)', {
+        labelOffset: 80,
+        chartPadding: 20
       }]
     ];
   }

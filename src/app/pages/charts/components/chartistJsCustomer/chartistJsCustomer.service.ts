@@ -95,8 +95,8 @@ export class chartistJsCustomerService {
       }
     },
     multiBarResponsive: [
-      ['screen and (min-width: 400px)', {
-        reverseData: true,
+      ['screen and (min-width: 640px)', {
+        reverseData: false,
         horizontalBars: true,
         axisX: {
           labelInterpolationFnc: (n) => n
@@ -105,9 +105,9 @@ export class chartistJsCustomerService {
           offset: 60
         }
       }],
-      ['screen and (min-width: 700px)', {
+      ['screen and (min-width: 1024px)', {
         stackBars: false,
-        reverseData: false,
+        reverseData: true,
         horizontalBars: false,
         seriesBarDistance: 15
       }]

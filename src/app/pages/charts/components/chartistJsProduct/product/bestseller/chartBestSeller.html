@@ -78,18 +78,23 @@
               </h5>
 
             </form>
-            <ng-template [ngIf]="active==true">
-              <ba-chartist-chart
-                baChartistChartClass="ct-chart stacked-bar"
-                baChartistChartType="Pie"
-                [baChartistChartData]="data['simpleDonutData']"
-                [baChartistChartOptions]="data['simpleDonutOptions']"
-                [baChartistChartResponsive]="getResponsive(60, 60)"></ba-chartist-chart>
 
-            </ng-template>
           </div>
         </div>
       </ba-card>
+      <div class="col-md-12">
+
+        <ng-template [ngIf]="active==true">
+          <ba-chartist-chart
+            style="padding-bottom:20cm;margin-bottom:20cm"
+            baChartistChartClass="ct-chart stacked-bar"
+            baChartistChartType="Pie"
+            [baChartistChartData]="data['simpleDonutData']"
+            [baChartistChartOptions]="data['simpleDonutOptions']"
+            [baChartistChartResponsive]="getResponsive(80, 100)"></ba-chartist-chart>
+
+        </ng-template>
+      </div>
     </div>
   </div>
 </section>

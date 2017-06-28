@@ -15,7 +15,7 @@ export class ChartRankingProductService {
     },
     stackedBarOptions: {
       fullWidth: true,
-      height: '300px',
+      height: '400px',
       stackBars: true,
       axisY: {
         labelInterpolationFnc: function(value) {
@@ -82,18 +82,11 @@ export class ChartRankingProductService {
 
   getResponsive(padding, offset) {
     return [
-      ['screen and (min-width: 1550px)', {
+      ['screen and (max-width: 1024px)', {
         chartPadding: padding,
         labelOffset: offset,
         labelDirection: 'explode',
-        labelInterpolationFnc: function(value) {
-          return value;
-        }
-      }],
-      ['screen and (max-width: 1200px)', {
-        chartPadding: padding,
-        labelOffset: offset,
-        labelDirection: 'explode',
+        chartPadding: 30,
         labelInterpolationFnc: function(value) {
           return value;
         }
