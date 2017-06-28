@@ -32,11 +32,13 @@ export class ChartsAPI {
   getBestSeller(filter: JSON) {
     const headers = this.createHeaders();
     const body = this.createBody(filter);
-    const k = filter['k'];
+    let k;
+    for (var prop in filter) {
+      if (prop === '[object Object]' && filter[prop]) {
+        k = filter[prop];
+      }
+    }
     const url = 'https://coimco.herokuapp.com/api/productsrank-k/' + k;
-    console.log("aqui vamos");
-    console.log("headers -> ", headers);
-    console.log("body -> ", body);
     return this.http.post(url, body, headers)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));

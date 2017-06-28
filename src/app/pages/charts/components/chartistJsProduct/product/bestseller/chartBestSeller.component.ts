@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ChartBestSellerService } from './chartBestSeller.services';
 import { MdButtonModule } from '@angular/material';
+import 'hammerjs';
 
 @Component({
   selector: 'chartbest-seller',
@@ -14,14 +15,25 @@ export class ChartBestSeller {
   dbdata: any;
   active: boolean;
   value: number;
+  category_default: string;
   startDate = new Date('2011/01/01');
   endDate = Date.now();
+  categories = [
+    { value: 'Accesorios', viewValue: 'Accesorios' },
+    { value: 'Conectividad', viewValue: 'Conectividad' },
+    { value: 'Servidores', viewValue: 'Servidores' },
+    { value: 'Computadores', viewValue: 'Computadores' },
+    { value: 'Almacenamiento', viewValue: 'Almacenamiento' },
+    { value: 'Gabinetes', viewValue: 'Gabinetes' },
+    { value: 'Racks', viewValue: 'Racks' },
+  ];
   constructor(
     private _chartBestSellerService: ChartBestSellerService) {
 
   }
   ngOnInit() {
     this.value = 5;
+    this.category_default = 'Accesorios';
     //this.data = this._chartBestSellerService.getAll();
     this.active = false;
   }

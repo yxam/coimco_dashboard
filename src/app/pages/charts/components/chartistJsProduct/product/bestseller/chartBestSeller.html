@@ -45,7 +45,7 @@
                 </div>
               </h5>
               <h5 translate>
-                <div class="col-md-12">
+                <div class="col-md-4">
                   Cantidad:
                   <md-slider
                     ngModel
@@ -58,34 +58,24 @@
                     [min]="3"
                     [step]="1"
                     [thumb-label]="true"
-                    [(ngModel)]="value"
+                    [ngModel]="value"
                     [vertical]="vertical"></md-slider>
-                  <!--
-                  <input
-                    type="range"
+                </div>
+                <div class="col-md-4">
+                  <md-select
+                    placeholder="Categoría"
                     ngModel
                     required
-                    placeholder="Cantidad"
-                    size="20"
-                    #k="ngModel"
-                    name="k"
-                    min="1"
-                    value="5"
-                    max="15">
-                  -->
+                    style="color:white"
+                    #category="ngModel"
+                    [ngModel]="category_default"
+                    name="category">
+                    <md-option *ngFor="let category of categories" [value]="category.value">
+                      {{category.viewValue}}
+                    </md-option>
+                  </md-select>
                 </div>
-                <div class="col-md-5">
-                  <select name="category" ngModel required #category="ngModel">
-                    <option value="Accesorios">Accesorios</option>
-                    <option value="Conectividad">Conectividad</option>
-                    <option value="Servidores">Servidores</option>
-                    <option value="Computadores">Computadores</option>
-                    <option value="Almacenamiento">Almacenamiento</option>
-                    <option value="Gabinetes">Gabinetes</option>
-                    <option value="Racks">Racks</option>
-                  </select>
-                </div>
-                <button>Filter</button>
+                <button md-raised-button style="color:white;background-color:#A9E2F3">Filtrar</button>
               </h5>
 
             </form>
@@ -95,7 +85,7 @@
                 baChartistChartType="Pie"
                 [baChartistChartData]="data['simpleDonutData']"
                 [baChartistChartOptions]="data['simpleDonutOptions']"
-                [baChartistChartResponsive]="getResponsive(25, 60)"></ba-chartist-chart>
+                [baChartistChartResponsive]="getResponsive(60, 60)"></ba-chartist-chart>
 
             </ng-template>
           </div>
