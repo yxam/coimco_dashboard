@@ -75,7 +75,7 @@ const routes: Routes = [
       { path: 'RankingPurchaseCategory', component: ChartRankingPurchaseCategory },
       //sale
       { path: 'ProductByCategory', component: ChartProductByCategory },
-      { path: 'Best_Seller', component: ChartBest_Seller },
+      { path: 'Best_Seller', component: ChartBestSeller },
       { path: 'RankingCollected', component: ChartRankingCollected },
       { path: 'RankingTotalSale', component: ChartRankingTotalSale },
       { path: 'RankingProductBrand', component: ChartRankingProductBrand },

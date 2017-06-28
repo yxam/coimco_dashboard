@@ -81,6 +81,7 @@ export class ChartsAPI {
 
   getProductSales(filter: JSON): Observable<JSON[]> {
     const headers = this.createHeaders();
+    console.log("filter -> ", filter);
     const id = filter['id'];
     const url = 'https://coimco.herokuapp.com/api/productsrec/' + id;
     let body = this.createBody(filter);

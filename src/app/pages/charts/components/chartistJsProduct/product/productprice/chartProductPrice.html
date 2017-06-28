@@ -3,44 +3,53 @@
     <div class="col-md-12">
       <ba-card title="Precio Producto" baCardClass="with-scroll">
         <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+          <h5 translate>
+            <div class="col-md-3">
+              <md-input-container>
+                <input
+                  mdInput
+                  placeholder="Fecha inicial"
+                  type="date"
+                  name="start"
+                  step="1"
+                  min="2015-01-01"
+                  max="2017-12-31"
+                  [ngModel]="startDate | date:'yyyy-MM-dd'"
+                  required
+                  #end="ngModel">
+              </md-input-container>
+            </div>
 
-        <h5 translate>
-          <div class="col-md-2 ">Inicio:</div>
-          <div class="col-md-10">
-            <input type="date" ngModel required #start="ngModel" name="start" step="1" min="2011-01-01" max="2015-12-31" >
-          </div>
-        </h5>
+            <div class="col-md-3">
+              <md-input-container>
+                <input
+                  mdInput
+                  placeholder="Fecha final"
+                  type="date"
+                  name="end"
+                  step="1"
+                  min="2015-01-01"
+                  max="2017-12-31"
+                  [ngModel]="endDate | date:'yyyy-MM-dd'"
+                  required
+                  #end="ngModel">
+              </md-input-container>
+            </div>
 
-        <h5 translate>
-          <div class="col-md-2">Fin:</div>
-          <div class="col-md-10">
-            <input type="date" ngModel required #end="ngModel" name="end" step="1" min="2011-01-01" max="2015-12-31" >
-          </div>
-        </h5>
+            <div class="col-md-3">
+              <autocomplete-overviewProduct (getid)="showId($event)"></autocomplete-overviewProduct>
+            </div>
+            <button md-raised-button style="color:white;background-color:#A9E2F3">Filtrar</button>
+          </h5>
 
-        <h5 translate>
-
-
-          <div class="col-md-9">
-            Producto:<autocomplete-overviewProduct (getid)="showId($event)" ></autocomplete-overviewProduct>
-
-            <!--<select name="product"  ngModel required #product="ngModel">
-                <option value="190">Patch Panel #1</option>
-            </select>-->
-
-          </div>
-          <div class="col-md-3" align="right" ><button md-raised-button><span style="color:#304787">Buscar</span></button></div>
-        </h5>
-
-      </form>
-      <ng-template [ngIf]="active==true">
-        <ba-chartist-chart
-          baChartistChartClass="ct-chart"
-          baChartistChartType="Line"
-          [baChartistChartData]="data['areaLineData']"
-          [baChartistChartOptions]="data['areaLineOptions']">
-        </ba-chartist-chart>
-      </ng-template>
+        </form>
+        <ng-template [ngIf]="active==true">
+          <ba-chartist-chart
+            baChartistChartClass="ct-chart"
+            baChartistChartType="Line"
+            [baChartistChartData]="data['areaLineData']"
+            [baChartistChartOptions]="data['areaLineOptions']"></ba-chartist-chart>
+        </ng-template>
       </ba-card>
     </div>
   </div>

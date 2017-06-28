@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { MdButtonModule } from '@angular/material';
 import { ChartProductPriceService } from './chartProductPrice.services';
 import { AutocompleteOverviewProduct } from './../../../searcher/product/searcherProduct.component';
+import 'hammerjs';
 
 @Component({
   selector: 'chartProduct-price',
@@ -16,6 +17,10 @@ export class ChartProductPrice implements OnInit {
   active: boolean;
   dbdata: any;
   product_id: any;
+  value: number;
+  startDate = new Date('2015/01/01');
+  endDate = Date.now();
+
 
   constructor(private _chartProductPriceService: ChartProductPriceService) {
 
@@ -23,6 +28,7 @@ export class ChartProductPrice implements OnInit {
   ngOnInit() {
     //this.data = this._chartProductPriceService.getAll();
     this.active = false;
+    this.value = 5;
     this._chartProductPriceService.getProductsDb()
       .subscribe(
       data => {
@@ -39,16 +45,18 @@ export class ChartProductPrice implements OnInit {
     console.log(f.value);
     console.log(f.valid);
     this.active = false;
-    if (this.product_id === null) {
+    console.log(this.product_id);
+    if (this.product_id == null) {
       alert('Debe ingresar un producto');
+      return;
     }
-
     let form = JSON.stringify({
       start: f.value.start,
       end: f.value.end,
       k: f.value.k,
       id: this.product_id
     });
+    console.log("AQUI ---> ", form);
     const filter = JSON.parse(form);
     this._chartProductPriceService.getPrices(filter)
       .subscribe(
