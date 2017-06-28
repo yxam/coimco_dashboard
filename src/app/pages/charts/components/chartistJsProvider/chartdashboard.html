@@ -1,32 +1,58 @@
 <div class="grid grid-pad">
-  <a [routerLink]="['/pages/charts/rankingpurchase']" class="col-1-4">
-    <div class="module hero">
-      <h4>Ranking de compras general</h4>
-    </div>
-  </a>
-  <a [routerLink]="['/pages/charts/RankingPurchaseCategory']" class="col-1-4">
-    <div class="module hero">
-      <h4>Ranking de compras por categoria</h4>
-    </div>
-  </a> 
-  <a [routerLink]="['/pages/charts/RankingProvider']" class="col-1-4">
-    <div class="module hero">
-      <h4>Ranking tiempo de entrega</h4>
-    </div>
-  </a>
-  <a [routerLink]="['/pages/charts/RankingProviderCategory']" class="col-1-4">
-    <div class="module hero">
-      <h4>Ranking Proveedores por producto y precio</h4>
-    </div>
-  </a>
-  <a [routerLink]="['/pages/charts/RankingProduct']" class="col-1-4">
-    <div class="module hero">
-      <h4>Ranking variedad de productos</h4>
-    </div>
-  </a>
-  <a [routerLink]="['/pages/charts/RankingProviderInTime']" class="col-1-4">
-    <div class="module hero">
-      <h4>Precio de compra en el tiempo</h4>
-    </div>
-  </a>
+  <div class="col-md-1"></div>
+  <div class="col-md-9">
+    <table class="table" style="float:center">
+      <tr>
+        <th style="text-align:center">
+          <h5 translate>#</h5>
+        </th>
+        <th>
+          <h5 translate>Estadísticas de productos</h5>
+        </th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>
+          <a [routerLink]="['/pages/charts/RankingProviderCategory']" style="color:lightblue">Lista de productos y su precio por proveedor</a>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>
+          <a [routerLink]="['/pages/charts/RankingPurchaseCategory']" style="color:lightblue">Ranking de compras por categoría de producto</a>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>
+          <a [routerLink]="['/pages/charts/rankingpurchase']" style="color:lightblue">Ranking de compras</a>
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>
+          <a [routerLink]="['/pages/charts/RankingProductPurchase']" style="color:lightblue">Ranking de los productos más comprados</a>
+        </td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>
+          <a [routerLink]="['/pages/charts/RankingProviderInTime']" style="color:lightblue">Productos por categoría más comprados según monto de compra</a>
+        </td>
+      </tr>     
+      <tr>           
+        <td>6</td>
+        <td>
+          <a [routerLink]="['/pages/charts/RankingProvider']" style="color:lightblue">Ranking provedores segun tiempo de entrega</a>
+        </td>
+      </tr>      
+      <tr>           
+        <td>7</td>
+        <td>
+          <a [routerLink]="['/pages/charts/RankingProduct']" style="color:lightblue">K proveedores que entregan mayor variedad de productos</a>
+        </td>
+      </tr>            
+    </table>
+  </div>
+  <div class="col-md-2"></div>
 </div>

@@ -26,6 +26,7 @@ import { ChartRankingProvider } from './components/chartistJsProvider/Provider/R
 import { ChartRankingProviderInTime } from './components/chartistJsProvider/Provider/RankingProviderInTime/chartRankingProviderInTime.component';
 import { ChartRankingProviderCategory } from './components/chartistJsProvider/Provider/RankingProviderCategory/chartRankingProviderCategory.component';
 import { ChartRankingPurchaseCategory } from './components/chartistJsProvider/Provider/RankingPurchaseCategory/chartRankingPurchaseCategory.component';
+import { ChartRankingProductPurchase } from './components/chartistJsProvider/Provider/RankingProductPurchase/chartRankingProductPurchase.component';
 
 //sales
 import { ChartProductByCategory } from './components/chartistJsSale/Sale/ProductByCategory/chartProductByCategory.component';
@@ -93,8 +94,7 @@ const routes: Routes = [
       { path: 'RankingProviderCategory', component: ChartRankingProviderCategory }, //ready
       { path: 'RankingPurchaseCategory', component: ChartRankingPurchaseCategory }, //read
       { path: 'RankingProduct', component: ChartRankingProduct }, //ready
-
-
+      { path: 'RankingProductPurchase', component: ChartRankingProductPurchase },  // FALTÓ ESTE MAX XD
     ],
   },
 ];

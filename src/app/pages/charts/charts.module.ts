@@ -65,7 +65,8 @@ import { ChartRankingProduct } from './components/chartistJsProvider/Provider/Ra
 import { ChartRankingProductService } from './components/chartistJsProvider/Provider/RankingProduct/chartRankingProduct.services';
 import { ChartRankingPurchaseCategory } from './components/chartistJsProvider/Provider/RankingPurchaseCategory/chartRankingPurchaseCategory.component';
 import { ChartRankingPurchaseCategoryService } from './components/chartistJsProvider/Provider/RankingPurchaseCategory/chartRankingPurchaseCategory.services';
-
+import { ChartRankingProductPurchase } from './components/chartistJsProvider/Provider/RankingProductPurchase/chartRankingProductPurchase.component';
+import { ChartRankingProductPurchaseService } from './components/chartistJsProvider/Provider/RankingProductPurchase/chartRankingProductPurchase.services';
 
 //sales
 import { ChartProductByCategory} from './components/chartistJsSale/Sale/ProductByCategory/chartProductByCategory.component';
@@ -146,6 +147,7 @@ import { DataFilterProviderPipe } from './components/chartistJsProvider/provider
     ChartRankingProduct,
     ChartRankingPurchaseCategory,
     StripedTablePurchase,
+    ChartRankingProductPurchase,
 
     //sales
     ChartProductByCategory,
@@ -198,6 +200,7 @@ import { DataFilterProviderPipe } from './components/chartistJsProvider/provider
     ChartRankingProviderCategoryService,
     ChartRankingProductService,
     ChartRankingPurchaseCategoryService,
+    ChartRankingProductPurchaseService,
 
     //sales
     ChartProductByCategoryService,

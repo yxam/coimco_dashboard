@@ -1,0 +1,52 @@
+<section class="chartist">
+
+  <div class="row">
+
+    <div class="col-md-12">
+      <ba-card title="chart.pies_and_donuts" baCardClass="with-scroll">
+        <div class="row">
+          <div class="col-md-12 col-lg-10">
+            <h5 translate>{{'chart.donut'}}</h5>
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+
+            <h5 translate>
+              <div class="col-md-2">Inicio:</div>
+              <div class="col-md-10">
+                <input type="date" ngModel required #start="ngModel" name="start" step="1" min="2011-01-01" max="2015-12-31" value="2012-01-01">
+              </div>
+            </h5>
+
+            <h5 translate>
+              <div class="col-md-2">Fin:</div>
+              <div class="col-md-10">
+                <input type="date" ngModel required #end="ngModel" name="end" step="1" min="2011-01-01" max="2015-12-31" value="2015-01-01">
+              </div>
+            </h5>
+            <h5 translate>
+              <div class="col-md-2">Cantidad:</div>
+              <div class="col-md-5">
+
+                <input type="number" [ngModel]="5" required #k="ngModel" name="k" min="1" value="5" max="15">
+              </div>
+              <div class="col-md-5">
+                <button>Buscar</button>
+              </div>
+            </h5>
+
+          </form>
+            <ng-template [ngIf]="active==true">
+              <ba-chartist-chart
+                baChartistChartClass="ct-chart stacked-bar"
+                baChartistChartType="Bar"
+                [baChartistChartData]="data['stackedBarData']"
+                [baChartistChartOptions]="data['stackedBarOptions']"></ba-chartist-chart>
+          </ng-template>
+          </div>
+        </div>
+      </ba-card>
+      <ng-template [ngIf]="active==true">
+      <data-tablesProvider [dataProvider]="dataProviders" ></data-tablesProvider>
+    </ng-template>
+    </div>
+  </div>
+</section>

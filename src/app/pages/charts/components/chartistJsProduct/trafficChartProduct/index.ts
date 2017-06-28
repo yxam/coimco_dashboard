@@ -1,1 +1,2 @@
-export * from './trafficChartProduct.component';
+export * from 
+'./trafficChartProduct.component';
