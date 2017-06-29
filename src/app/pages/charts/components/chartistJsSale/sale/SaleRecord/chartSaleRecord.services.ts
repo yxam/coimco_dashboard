@@ -26,10 +26,10 @@ export class ChartSaleRecordService {
     return this._data;
   }
 
-  getSeller(filter: JSON): any {
+  getCash(): any {
 
     //Retorna el observable de la data
-    return this._chartAPI.getBestSeller(filter);
+    return this._chartAPI.getSalesRecord();
   }
   printDATA(data: any) {
     console.log(data);

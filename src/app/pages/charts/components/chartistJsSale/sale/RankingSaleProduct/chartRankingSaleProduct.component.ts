@@ -12,6 +12,7 @@ export class ChartRankingSaleProduct {
   data: any;
   dbdata: any;
   datos_aux: any;
+  active: boolean;
   constructor(
     private _chartRankingSaleProductService: ChartRankingSaleProductService,
     private _chartAPI: ChartsAPI) {
@@ -24,15 +25,12 @@ export class ChartRankingSaleProduct {
     return this._chartRankingSaleProductService.getResponsive(padding, offset);
   }
   onSubmit(f: NgForm) {
-    console.log(f.value);
-    console.log(f.valid);
-    this._chartRankingSaleProductService.getSeller(f.value).subscribe(
+    this.active = false;
+    this._chartRankingSaleProductService.getProducts(f.value).subscribe(
       data => {
-        console.log("Aqui -> ", data);
-        this.dbdata = data['data'][0].ID;
-        console.log(this.dbdata);
-        this.datos_aux = this._chartRankingSaleProductService.getAll();
-
+        this.dbdata = data['data'];
+        this.datos_aux = this._chartRankingSaleProductService.setData(this.dbdata);
+        this.active = true;
       },
       err => {
         console.log(err)

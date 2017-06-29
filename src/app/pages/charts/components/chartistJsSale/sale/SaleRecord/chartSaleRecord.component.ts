@@ -11,31 +11,39 @@ import { ChartsAPI } from './../../../../chartsAPI.services';
 export class ChartSaleRecord {
   data: any;
   dbdata: any;
-  datos_aux: any;
+  active: boolean;
+  start: any;
+  end: any;
+  cash: any;
+  quantity: any;
   constructor(
     private _chartSaleRecordService: ChartSaleRecordService,
     private _chartAPI: ChartsAPI) {
 
   }
   ngOnInit() {
-    this.data = this._chartSaleRecordService.getAll();
-  }
-  getResponsive(padding, offset) {
-    return this._chartSaleRecordService.getResponsive(padding, offset);
-  }
-  onSubmit(f: NgForm) {
-    console.log(f.value);
-    console.log(f.valid);
-    this._chartSaleRecordService.getSeller(f.value).subscribe(
-      data => {
-        console.log("Aqui -> ", data);
-        this.dbdata = data['data'][0].ID;
-        console.log(this.dbdata);
-        this.datos_aux = this._chartSaleRecordService.getAll();
+    this.active = false;
+    //let filter= JSON.stringify(dates);
+    //filter=JSON.parse(filter);
+    this.start = '01-01-2017';
+    this.end = '01-06-2017';
 
+    this._chartSaleRecordService.getCash().subscribe(
+      data => {
+        this.dbdata = data['data'];
+        this.cash = this.numberWithCommas(this.dbdata.Sum);
+        this.quantity = this.numberWithCommas(this.dbdata.Count);
+        this.active = true;
       },
       err => {
         console.log(err)
       });
   }
+  numberWithCommas(x: any) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+  getResponsive(padding, offset) {
+    return this._chartSaleRecordService.getResponsive(padding, offset);
+  }
+
 }

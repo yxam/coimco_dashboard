@@ -1,12 +1,10 @@
 <section class="chartist">
 
   <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <ba-card title="chart.pies_and_donuts" baCardClass="with-scroll">
+    <div class="col-md-12">
+      <ba-card title="Ranking productos por venta" baCardClass="with-scroll">
         <div class="row">
           <div class="col-md-12 col-lg-10">
-            <h5 translate>{{'chart.donut'}}</h5>
             <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
 
             <h5 translate>
@@ -34,19 +32,19 @@
             </h5>
 
           </form>
-            <ng-template [ngIf]="f.valid==true">
-            <ba-chartist-chart
-              baChartistChartClass="ct-chart stacked-bar"
-              baChartistChartType="Pie"
-              [baChartistChartData]="data['simpleDonutData']"
-              [baChartistChartOptions]="data['simpleDonutOptions']"
-              [baChartistChartResponsive]="getResponsive(25, 60)">
-            </ba-chartist-chart>
-            <h3>{{dbdata}}</h3>
-          </ng-template>
           </div>
         </div>
       </ba-card>
+      <ng-template [ngIf]="active==true">
+        <div class="col-md-12">
+          <ba-chartist-chart
+            baChartistChartClass="ct-chart stacked-bar"
+            baChartistChartType="Bar"
+            [baChartistChartData]="data['stackedBarData']"
+            [baChartistChartOptions]="data['stackedBarOptions']">
+          </ba-chartist-chart>
+        </div>
+      </ng-template>
     </div>
   </div>
 </section>
