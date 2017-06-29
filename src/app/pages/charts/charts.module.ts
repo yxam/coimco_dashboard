@@ -5,7 +5,8 @@ import { NgaModule } from '../../theme/nga.module';
 import { MaterialModule } from '@angular/material';
 import { DataTableModule } from 'angular2-datatable';
 
-import {CondensedTable} from './../tables/components/basicTables/components/condensedTable/condensedTable.component';
+import { CondensedTable } from './../tables/components/basicTables/components/condensedTable/condensedTable.component';
+import { BorderedTable } from './../tables/components/basicTables/components/borderedTable/borderedTable.component';
 
 import { routing } from './charts.routing';
 import { Charts } from './charts.component';
@@ -140,6 +141,7 @@ import { DataFilterProviderPipe } from './components/chartistJsProvider/provider
     TrafficChartProduct,
     ChartRankPPrice,
     ChartProductPriceTime,
+    BorderedTable,
     //customer
     ChartProductBuy,
     ChartFrequency,

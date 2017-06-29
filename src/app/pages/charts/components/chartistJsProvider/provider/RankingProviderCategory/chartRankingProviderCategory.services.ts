@@ -16,8 +16,8 @@ export class ChartRankingProviderCategoryService {
     simpleDonutOptions: {
       fullWidth: true,
       donut: true,
-      height: '300px',
-      weight: '300px',
+      height: '450px',
+      weight: '450px',
       labelDirection: 'explode',
       labelInterpolationFnc: function(value) {
         return value[0];
@@ -52,11 +52,13 @@ export class ChartRankingProviderCategoryService {
       list.push(JSON.stringify(variable))
     });
     let data_chart: string[] = [];
+    console.log(dbdata);
     for (let i = 0; i < list.length; i++) {
       const data_db = JSON.parse(list[i]);
+      console.log(data_db);
       const name = data_db.Name;
       const price = data_db.Price;
-      this._data.simpleDonutData.labels.push(name);
+      this._data.simpleDonutData.labels.push(name + " Cantidad: " + price);
       this._data.simpleDonutData.series.push(price);
     }
     return this._data;

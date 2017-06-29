@@ -29,7 +29,7 @@ export class ChartCollectedService {
   getSeller(filter: JSON): any {
 
     //Retorna el observable de la data
-    return this._chartAPI.getBestSeller(filter);
+    return this._chartAPI.getCollected(filter);
   }
   printDATA(data: any) {
     console.log(data);

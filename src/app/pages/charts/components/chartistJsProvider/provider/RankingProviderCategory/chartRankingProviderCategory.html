@@ -3,53 +3,81 @@
   <div class="row">
 
     <div class="col-md-12">
-      <ba-card title="chart.pies_and_donuts" baCardClass="with-scroll">
-        <div class="row">
+      <ba-card title="Productos y precio del proveedor" baCardClass="with-scroll">
+
           <div class="col-md-12 col-lg-10">
-            <h5 translate>{{'chart.donut'}}</h5>
             <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
 
-            <h5 translate>
-              <div class="col-md-2">Inicio:</div>
-              <div class="col-md-10">
-                <input type="date" ngModel required #start="ngModel" name="start" step="1" min="2011-01-01" max="2015-12-31" value="2012-01-01">
-              </div>
-            </h5>
+              <h5 translate>
+                <div class="col-md-4">
+                  <md-input-container>
+                    <input
+                      mdInput
+                      placeholder="Fecha inicial"
+                      type="date"
+                      name="start"
+                      step="1"
+                      min="2015-01-01"
+                      max="2017-12-31"
+                      [ngModel]="startDate | date:'yyyy-MM-dd'"
+                      required
+                      #start="ngModel">
+                  </md-input-container>
+                </div>
 
-            <h5 translate>
-              <div class="col-md-2">Fin:</div>
-              <div class="col-md-10">
-                <input type="date" ngModel required #end="ngModel" name="end" step="1" min="2011-01-01" max="2015-12-31" value="2015-01-01">
-              </div>
-            </h5>
-            <h5 translate>
-              <div class="col-md-2">Cantidad:</div>
-              <div class="col-md-10">
+                <div class="col-md-8">
+                  <md-input-container>
+                    <input
+                      mdInput
+                      placeholder="Fecha final"
+                      type="date"
+                      name="end"
+                      step="1"
+                      min="2015-01-01"
+                      max="2017-12-31"
+                      [ngModel]="endDate | date:'yyyy-MM-dd'"
+                      required
+                      #end="ngModel">
+                  </md-input-container>
+                </div>
 
-                <input type="number" ngModel required #k="ngModel" name="k" min="1" value="5" max="15">
-              </div>
-              <div class= "col-md-6">
-                <autocomplete-overviewProvider (getid)="showId($event)" ></autocomplete-overviewProvider>
-              </div>
-              <div class="col-md-6">
-                <button md-raised-button><span style="color:#304787">Buscar</span></button>
-              </div>
-            </h5>
 
+                <div class="col-md-4">
+                  Cantidad:
+                  <md-slider
+                    ngModel
+                    required
+                    #k="ngModel"
+                    [name]="k"
+                    [disabled]="false"
+                    [invert]="invert"
+                    [max]="10"
+                    [min]="3"
+                    [step]="1"
+                    [thumb-label]="true"
+                    [ngModel]="value"
+                    [vertical]="vertical"></md-slider>
+                </div>
+
+                <div class="col-md-4">
+                  <autocomplete-overviewProvider (getid)="showId($event)" ></autocomplete-overviewProvider>
+                </div>
+                <div class="col-md-4"><button md-raised-button style="color:white;background-color:#A9E2F3">Filtrar</button></div>
+              </h5>
           </form>
-            <ng-template [ngIf]="active==true">
+          <ng-template [ngIf]="active==true" style="padding-bottom:2cm;margin-bottom:2cm">
             <ba-chartist-chart
               baChartistChartClass="ct-chart stacked-bar"
               baChartistChartType="Pie"
               [baChartistChartData]="data['simpleDonutData']"
               [baChartistChartOptions]="data['simpleDonutOptions']"
-              [baChartistChartResponsive]="getResponsive(25, 60)">
-            </ba-chartist-chart>
+              [baChartistChartResponsive]="getResponsive(2, 8)"></ba-chartist-chart>
 
           </ng-template>
           </div>
-        </div>
+
       </ba-card>
     </div>
   </div>
+
 </section>

@@ -14,13 +14,28 @@ export class ChartRankingProviderCategory {
   data: any;
   dbdata: any;
   provider_id: any;
+  category_default: string;
   active: boolean;
+  value: any;
+  startDate = new Date('2015/01/01');
+  endDate = Date.now();
+  categories = [
+    { value: 'Accesorios', viewValue: 'Accesorios' },
+    { value: 'Conectividad', viewValue: 'Conectividad' },
+    { value: 'Servidores', viewValue: 'Servidores' },
+    { value: 'Computadores', viewValue: 'Computadores' },
+    { value: 'Almacenamiento', viewValue: 'Almacenamiento' },
+    { value: 'Gabinetes', viewValue: 'Gabinetes' },
+    { value: 'Racks', viewValue: 'Racks' },
+  ];
   constructor(
     private _chartRankingProviderCategoryService: ChartRankingProviderCategoryService,
     private _chartAPI: ChartsAPI) {
 
   }
   ngOnInit() {
+    this.value = 5;
+    this.category_default = 'Accesorios';
     this.active = false;
     //this.data = this._chartRankingProviderCategoryService.getAll();
   }
@@ -32,15 +47,23 @@ export class ChartRankingProviderCategory {
       this.provider_id = event.id;
     }
   }
+
   onSubmit(f: NgForm) {
     this.active = false;
-    if (this.provider_id === null) {
+    if (this.provider_id == null) {
       alert("Debe elegir un proveedor");
+      return;
+    }
+    let ke;
+    for (var prop in f.value) {
+      if (prop === '[object Object]' && f.value[prop]) {
+        ke = f.value[prop];
+      }
     }
     let form = JSON.stringify({
       start: f.value.start,
       end: f.value.end,
-      k: f.value.k,
+      k: ke,
       id: this.provider_id
     });
     const filter = JSON.parse(form);
@@ -49,6 +72,7 @@ export class ChartRankingProviderCategory {
         this.dbdata = data['data'];
         this.data = this._chartRankingProviderCategoryService.setData(this.dbdata);
         this.active = true;
+        console.log(this.data);
 
       },
       err => {

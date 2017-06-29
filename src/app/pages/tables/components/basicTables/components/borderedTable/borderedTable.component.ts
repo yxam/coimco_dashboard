@@ -1,16 +1,22 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
-import {BasicTablesService} from '../../basicTables.service';
+
 
 @Component({
   selector: 'bordered-table',
   templateUrl: './borderedTable.html',
 })
 export class BorderedTable {
+  @Input() customer: Array<any>;
+  metricsTableData: Array<any>;
 
-  metricsTableData:Array<any>;
-
-  constructor(private _basicTablesService: BasicTablesService) {
-    this.metricsTableData = _basicTablesService.metricsTableData;
+  constructor() {
+  }
+  ngOnInit() {
+    let arr: any[] = [];
+    for (let ix in this.customer) {
+      arr.push(JSON.parse(this.customer[ix]));
+    }
+    this.metricsTableData = arr;
   }
 }

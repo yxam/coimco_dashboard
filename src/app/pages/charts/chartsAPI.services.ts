@@ -142,9 +142,15 @@ export class ChartsAPI {
   getRankProviderTime(filter: JSON): Observable<JSON[]> {
     const headers = this.createHeaders();
     const body = this.createBody(filter);
-    const id = filter['id'];
-    const k = filter['k'];
-    const url = 'http://coimco.herokuapp.com/api/providersrank-pp/' + k + '/' + id;
+    console.log(filter);
+    const id = filter['category'];
+    let k;
+    for (var prop in filter) {
+      if (prop === '[object Object]' && filter[prop]) {
+        k = filter[prop];
+      }
+    }
+    const url = 'http://coimco.herokuapp.com/api/purchasesrank-cp/' + k + '/' + id;
     return this.http.post(url, body, headers)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
@@ -152,7 +158,12 @@ export class ChartsAPI {
   getRankPurchase(filter: JSON): Observable<JSON[]> {
     const headers = this.createHeaders();
     const body = this.createBody(filter);
-    const k = filter['k'];
+    let k;
+    for (var prop in filter) {
+      if (prop === '[object Object]' && filter[prop]) {
+        k = filter[prop];
+      }
+    }
     const url = 'http://coimco.herokuapp.com/api/purchasesrank-k/' + k;
     return this.http.post(url, body, headers)
       .map((res: Response) => res.json())
@@ -171,7 +182,12 @@ export class ChartsAPI {
   getRankProviderP(filter: JSON): Observable<JSON[]> {
     const headers = this.createHeaders();
     const body = this.createBody(filter);
-    const k = filter['k'];
+    let k;
+    for (var prop in filter) {
+      if (prop === '[object Object]' && filter[prop]) {
+        k = filter[prop];
+      }
+    }
     const url = 'http://coimco.herokuapp.com/api/providersrank-v/' + k;
     return this.http.post(url, body, headers)
       .map((res: Response) => res.json())
@@ -180,7 +196,12 @@ export class ChartsAPI {
   getRankPurchaseC(filter: JSON): Observable<JSON[]> {
     const headers = this.createHeaders();
     const body = this.createBody(filter);
-    const k = filter['k'];
+    let k;
+    for (var prop in filter) {
+      if (prop === '[object Object]' && filter[prop]) {
+        k = filter[prop];
+      }
+    }
     const category = filter['category'];
     const url = 'http://coimco.herokuapp.com/api/productsrank-cp/' + k + '/' + category;
     return this.http.post(url, body, headers)
@@ -190,7 +211,12 @@ export class ChartsAPI {
   getProviderTime(filter: JSON) {
     const headers = this.createHeaders();
     const body = this.createBody(filter);
-    const k = filter['k'];
+    let k;
+    for (var prop in filter) {
+      if (prop === '[object Object]' && filter[prop]) {
+        k = filter[prop];
+      }
+    }
     const url = 'http://coimco.herokuapp.com/api/providersrank-k/' + k;
     return this.http.post(url, body, headers)
       .map((res: Response) => res.json())
@@ -205,6 +231,16 @@ export class ChartsAPI {
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
+  getCollected(filter: JSON): Observable<JSON[]> {
+    const headers = this.createHeaders();
+    const body = this.createBody(filter);
+    //const k = filter['k'];
+    const id = filter['id'];
+    const url = 'http://coimco.herokuapp.com/api/customersrec-c/' + id;
+    return this.http.post(url, body, headers)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
   getRankProductCustomer(filter: JSON): Observable<JSON[]> {
     const headers = this.createHeaders();
     const body = this.createBody(filter);
@@ -215,10 +251,30 @@ export class ChartsAPI {
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
+  getFrequency(filter: JSON): Observable<JSON[]> {
+    const headers = this.createHeaders();
+    const body = this.createBody(filter);
+    //const k = filter['k'];
+    let k;
+    for (var prop in filter) {
+      if (prop === '[object Object]' && filter[prop]) {
+        k = filter[prop];
+      }
+    }
+    const url = 'http://coimco.herokuapp.com/api/customersrank-f/' + k;
+    return this.http.post(url, body, headers)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
   getRankCustomer(filter: JSON): Observable<JSON[]> {
     const headers = this.createHeaders();
     const body = this.createBody(filter);
-    const k = filter['k'];
+    let k;
+    for (var prop in filter) {
+      if (prop === '[object Object]' && filter[prop]) {
+        k = filter[prop];
+      }
+    }
     //const id = filter['id'];
     const url = 'http://coimco.herokuapp.com/api/customersrank-k/' + k;
     return this.http.post(url, body, headers)

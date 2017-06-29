@@ -16,7 +16,7 @@ export class ChartRankPPrice implements OnInit {
   active: boolean;
   dbdata: any;
   product_id: any;
-  startDate = new Date('2011/01/01');
+  startDate = new Date('2015/01/01');
   endDate = Date.now();
   constructor(private _ChartRankPPriceService: ChartRankPPriceService) {
 
@@ -37,8 +37,6 @@ export class ChartRankPPrice implements OnInit {
     }
   }
   onSubmit(f: NgForm) {
-    console.log(f.value);
-    console.log(f.valid);
     this.active = false;
     if (this.product_id == null) {
       alert('Debe ingresar un producto');
@@ -56,10 +54,9 @@ export class ChartRankPPrice implements OnInit {
       .subscribe(
       data => {
         this.dbdata = data['data'];
-        this.active = true;
-        console.log("AQUIIIII -> ", this.dbdata);
+
         this.data = this._ChartRankPPriceService.setData(this.dbdata);
-        console.log("ACAAAAA -> ", this.data);
+        this.active = true;
       },
       err => { console.log(err) }
       );
