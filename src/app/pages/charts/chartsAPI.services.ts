@@ -104,7 +104,7 @@ export class ChartsAPI {
   getRankPPrice(filter: JSON): Observable<JSON[]> {
     const headers = this.createHeaders();
     const id = filter['id'];
-    const url = 'https://coimco.herokuapp.com/api/purchasesrec-p/' + id;
+    const url = 'https://coimco.herokuapp.com/api/productsrank-pp/' + id;
     let body = this.createBody(filter);
     console.log(body);
     console.log(url);
@@ -118,8 +118,6 @@ export class ChartsAPI {
     const id = filter['id'];
     const url = 'https://coimco.herokuapp.com/api/salesrec-p/' + id;
     let body = this.createBody(filter);
-    console.log(body);
-    console.log(url);
     return this.http.post(url, body, headers)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));

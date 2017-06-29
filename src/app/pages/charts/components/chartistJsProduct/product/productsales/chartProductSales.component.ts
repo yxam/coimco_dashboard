@@ -17,6 +17,8 @@ export class ChartProductSales implements OnInit {
   active: boolean;
   dbdata: any;
   product_id: any;
+  startDate = new Date('2015/01/01');
+  endDate = Date.now();
 
   constructor(private _chartProductSalesService: ChartProductSalesService) {
 
@@ -43,8 +45,9 @@ export class ChartProductSales implements OnInit {
     console.log(f.value);
     console.log(f.valid);
     this.active = false;
-    if (this.product_id === null) {
+    if (this.product_id == null) {
       alert('Debe ingresar un producto');
+      return;
     }
 
     let form = JSON.stringify({

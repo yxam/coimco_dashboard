@@ -5,6 +5,8 @@ import { NgaModule } from '../../theme/nga.module';
 import { MaterialModule } from '@angular/material';
 import { DataTableModule } from 'angular2-datatable';
 
+import {CondensedTable} from './../tables/components/basicTables/components/condensedTable/condensedTable.component';
+
 import { routing } from './charts.routing';
 import { Charts } from './charts.component';
 import { chartistJsProduct } from './components/chartistJsProduct/chartistJsProduct.component';
@@ -128,6 +130,7 @@ import { DataFilterProviderPipe } from './components/chartistJsProvider/provider
     ChartDashboardSale,
     ChartBestSeller,
     ChartProductSales,
+    CondensedTable,
     ChartRankCategory,
     ChartRankBrand,
     ChartProductPrice,

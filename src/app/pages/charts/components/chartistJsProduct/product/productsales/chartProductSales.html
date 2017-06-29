@@ -24,7 +24,7 @@
             </h5>
 
             <h5 translate>
-              <div class="col-md-9">
+              <div class="col-md-3">
                 <md-input-container>
                   <input
                     mdInput
@@ -41,32 +41,11 @@
               </div>
             </h5>
             <h5 translate>
-              <div class="col-md-4">
-                Cantidad:
-                <md-slider
-                  ngModel
-                  required
-                  #k="ngModel"
-                  [name]="k"
-                  [disabled]="false"
-                  [invert]="invert"
-                  [max]="10"
-                  [min]="3"
-                  [step]="1"
-                  [thumb-label]="true"
-                  [ngModel]="value"
-                  [vertical]="vertical"></md-slider>
+              <div class="col-md-3">
+                <autocomplete-overviewProduct (getid)="showId($event)"></autocomplete-overviewProduct>
               </div>
-
-              <h5 translate>
-
-                <div class="col-md-9">
-                  <autocomplete-overviewProduct (getid)="showId($event)"></autocomplete-overviewProduct>
-                </div>
-              </h5>
-              <button md-raised-button style="color:white;background-color:#A9E2F3">Filtrar</button>
             </h5>
-
+            <button md-raised-button style="color:white;background-color:#A9E2F3">Filtrar</button>
           </form>
 
           <div class="col-md-10">

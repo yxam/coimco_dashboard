@@ -62,19 +62,12 @@ export class ChartRankPPriceService {
     for (let i = 0; i < list.length; i++) {
       const data_db = JSON.parse(list[i]);
       const price = data_db.Price;
-      const date = data_db.Date;
-      const aux: Date = new Date(date);
-      let fecha: any;
-      const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
-      ];
-      fecha = monthNames[aux.getMonth()] + '-' + aux.getFullYear();
-      const label = data_db.Name + '\n' + fecha;
-      this._dataPrices.areaLineData.labels.push(label);
-      data_chart.push(price);
+      const mail = data_db.Mail;
+      const phone = data_db.Phone;
+      const name = data_db.Name;
+      data_chart.push(JSON.stringify({ "price": price, "mail": mail, "phone": phone, "name": name }));
     }
-    this._dataPrices.areaLineData.series.push(data_chart);
-    return this._dataPrices;
+    return data_chart;
   }
 
   public getResponsive(padding, offset) {
