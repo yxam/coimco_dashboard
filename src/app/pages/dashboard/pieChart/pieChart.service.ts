@@ -52,16 +52,19 @@ export class PieChartService {
     return this._data_pieChart.getStats(currentUser);
 
   }
+  numberWithCommas(x: any) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
   setData(dbdata: JSON) {
     //Cuando el farid tenga listo el dashboard en la api, debo cambiar de array a sólo JSON
     //const list: string[] = [];
     const data_dash: string[] = [];
     const data_db = dbdata;
     //Cuando este listo el metodo en la api se agregará esto
-    const money_sale = data_db['Sale_Total'];
-    const sale_last = data_db['LastSale'];
-    const money_purchase = data_db['PurchaseTotal'];
-    const purchase_last = data_db['LastPurchase'];
+    const money_sale = this.numberWithCommas(data_db['Sale_Total']);
+    const sale_last = this.numberWithCommas(data_db['LastSale']);
+    const money_purchase = this.numberWithCommas(data_db['PurchaseTotal']);
+    const purchase_last = this.numberWithCommas(data_db['LastPurchase']);
 
 
     const pieColor = this._baConfig.get().colors.custom.dashboardPieChart;
