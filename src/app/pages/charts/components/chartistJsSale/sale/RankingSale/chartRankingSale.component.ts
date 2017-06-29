@@ -12,26 +12,26 @@ export class ChartRankingSale {
   data: any;
   dbdata: any;
   datos_aux: any;
+  active: boolean;
   constructor(
     private _chartRankingSaleService: ChartRankingSaleService,
     private _chartAPI: ChartsAPI) {
 
   }
   ngOnInit() {
-    this.data = this._chartRankingSaleService.getAll();
+    this.active = false;
+    //this.data = this._chartRankingSaleService.getAll();
   }
   getResponsive(padding, offset) {
     return this._chartRankingSaleService.getResponsive(padding, offset);
   }
   onSubmit(f: NgForm) {
-    console.log(f.value);
-    console.log(f.valid);
-    this._chartRankingSaleService.getSeller(f.value).subscribe(
+    this.active = false;
+    this._chartRankingSaleService.getCustomers(f.value).subscribe(
       data => {
-        console.log("Aqui -> ", data);
-        this.dbdata = data['data'][0].ID;
-        console.log(this.dbdata);
-        this.datos_aux = this._chartRankingSaleService.getAll();
+        this.dbdata = data['data'];
+        this.data = this._chartRankingSaleService.setData(this.dbdata);
+        this.active = true;
 
       },
       err => {

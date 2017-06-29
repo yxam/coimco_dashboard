@@ -12,27 +12,26 @@ export class ChartCustomerByProduct {
   data: any;
   dbdata: any;
   datos_aux: any;
+  active: boolean;
   constructor(
     private _chartCustomerByProductService: ChartCustomerByProductService,
     private _chartAPI: ChartsAPI) {
 
   }
   ngOnInit() {
-    this.data = this._chartCustomerByProductService.getAll();
+    this.active = false;
+    //this.data = this._chartCustomerByProductService.getAll();
   }
   getResponsive(padding, offset) {
     return this._chartCustomerByProductService.getResponsive(padding, offset);
   }
   onSubmit(f: NgForm) {
-    console.log(f.value);
-    console.log(f.valid);
-    this._chartCustomerByProductService.getSeller(f.value).subscribe(
+    this.active = false;
+    this._chartCustomerByProductService.getCustomers(f.value).subscribe(
       data => {
-        console.log("Aqui -> ", data);
-        this.dbdata = data['data'][0].ID;
-        console.log(this.dbdata);
-        this.datos_aux = this._chartCustomerByProductService.getAll();
-
+        this.dbdata = data['data'];
+        this.data = this._chartCustomerByProductService.setData(this.dbdata);
+        this.active = true;
       },
       err => {
         console.log(err)
