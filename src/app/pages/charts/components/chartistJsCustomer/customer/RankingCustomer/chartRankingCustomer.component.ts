@@ -14,6 +14,10 @@ export class ChartRankingCustomer {
   dbdata: any;
   customer_id: any;
   active: boolean;
+  category_default: string;
+  value: number;
+  startDate = new Date('2015/01/01');
+  endDate = Date.now();
   constructor(
     private _chartRankingCustomerService: ChartRankingCustomerService,
     private _chartAPI: ChartsAPI) {
@@ -21,29 +25,17 @@ export class ChartRankingCustomer {
   }
   ngOnInit() {
     this.active = false;
+    this.value = 5;
+    this.category_default = 'Accesorios';
     //this.data = this._chartRankingCustomerService.getAll();
   }
   getResponsive(padding, offset) {
     return this._chartRankingCustomerService.getResponsive(padding, offset);
   }
-  showId(event): void {
-    if (event.id !== null) {
-      this.customer_id = event.id;
-    }
-  }
+
   onSubmit(f: NgForm) {
     this.active = false;
-    if (this.customer_id === null) {
-      alert("Debe elegir un proveedor");
-    }
-    let form = JSON.stringify({
-      start: f.value.start,
-      end: f.value.end,
-      k: f.value.k,
-      id: this.customer_id,
-    });
-    const filter = JSON.parse(form);
-    this._chartRankingCustomerService.getCustomers(filter).subscribe(
+    this._chartRankingCustomerService.getCustomers(f.value).subscribe(
       data => {
         this.dbdata = data['data'];
         this.data = this._chartRankingCustomerService.setData(this.dbdata);

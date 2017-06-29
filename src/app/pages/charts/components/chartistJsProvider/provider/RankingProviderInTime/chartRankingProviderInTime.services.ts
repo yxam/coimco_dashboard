@@ -70,7 +70,7 @@ export class ChartRankingProviderInTimeService {
     for (let i = 0; i < list.length; i++) {
       const data_db = JSON.parse(list[i]);
       const name = data_db.Name;
-      const price = data_db.Price;
+      const price = data_db.Total;
       this._data.stackedBarData.labels.push(name);
       data_chart.push(price);
       let data_series: any[] = [];

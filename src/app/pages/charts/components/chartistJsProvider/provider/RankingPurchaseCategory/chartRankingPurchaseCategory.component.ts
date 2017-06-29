@@ -12,6 +12,19 @@ export class ChartRankingPurchaseCategory {
   data: any;
   active: boolean;
   dbdata: any;
+  category_default: string;
+  value: number;
+  startDate = new Date('2015/01/01');
+  endDate = Date.now();
+  categories = [
+    { value: 'Accesorios', viewValue: 'Accesorios' },
+    { value: 'Conectividad', viewValue: 'Conectividad' },
+    { value: 'Servidores', viewValue: 'Servidores' },
+    { value: 'Computadores', viewValue: 'Computadores' },
+    { value: 'Almacenamiento', viewValue: 'Almacenamiento' },
+    { value: 'Gabinetes', viewValue: 'Gabinetes' },
+    { value: 'Racks', viewValue: 'Racks' },
+  ];
   constructor(
     private _chartRankingPurchaseCategoryService: ChartRankingPurchaseCategoryService,
     private _chartAPI: ChartsAPI) {
@@ -20,6 +33,8 @@ export class ChartRankingPurchaseCategory {
   ngOnInit() {
     //this.data = this._chartRankingPurchaseCategoryService.getAll();
     this.active = false;
+    this.value = 5;
+    this.category_default = 'Accesorios';
   }
   getResponsive(padding, offset) {
     return this._chartRankingPurchaseCategoryService.getResponsive(padding, offset);

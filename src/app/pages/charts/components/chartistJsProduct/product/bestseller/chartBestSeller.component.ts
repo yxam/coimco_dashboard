@@ -15,10 +15,10 @@ export class ChartBestSeller {
   data: any;
   dbdata: any;
   active: boolean;
-  value: number;
   category_default: string;
-  startDate = new Date('2011/01/01');
-  endDate = Date.now();
+  value: number;
+  start = new Date('2015/01/01');
+  end = Date.now();
   categories = [
     { value: 'Accesorios', viewValue: 'Accesorios' },
     { value: 'Conectividad', viewValue: 'Conectividad' },

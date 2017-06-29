@@ -12,6 +12,10 @@ export class ChartRankingProvider {
   data: any;
   active: boolean;
   dbdata: any;
+  category_default: string;
+  value: number;
+  startDate = new Date('2015/01/01');
+  endDate = Date.now();
   constructor(
     private _chartRankingProviderService: ChartRankingProviderService,
     private _chartAPI: ChartsAPI) {
@@ -19,6 +23,8 @@ export class ChartRankingProvider {
   }
   ngOnInit() {
     this.active = false;
+    this.value = 5;
+    this.category_default = 'Accesorios';
     //this.data = this._chartRankingProviderService.getAll();
   }
   getResponsive(padding, offset) {

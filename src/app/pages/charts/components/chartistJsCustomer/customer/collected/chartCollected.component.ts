@@ -24,11 +24,9 @@ export class ChartCollected {
     return this._chartCollectedService.getResponsive(padding, offset);
   }
   onSubmit(f: NgForm) {
-    console.log(f.value);
-    console.log(f.valid);
     this._chartCollectedService.getSeller(f.value).subscribe(
       data => {
-        console.log("Aqui -> ", data);
+
         this.dbdata = data['data'][0].ID;
         console.log(this.dbdata);
         this.datos_aux = this._chartCollectedService.getAll();

@@ -15,6 +15,19 @@ export class ChartRankingPurchase {
   datos_aux: any;
   active: boolean;
   dataPurchase: any;
+  value: number;
+  startDate = new Date('2015/01/01');
+  endDate = Date.now();
+  category_default: string;
+  categories = [
+    { value: 'Accesorios', viewValue: 'Accesorios' },
+    { value: 'Conectividad', viewValue: 'Conectividad' },
+    { value: 'Servidores', viewValue: 'Servidores' },
+    { value: 'Computadores', viewValue: 'Computadores' },
+    { value: 'Almacenamiento', viewValue: 'Almacenamiento' },
+    { value: 'Gabinetes', viewValue: 'Gabinetes' },
+    { value: 'Racks', viewValue: 'Racks' },
+  ];
   constructor(
     private _chartRankingPurchaseService: ChartRankingPurchaseService,
     private _chartAPI: ChartsAPI) {
@@ -22,6 +35,8 @@ export class ChartRankingPurchase {
   }
   ngOnInit() {
     this.active = false;
+    this.value = 5;
+    this.category_default = 'Accesorios';
     //this.data = this._chartRankingPurchaseService.getAll();
   }
   getResponsive(padding, offset) {
@@ -31,10 +46,9 @@ export class ChartRankingPurchase {
     this.active = false;
     this._chartRankingPurchaseService.getPurchase(f.value).subscribe(
       data => {
-        console.log("Aqui -> ", data);
         this.dbdata = data['data'];
+
         this.dataPurchase = this.dbdata;
-        console.log(this.dbdata);
         this.data = this._chartRankingPurchaseService.setData(this.dbdata);
         //this.datos_aux = this._chartRankingPurchaseService.getAll();
 

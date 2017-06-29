@@ -11,27 +11,33 @@ import { ChartsAPI } from './../../../../chartsAPI.services';
 export class ChartFrequency {
   data: any;
   dbdata: any;
-  datos_aux: any;
+  active: boolean;
+  category_default: string;
+  value: number;
+  startDate = new Date('2015/01/01');
+  endDate = Date.now();
+  dataCustomer: any;
   constructor(
     private _chartFrequencyService: ChartFrequencyService,
     private _chartAPI: ChartsAPI) {
 
   }
   ngOnInit() {
-    this.data = this._chartFrequencyService.getAll();
+    this.value = 5;
+    this.category_default = 'Accesorios';
+    this.active = false;
+    //this.data = this._chartFrequencyService.getAll();
   }
   getResponsive(padding, offset) {
     return this._chartFrequencyService.getResponsive(padding, offset);
   }
   onSubmit(f: NgForm) {
-    console.log(f.value);
-    console.log(f.valid);
-    this._chartFrequencyService.getSeller(f.value).subscribe(
+    this.active = false;
+    this._chartFrequencyService.getCustomers(f.value).subscribe(
       data => {
-        console.log("Aqui -> ", data);
-        this.dbdata = data['data'][0].ID;
-        console.log(this.dbdata);
-        this.datos_aux = this._chartFrequencyService.getAll();
+        this.dbdata = data['data'];
+        this.dataCustomer = this._chartFrequencyService.setData(this.dbdata);
+        this.active = true;
 
       },
       err => {
