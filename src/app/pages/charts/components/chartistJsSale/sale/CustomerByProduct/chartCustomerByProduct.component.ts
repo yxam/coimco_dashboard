@@ -13,6 +13,9 @@ export class ChartCustomerByProduct {
   dbdata: any;
   datos_aux: any;
   active: boolean;
+  startDate = new Date('2015/01/01');
+  endDate = Date.now();
+  value: number;
   constructor(
     private _chartCustomerByProductService: ChartCustomerByProductService,
     private _chartAPI: ChartsAPI) {
@@ -20,6 +23,7 @@ export class ChartCustomerByProduct {
   }
   ngOnInit() {
     this.active = false;
+    this.value = 5;
     //this.data = this._chartCustomerByProductService.getAll();
   }
   getResponsive(padding, offset) {

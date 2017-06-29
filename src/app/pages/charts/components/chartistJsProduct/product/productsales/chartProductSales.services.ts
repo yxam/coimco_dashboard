@@ -29,15 +29,15 @@ export class ChartProductSalesService {
     areaLineOptions: {
       fullWidth: true,
       height: '300px',
-      width: '3000px',
+      width: '1500px',
       axisX: {
         // The offset of the labels to the chart area
-        offset: 40,
+        offset: 50,
         // Position where labels are placed. Can be set to `start` or `end` where `start` is equivalent to left or top on vertical axis and `end` is equivalent to right or bottom on horizontal axis.
         position: 'end',
         // Allows you to correct label positioning on this axis by positive or negative x and y offset.
         labelOffset: {
-          x: 0,
+          x: -30,
           y: 0
         },
         // If labels should be shown or not
@@ -50,7 +50,7 @@ export class ChartProductSalesService {
       },
       axisY: {
         // The offset of the labels to the chart area
-        offset: 40,
+        offset: 60,
         // Position where labels are placed. Can be set to `start` or `end` where `start` is equivalent to left or top on vertical axis and `end` is equivalent to right or bottom on horizontal axis.
         position: 'start',
         // Allows you to correct label positioning on this axis by positive or negative x and y offset.
@@ -72,10 +72,9 @@ export class ChartProductSalesService {
       },
       showPoint: true,
 
-      low: 10,
+      low: 8000,
       showArea: true,
     }
-
   };
 
   constructor(

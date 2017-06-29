@@ -18,18 +18,22 @@ export class DataTablesCustomer {
   constructor(private service: DataTablesCustomerService) {
 
   }
+  removeData() {
+    this.data = {};
+  }
   ngOnInit() {
     this.service.getCustomers()
       .subscribe(data => {
+        this.removeData();
         this.dbdata = data['data'];
         this.data = this.service.setData(this.dbdata);
-
       })
 
     /*this.service.getData().then((data) => {
       this.data = data;
     });*/
   }
+
   toInt(num: string) {
     return +num;
   }

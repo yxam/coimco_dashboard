@@ -27,7 +27,7 @@ export class ChartRankBrandService {
     },
     simpleBarOptions: {
       fullWidth: true,
-      height: '300px'
+      height: '500px'
     },
 
   };

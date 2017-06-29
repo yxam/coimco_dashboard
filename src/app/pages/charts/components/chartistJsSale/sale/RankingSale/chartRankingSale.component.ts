@@ -13,6 +13,9 @@ export class ChartRankingSale {
   dbdata: any;
   datos_aux: any;
   active: boolean;
+  startDate = new Date('2015/01/01');
+  endDate = Date.now();
+  value: number;
   constructor(
     private _chartRankingSaleService: ChartRankingSaleService,
     private _chartAPI: ChartsAPI) {
@@ -20,6 +23,7 @@ export class ChartRankingSale {
   }
   ngOnInit() {
     this.active = false;
+    this.value = 5;
     //this.data = this._chartRankingSaleService.getAll();
   }
   getResponsive(padding, offset) {

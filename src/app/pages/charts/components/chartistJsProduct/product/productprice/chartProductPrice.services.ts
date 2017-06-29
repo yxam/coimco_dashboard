@@ -29,15 +29,15 @@ export class ChartProductPriceService {
     areaLineOptions: {
       fullWidth: true,
       height: '300px',
-      width: '3000px',
+      width: '1500px',
       axisX: {
         // The offset of the labels to the chart area
-        offset: 40,
+        offset: 50,
         // Position where labels are placed. Can be set to `start` or `end` where `start` is equivalent to left or top on vertical axis and `end` is equivalent to right or bottom on horizontal axis.
         position: 'end',
         // Allows you to correct label positioning on this axis by positive or negative x and y offset.
         labelOffset: {
-          x: 0,
+          x: -30,
           y: 0
         },
         // If labels should be shown or not
@@ -50,7 +50,7 @@ export class ChartProductPriceService {
       },
       axisY: {
         // The offset of the labels to the chart area
-        offset: 40,
+        offset: 60,
         // Position where labels are placed. Can be set to `start` or `end` where `start` is equivalent to left or top on vertical axis and `end` is equivalent to right or bottom on horizontal axis.
         position: 'start',
         // Allows you to correct label positioning on this axis by positive or negative x and y offset.
@@ -72,7 +72,7 @@ export class ChartProductPriceService {
       },
       showPoint: true,
 
-      low: 10,
+      low: 8000,
       showArea: true,
     },
 
@@ -110,21 +110,7 @@ export class ChartProductPriceService {
       const aux: Date = new Date(date);
       let fecha: any;
       //aux.getDay() + '-' + aux.getMonth() + '-' + aux.getFullYear;
-      if (aux.getDay() < 10 && aux.getMonth() < 10) {
-        console.log(aux.getDay());
-        if (aux.getDay() === 0) { //Is sunday
-          fecha = '01' + aux.getDay() + '-0' + aux.getMonth() + '-' + aux.getFullYear();
-        } else {
-          fecha = '0' + aux.getDay() + '-0' + aux.getMonth() + '-' + aux.getFullYear();
-        }
-      } else if (aux.getDay() < 10 && aux.getMonth() > 10) {
-        fecha = '0' + aux.getDay() + '-' + aux.getMonth() + '-' + aux.getFullYear();
-      } else if (aux.getDay() > 10 && aux.getMonth() < 10) {
-
-        fecha = aux.getDay() + '-0' + aux.getMonth() + '-' + aux.getFullYear();
-      } else {
-        fecha = aux.getDay() + '-' + aux.getMonth() + '-' + aux.getFullYear();
-      }
+      fecha = aux.toLocaleDateString();
       this._dataPrices.areaLineData.labels.push(fecha);
       data_chart.push(price);
     }

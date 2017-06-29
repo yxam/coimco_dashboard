@@ -11,6 +11,10 @@ import { ChartsAPI } from './../../../../chartsAPI.services';
 export class ChartBestProduct {
   data: any;
   dbdata: any;
+  value: number;
+  category_default: string;
+  startDate = new Date('2015/01/01');
+  endDate = Date.now();
 
   active: boolean;
   constructor(
@@ -20,6 +24,7 @@ export class ChartBestProduct {
   }
   ngOnInit() {
     this.active = false;
+    this.value = 5;
     //this.data = this._chartRankingProviderCategoryService.getAll();
   }
   getResponsive(padding, offset) {
@@ -27,6 +32,7 @@ export class ChartBestProduct {
   }
   onSubmit(f: NgForm) {
     this.active = false;
+    console.log(f.value);
     this._chartBestProductService.getCustomer(f.value).subscribe(
       data => {
         this.dbdata = data['data'];

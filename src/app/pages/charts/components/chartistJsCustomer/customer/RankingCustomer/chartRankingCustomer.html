@@ -8,40 +8,68 @@
             <h5 translate></h5>
             <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
 
-            <h5 translate>
-              <div class="col-md-2">Inicio:</div>
-              <div class="col-md-10">
-                <input type="date" ngModel required #start="ngModel" name="start" step="1" min="2011-01-01" max="2015-12-31" value="2012-01-01">
-              </div>
-            </h5>
+              <h5 translate>
+                <div class="col-md-2">Inicio:</div>
+                <div class="col-md-10">
+                  <input
+                    type="date"
+                    ngModel
+                    required
+                    #start="ngModel"
+                    name="start"
+                    step="1"
+                    min="2011-01-01"
+                    max="2015-12-31"
+                    value="2012-01-01">
+                </div>
+              </h5>
 
-            <h5 translate>
-              <div class="col-md-2">Fin:</div>
-              <div class="col-md-10">
-                <input type="date" ngModel required #end="ngModel" name="end" step="1" min="2011-01-01" max="2015-12-31" value="2015-01-01">
-              </div>
-            </h5>
-            <h5 translate>
-              <div class="col-md-7">
-                Cantidad: <input type="number" [ngModel]="5" required #k="ngModel" name="k" min="1" value="5" max="15">
-              </div>
+              <h5 translate>
+                <div class="col-md-2">Fin:</div>
+                <div class="col-md-10">
+                  <input
+                    type="date"
+                    ngModel
+                    required
+                    #end="ngModel"
+                    name="end"
+                    step="1"
+                    min="2011-01-01"
+                    max="2015-12-31"
+                    value="2015-01-01">
+                </div>
+              </h5>
+              <h5 translate>
+                <div class="col-md-7">
+                  Cantidad:
+                  <input
+                    type="number"
+                    [ngModel]="5"
+                    required
+                    #k="ngModel"
+                    name="k"
+                    min="1"
+                    value="5"
+                    max="15">
+                </div>
 
-              <div class="col-md-5">
-                <button md-raised-button><span style="color:#304787">Buscar</span></button>
-              </div>
-            </h5>
+                <div class="col-md-5">
+                  <button md-raised-button>
+                    <span style="color:#304787">Buscar</span>
+                  </button>
+                </div>
+              </h5>
 
-          </form>
+            </form>
             <ng-template [ngIf]="active==true">
               <ba-chartist-chart
                 baChartistChartClass="ct-chart stacked-bar"
                 baChartistChartType="Bar"
                 [baChartistChartData]="data['stackedBarData']"
-                [baChartistChartOptions]="data['stackedBarOptions']">
-              </ba-chartist-chart>
+                [baChartistChartOptions]="data['stackedBarOptions']"></ba-chartist-chart>
+              <data-tablesCustomer></data-tablesCustomer>
 
-          </ng-template>
-          <data-tablesCustomer></data-tablesCustomer>
+            </ng-template>
           </div>
         </div>
       </ba-card>

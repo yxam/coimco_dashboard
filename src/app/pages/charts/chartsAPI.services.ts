@@ -47,7 +47,12 @@ export class ChartsAPI {
   getRankCategory(filter: JSON): Observable<JSON[]> {
 
     const category = filter['category'];
-    const k = filter['k'];
+    let k;
+    for (var prop in filter) {
+      if (prop === '[object Object]' && filter[prop]) {
+        k = filter[prop];
+      }
+    }
     const headers = this.createHeaders();
     const body = this.createBody(filter);
     const url = 'https://coimco.herokuapp.com/api/productsrank-cs/' + k + '/' + category;
@@ -59,7 +64,12 @@ export class ChartsAPI {
   getRankBran(filter: JSON): Observable<JSON[]> {
     const headers = this.createHeaders();
     const brand = filter['brand'];
-    const k = filter['k'];
+    let k;
+    for (var ix in filter) {
+      if (ix === '[object Object]' && filter[ix]) {
+        k = filter[ix];
+      }
+    }
     const url = 'http://coimco.herokuapp.com/api/productsrank-b/' + k + '/' + brand;
     let body = this.createBody(filter);
     return this.http.post(url, body, headers)
@@ -218,8 +228,14 @@ export class ChartsAPI {
   getCustomerBP(filter: JSON): Observable<JSON[]> {
     const headers = this.createHeaders();
     const body = this.createBody(filter);
-    const k = filter['k'];
-    const l = filter['l'];
+    console.log(filter);
+    let k;
+    let l = '10';
+    for (var ix in filter) {
+      if (ix === '[object Object]' && filter[ix]) {
+        k = filter[ix];
+      }
+    }
     const url = 'http://coimco.herokuapp.com/api/customersrank-p/' + k + '/' + l;
     return this.http.post(url, body, headers)
       .map((res: Response) => res.json())
@@ -228,7 +244,12 @@ export class ChartsAPI {
   getRankingCollected(filter: JSON): Observable<JSON[]> {
     const headers = this.createHeaders();
     const body = this.createBody(filter);
-    const k = filter['k'];
+    let k;
+    for (let ix in filter) {
+      if (ix === '[object Object]' && filter[ix]) {
+        k = filter[ix];
+      }
+    }
     const url = 'http://coimco.herokuapp.com/api/productsrank-r/' + k;
     return this.http.post(url, body, headers)
       .map((res: Response) => res.json())
@@ -237,7 +258,12 @@ export class ChartsAPI {
   getRankTotalSale(filter: JSON): Observable<JSON[]> {
     const headers = this.createHeaders();
     const body = this.createBody(filter);
-    const k = filter['k'];
+    let k;
+    for (var ix in filter) {
+      if (ix === '[object Object]' && filter[ix]) {
+        k = filter[ix];
+      }
+    }
     const url = 'http://coimco.herokuapp.com/api/customersrank-k/' + k;
     return this.http.post(url, body, headers)
       .map((res: Response) => res.json())
@@ -246,7 +272,13 @@ export class ChartsAPI {
   getCustomersByProduct(filter: JSON): Observable<JSON[]> {
     const headers = this.createHeaders();
     const body = this.createBody(filter);
-    const k = filter['k'];
+
+    let k;
+    for (var ix in filter) {
+      if (ix === '[object Object]' && filter[ix]) {
+        k = filter[ix];
+      }
+    }
     const url = 'http://coimco.herokuapp.com/api/customersrank-v/' + k;
     return this.http.post(url, body, headers)
       .map((res: Response) => res.json())
@@ -255,7 +287,12 @@ export class ChartsAPI {
   getRankingSale(filter: JSON): Observable<JSON[]> {
     const headers = this.createHeaders();
     const body = this.createBody(filter);
-    const k = filter['k'];
+    let k;
+    for (var ix in filter) {
+      if (ix === '[object Object]' && filter[ix]) {
+        k = filter[ix];
+      }
+    }
     const url = 'http://coimco.herokuapp.com/api/salesrank-k/' + k;
     return this.http.post(url, body, headers)
       .map((res: Response) => res.json())
@@ -264,7 +301,12 @@ export class ChartsAPI {
   getRankingSaleCategory(filter: JSON): Observable<JSON[]> {
     const headers = this.createHeaders();
     const body = this.createBody(filter);
-    const k = filter['k'];
+    let k;
+    for (var ix in filter) {
+      if (ix === '[object Object]' && filter[ix]) {
+        k = filter[ix];
+      }
+    }
     const category = filter['category'];
     const url = 'http://coimco.herokuapp.com/api/salesrank-c/' + k + '/' + category;
     return this.http.post(url, body, headers)
@@ -274,7 +316,12 @@ export class ChartsAPI {
   getRankingSaleProduct(filter: JSON): Observable<JSON[]> {
     const headers = this.createHeaders();
     const body = this.createBody(filter);
-    const k = filter['k'];
+    let k;
+    for (var ix in filter) {
+      if (ix === '[object Object]' && filter[ix]) {
+        k = filter[ix];
+      }
+    }
     const url = 'http://coimco.herokuapp.com/api/salesrank-p/' + k;
     return this.http.post(url, body, headers)
       .map((res: Response) => res.json())

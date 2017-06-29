@@ -18,7 +18,7 @@ export const PAGES_MENU = [
         path: 'charts',
         data: {
           menu: {
-            title: 'Estadísticas',
+            title: 'general.menu.chartis_statics',
             icon: 'ion-stats-bars',
             selected: false,
             expanded: false,
