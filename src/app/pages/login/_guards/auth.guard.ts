@@ -1,5 +1,5 @@
-import {  Injectable  } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
+import { Injectable } from '@angular/core';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -8,10 +8,9 @@ export class AuthGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (localStorage.getItem('currentUser')) {
-      console.log(localStorage.getItem('currentUser'));
       return true;
     }
-    this.router.navigate(['/login'], {  queryParams: {  returnUrl: state.url}});
+    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
     return false;
 
   }
