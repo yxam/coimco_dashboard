@@ -1,3 +1,6 @@
+/**
+* Component de ProductBuy
+*/
 import { Component, OnInit } from '@angular/core';
 import { ChartRankCategoryService } from './chartRankCategory.services';
 import { NgForm } from '@angular/forms';
@@ -7,26 +10,7 @@ import {MdButtonModule} from '@angular/material';
   templateUrl: './chartRankCategory.html',
   styleUrls: ['./../../chartistJsProduct.scss'],
 })
-/*
-luctus
-justo
-Pellentesque
-eul
-elit
-tempus
-turpis
-gravida
-etk
-nequ
-eni
-iaculis
-mip
-ipsum
-leo
-felis
-quis
-atd
-*/
+
 export class ChartRankCategory implements OnInit {
   data: any;
   active: boolean;
@@ -47,6 +31,9 @@ export class ChartRankCategory implements OnInit {
   constructor(private _chartRankCategoryService: ChartRankCategoryService) {
 
   }
+  /**
+  * función ngOnInit, función lanzada en paralelo a la carga de la página
+  */
   ngOnInit() {
     //this.data = this._chartRankCategoryService.getAll();
     this.category_default = 'Accesorios';
@@ -54,17 +41,21 @@ export class ChartRankCategory implements OnInit {
     this.value = 5;
 
   }
-
+  /**
+  * Función de conversión Responsive
+  */
   getResponsive(padding, offset) {
     return this._chartRankCategoryService.getResponsive(padding, offset);
   }
-
+  /**
+  * Función onSubmit, se envía el formulario a función del services que se encarga de realizar llamada a API y envíar los datos de esta al gráfico mediante la función setData().
+  * @param f:NgForm, formulario creado con NgModel.
+  */
   onSubmit(f: NgForm) {
     this.active = false;
     this._chartRankCategoryService.getCategory(f.value).subscribe(
       data => {
         this.dbdata = data['data'];
-        console.log(this.dbdata);
         //this.data=this._chartRankCategory.setData(this.dbdata);
         this.active = true;
         this.data = this._chartRankCategoryService.setData(this.dbdata);

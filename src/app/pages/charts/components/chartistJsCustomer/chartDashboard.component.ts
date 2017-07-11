@@ -1,3 +1,7 @@
+/**
+*Dashboard de sección customers
+*/
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

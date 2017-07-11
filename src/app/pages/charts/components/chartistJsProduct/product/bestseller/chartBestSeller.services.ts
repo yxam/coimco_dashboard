@@ -1,3 +1,7 @@
+/**
+* Services de component BestSeller
+*/
+
 import { Injectable } from '@angular/core';
 import { ChartsAPI } from './../../../../chartsAPI.services';
 import { Observable } from 'rxjs/Rx';
@@ -9,23 +13,7 @@ export class ChartBestSellerService {
   private products: JSON[] = [];
   private errorMessage: any;
   private data_traffic: Array<Object>;
-  private _data = {
-    simpleDonutData: {
-      labels: ['Bananas', 'Apples', 'Grapes'],
-      series: [20, 15, 40],
-    },
-    simpleDonutOptions: {
-      fullWidth: true,
-      donut: true,
-      height: '300px',
-      weight: '300px',
-      labelDirection: 'explode',
-      labelInterpolationFnc: function(value) {
-        return value[0];
-      }
-    },
 
-  };
   private _dataSeller = {
     simpleDonutData: {
       labels: [],
@@ -49,18 +37,28 @@ export class ChartBestSellerService {
     private _baConfig: BaThemeConfigProvider,
     private _chartAPI: ChartsAPI) {
   }
+  /**
+  *Función encargada de remover todos los datos actuales del gráfico
+  */
   removeData() {
     this._dataSeller.simpleDonutData.labels.splice(0);
     this._dataSeller.simpleDonutData.series.splice(0);
   }
-  getAll() {
-    return this._data;
-  }
 
+  /**
+  *Método que envía filtro a services que contiene llamadas a API.
+  *@param filter Objeto JSON el cuál contiene fecha y 'k'.
+  *@returns Observable del request a API.
+  */
   getSeller(filter: JSON): any {
 
     return this._chartAPI.getBestSeller(filter);
   }
+  /**
+  * Método encargado de setear los datos enviados desde la API para asignarlos al gráfico.
+  * @param Arreglo de JSON los cuales son la información envíada desde la API.
+  * @return Objeto que contiene información del gráfico y cuál se utilizará.
+  */
   setData(dbdata: Array<JSON>) {
     this.removeData();
     console.log(dbdata);

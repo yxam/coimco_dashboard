@@ -1,3 +1,6 @@
+/**
+*Services de component BestProduct
+*/
 import { Injectable } from '@angular/core';
 import { ChartsAPI } from './../../../../chartsAPI.services';
 import { BaThemeConfigProvider } from '../../../../../../theme';
@@ -5,22 +8,6 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class ChartProductPriceService {
 
-  private _data = {
-    areaLineData: {
-      labels: [1, 2, 3, 4, 5, 6, 7, 8],
-      series: [
-        [5, 9, 7, 8, 5, 3, 5, 4]
-      ]
-    },
-    areaLineOptions: {
-      fullWidth: true,
-      height: '300px',
-      position: 'end',
-      low: 10,
-      showArea: false
-    },
-
-  };
   private _dataPrices = {
     areaLineData: {
       labels: [],
@@ -81,13 +68,13 @@ export class ChartProductPriceService {
     private _baConfig: BaThemeConfigProvider,
     private _chartAPI: ChartsAPI) {
   }
+  /**
+  *Función encargada de remover todos los datos actuales del gráfico
+  */
   removeData() {
     this._dataPrices.areaLineData.labels.splice(0);
     this._dataPrices.areaLineData.series.splice(0);
-    console.log(this._dataPrices);
-  }
-  public getAll() {
-    return this._data;
+
   }
   getPrices(filter: JSON) {
     return this._chartAPI.getProductPrice(filter);
@@ -95,7 +82,11 @@ export class ChartProductPriceService {
   getProductsDb() {
     return this._chartAPI.getProducts();
   }
-
+  /**
+  * Método encargado de setear los datos enviados desde la API para asignarlos al gráfico.
+  * @param Arreglo de JSON los cuales son la información envíada desde la API.
+  * @return Objeto que contiene información del gráfico y cuál se utilizará.
+  */
   setData(dbdata: Array<JSON>) {
     this.removeData();
     let list: string[] = [];

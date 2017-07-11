@@ -1,3 +1,6 @@
+/**
+* Services de component RankCategory
+*/
 import { Injectable } from '@angular/core';
 import { ChartsAPI } from './../../../../chartsAPI.services';
 import { BaThemeConfigProvider } from '../../../../../../theme';
@@ -29,13 +32,19 @@ export class ChartRankCategoryService {
     private _baConfig: BaThemeConfigProvider,
     private _chartAPI: ChartsAPI) {
   }
-
+  /**
+  *Función encargada de remover todos los datos actuales del gráfico
+  */
   removeData() {
     this._dataCategory.stackedBarData.labels.splice(0);
     this._dataCategory.stackedBarData.series.splice(0);
     console.log("remove->", this._dataCategory);
   }
-
+  /**
+  * Método encargado de setear los datos enviados desde la API para asignarlos al gráfico.
+  * @param Arreglo de JSON los cuales son la información envíada desde la API.
+  * @return Objeto que contiene información del gráfico y cuál se utilizará.
+  */
   setData(dbdata: Array<JSON>) {
     this.removeData();
 
@@ -68,7 +77,11 @@ export class ChartRankCategoryService {
     return this._dataCategory;
   }
 
-
+  /**
+  *Método que envía filtro a services que contiene llamadas a API.
+  *@param filter Objeto JSON el cuál contiene fecha y 'k'.
+  *@returns Observable del request a API.
+  */
   getCategory(filter: JSON): any {
     return this._chartAPI.getRankCategory(filter);
   }

@@ -1,3 +1,6 @@
+/**
+* Component de Collected
+*/
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ChartCollectedService } from './chartCollected.services';
@@ -17,18 +20,25 @@ export class ChartCollected {
     private _chartAPI: ChartsAPI) {
 
   }
+  /**
+  * función ngOnInit, función lanzada en paralelo a la carga de la página
+  */
   ngOnInit() {
     this.data = this._chartCollectedService.getAll();
   }
+  /**
+  * Función de conversión Responsive
+  */
   getResponsive(padding, offset) {
     return this._chartCollectedService.getResponsive(padding, offset);
   }
+
   onSubmit(f: NgForm) {
     this._chartCollectedService.getSeller(f.value).subscribe(
       data => {
 
         this.dbdata = data['data'][0].ID;
-        console.log(this.dbdata);
+
         this.datos_aux = this._chartCollectedService.getAll();
 
       },

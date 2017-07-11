@@ -1,3 +1,7 @@
+/**
+* Component de BestSeller
+*/
+
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ChartBestSellerService } from './chartBestSeller.services';
@@ -32,15 +36,25 @@ export class ChartBestSeller {
     private _chartBestSellerService: ChartBestSellerService) {
 
   }
+  /**
+  * función ngOnInit, función lanzada en paralelo a la carga de la página
+  */
   ngOnInit() {
     this.value = 5;
     this.category_default = 'Accesorios';
     //this.data = this._chartBestSellerService.getAll();
     this.active = false;
   }
+  /**
+  * Función de conversión Responsive
+  */
   getResponsive(padding, offset) {
     return this._chartBestSellerService.getResponsive(padding, offset);
   }
+  /**
+  * Función onSubmit, se envía el formulario a función del services que se encarga de realizar llamada a API y envíar los datos de esta al gráfico mediante la función setData().
+  * @param f:NgForm, formulario creado con NgModel.
+  */
   onSubmit(f: NgForm) {
     this.active = false;
     this._chartBestSellerService.getSeller(f.value).subscribe(

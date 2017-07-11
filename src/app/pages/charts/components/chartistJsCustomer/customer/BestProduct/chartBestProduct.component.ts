@@ -1,3 +1,7 @@
+/**
+* Component de BestProduct
+*/
+
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ChartBestProductService } from './chartBestProduct.services';
@@ -22,17 +26,26 @@ export class ChartBestProduct {
     private _chartAPI: ChartsAPI) {
 
   }
+  /**
+  * función ngOnInit, función lanzada en paralelo a la carga de la página
+  */
   ngOnInit() {
     this.active = false;
     this.value = 5;
     //this.data = this._chartRankingProviderCategoryService.getAll();
   }
+  /**
+  * Función de conversión Responsive
+  */
   getResponsive(padding, offset) {
     return this._chartBestProductService.getResponsive(padding, offset);
   }
+  /**
+  * Función onSubmit, se envía el formulario a función del services que se encarga de realizar llamada a API y envíar los datos de esta al gráfico mediante la función setData().
+  * @param f:NgForm, formulario creado con NgModel.
+  */
   onSubmit(f: NgForm) {
     this.active = false;
-    console.log(f.value);
     this._chartBestProductService.getCustomer(f.value).subscribe(
       data => {
         this.dbdata = data['data'];

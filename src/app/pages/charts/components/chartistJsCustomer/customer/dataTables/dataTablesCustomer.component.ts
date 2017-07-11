@@ -18,9 +18,15 @@ export class DataTablesCustomer {
   constructor(private service: DataTablesCustomerService) {
 
   }
+  /**
+  * Método encargado de remover datos actuales
+  */
   removeData() {
     this.data = {};
   }
+  /**
+  * función ngOnInit, función lanzada en paralelo a la carga de la página
+  */
   ngOnInit() {
     this.service.getCustomers()
       .subscribe(data => {

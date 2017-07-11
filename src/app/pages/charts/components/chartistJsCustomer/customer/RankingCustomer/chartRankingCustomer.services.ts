@@ -1,3 +1,6 @@
+/**
+*Services de component Ranking Customer
+*/
 import { Injectable } from '@angular/core';
 import { BaThemeConfigProvider } from '../../../../../../theme';
 import { ChartsAPI } from './../../../../chartsAPI.services';
@@ -35,16 +38,29 @@ export class ChartRankingCustomerService {
   getAll() {
     return this._data;
   }
-
+  /**
+  *Método que envía filtro a services que contiene llamadas a API.
+  *@param filter Objeto JSON el cuál contiene fecha, 'k' y id de customer.
+  *@returns Observable del request a API.
+  */
   getCustomers(filter: JSON): any {
 
     //Retorna el observable de la data
     return this._chartAPI.getRankCustomer(filter);
   }
+  /**
+  *Función encargada de remover todos los datos actuales del gráfico
+  */
   removeData() {
     this._data.stackedBarData.labels.splice(0);
     this._data.stackedBarData.series.splice(0);
   }
+  /**
+  * Método encargado de setear los datos enviados desde la API para asignarlos al gráfico.
+  * @param Arreglo de JSON los cuales son la información envíada desde la API.
+  * @return Objeto que contiene información del gráfico y cuál se utilizará.
+  */
+
   setData(dbdata: Array<JSON>) {
     this.removeData();
     let list: string[] = [];

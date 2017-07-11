@@ -1,3 +1,6 @@
+/**
+* Component de RankingSale
+*/
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ChartRankingSaleService } from './chartRankingSale.services';
@@ -21,14 +24,24 @@ export class ChartRankingSale {
     private _chartAPI: ChartsAPI) {
 
   }
+  /**
+  * función ngOnInit, función lanzada en paralelo a la carga de la página
+  */
   ngOnInit() {
     this.active = false;
     this.value = 5;
     //this.data = this._chartRankingSaleService.getAll();
   }
+  /**
+  * Función de conversión Responsive
+  */
   getResponsive(padding, offset) {
     return this._chartRankingSaleService.getResponsive(padding, offset);
   }
+  /**
+  * Función onSubmit, se envía el formulario a función del services que se encarga de realizar llamada a API y envíar los datos de esta al gráfico mediante la función setData().
+  * @param f:NgForm, formulario creado con NgModel.
+  */
   onSubmit(f: NgForm) {
     this.active = false;
     this._chartRankingSaleService.getCustomers(f.value).subscribe(

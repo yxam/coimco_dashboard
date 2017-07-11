@@ -1,3 +1,6 @@
+/**
+*Services de component Frequency
+*/
 import { Injectable } from '@angular/core';
 import { BaThemeConfigProvider } from '../../../../../../theme';
 import { ChartsAPI } from './../../../../chartsAPI.services';
@@ -8,13 +11,7 @@ export class ChartFrequencyService {
   private dbdata: Observable<JSON[]>
   private products: JSON[] = [];
   private errorMessage: any;
-  private _data = {
-    simpleDonutData: {
-      labels: ['Bananas', 'Apples', 'Grapes'],
-      series: [20, 15, 40],
-    },
 
-  };
   private dataSeller: JSON[] = [];
 
   constructor(
@@ -22,9 +19,11 @@ export class ChartFrequencyService {
     private _chartAPI: ChartsAPI) {
   }
 
-  getAll() {
-    return this._data;
-  }
+  /**
+  * Método encargado de setear los datos enviados desde la API para asignarlos al gráfico.
+  * @param Arreglo de JSON los cuales son la información envíada desde la API.
+  * @return Objeto que contiene información del gráfico y cuál se utilizará.
+  */
   setData(dbdata: Array<JSON>) {
     //this.removeData();
     let list: string[] = [];
@@ -41,7 +40,12 @@ export class ChartFrequencyService {
     }
     return data_chart;
   }
-  getCustomers(filter: JSON): any {
+  /**
+  *Método que envía filtro a services que contiene llamadas a API.
+  *@param filter Objeto JSON el cuál contiene fecha y 'k'.
+  *@returns Observable del request a API.
+  */
+  getCustomers(filter: JSON): Observable<JSON[]> {
 
     //Retorna el observable de la data
     return this._chartAPI.getFrequency(filter);
@@ -49,9 +53,7 @@ export class ChartFrequencyService {
   printDATA(data: any) {
     console.log(data);
   }
-  getData() {
-    return this.dataSeller;
-  }
+
 
   getResponsive(padding, offset) {
     return [

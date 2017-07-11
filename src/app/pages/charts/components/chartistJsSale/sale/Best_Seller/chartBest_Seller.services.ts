@@ -1,3 +1,6 @@
+/**
+* Services de component RankPPrice
+*/
 import { Injectable } from '@angular/core';
 import { BaThemeConfigProvider } from '../../../../../../theme';
 import { ChartsAPI } from './../../../../chartsAPI.services';

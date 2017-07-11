@@ -1,3 +1,6 @@
+/**
+* Component de RankBrand
+*/
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MdButtonModule } from '@angular/material';
@@ -41,6 +44,9 @@ export class ChartRankBrand implements OnInit {
     { value: 'atd', viewValue: 'atd' },
   ];
   constructor(private _chartRankBrandService: ChartRankBrandService) { }
+  /**
+  * función ngOnInit, función lanzada en paralelo a la carga de la página
+  */
   ngOnInit() {
     //this.data = this._chartRankBrandService.getAll();
     this.active = false;
@@ -48,10 +54,16 @@ export class ChartRankBrand implements OnInit {
     this.value = 5;
 
   }
-
+  /**
+  * Función de conversión Responsive
+  */
   getResponsive(padding, offset) {
     return this._chartRankBrandService.getResponsive(padding, offset);
   }
+  /**
+  * Función onSubmit, se envía el formulario a función del services que se encarga de realizar llamada a API y envíar los datos de esta al gráfico mediante la función setData().
+  * @param f:NgForm, formulario creado con NgModel.
+  */
   onSubmit(f: NgForm) {
     console.log(f.value);
     console.log(f.valid);

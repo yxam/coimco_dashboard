@@ -1,3 +1,6 @@
+/**
+* Component de chartRankingCollected
+*/
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ChartRankingCollectedService } from './chartRankingCollected.services';
@@ -22,14 +25,24 @@ export class ChartRankingCollected {
     private _chartAPI: ChartsAPI) {
 
   }
+  /**
+  * función ngOnInit, función lanzada en paralelo a la carga de la página
+  */
   ngOnInit() {
     this.active = false;
     this.value = 5;
     //this.data = this._chartRankingCollectedService.getAll();
   }
+  /**
+  * Función de conversión Responsive
+  */
   getResponsive(padding, offset) {
     return this._chartRankingCollectedService.getResponsive(padding, offset);
   }
+  /**
+  * Función onSubmit, se envía el formulario a función del services que se encarga de realizar llamada a API y envíar los datos de esta al gráfico mediante la función setData().
+  * @param f:NgForm, formulario creado con NgModel.
+  */
   onSubmit(f: NgForm) {
     this.active = false;
     this._chartRankingCollectedService.getProduct(f.value).subscribe(

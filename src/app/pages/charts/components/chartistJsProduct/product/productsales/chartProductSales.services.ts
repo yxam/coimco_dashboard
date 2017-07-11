@@ -1,3 +1,6 @@
+/**
+* Services de component ProductSales
+*/
 import { Injectable } from '@angular/core';
 import { ChartsAPI } from './../../../../chartsAPI.services';
 import { BaThemeConfigProvider } from '../../../../../../theme';
@@ -6,21 +9,7 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class ChartProductSalesService {
   aux = new Date();
-  private _data = {
-    areaLineData: {
-      labels: [1, 2, 3, 4, 5, 6, 7, 8],
-      series: [
-        [5, 9, 7, 8, 5, 3, 5, 4],
-      ],
-    },
-    areaLineOptions: {
-      fullWidth: true,
-      height: '300px',
-      low: 0,
-      showArea: true,
-    },
 
-  };
   private _dataSales = {
     areaLineData: {
       labels: [],
@@ -85,15 +74,27 @@ export class ChartProductSalesService {
   getProductsDb() {
     return this._chartAPI.getProducts();
   }
+  /**
+  *Método que envía filtro a services que contiene llamadas a API.
+  *@param filter Objeto JSON el cuál contiene fecha y 'k'.
+  *@returns Observable del request a API.
+  */
   getSales(filter: JSON): any {
     return this._chartAPI.getProductSales(filter);
   }
+  /**
+  *Función encargada de remover todos los datos actuales del gráfico
+  */
   removeData() {
     this._dataSales.areaLineData.labels.splice(0);
     this._dataSales.areaLineData.series.splice(0);
     console.log(this._dataSales);
   }
-
+  /**
+  * Método encargado de setear los datos enviados desde la API para asignarlos al gráfico.
+  * @param Arreglo de JSON los cuales son la información envíada desde la API.
+  * @return Objeto que contiene información del gráfico y cuál se utilizará.
+  */
   setData(dbdata: Array<JSON>) {
     this.removeData();
 
@@ -124,9 +125,6 @@ export class ChartProductSalesService {
     this._dataSales.areaLineData.series.push(data_chart);
     console.log(this._dataSales);
     return this._dataSales;
-  }
-  getAll() {
-    return this._data;
   }
 
   public getResponsive(padding, offset) {

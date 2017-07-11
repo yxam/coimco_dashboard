@@ -1,3 +1,6 @@
+/**
+* Component de RankPPrice
+*/
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MdButtonModule } from '@angular/material';
@@ -21,6 +24,9 @@ export class ChartRankPPrice implements OnInit {
   constructor(private _ChartRankPPriceService: ChartRankPPriceService) {
 
   }
+  /**
+  * función ngOnInit, función lanzada en paralelo a la carga de la página
+  */
   ngOnInit() {
     //this.data = this._ChartRankPPriceService.getAll();
     this.active = false;
@@ -31,11 +37,19 @@ export class ChartRankPPrice implements OnInit {
       }
       )
   }
+  /**
+  * Método donde se obtiene el id del producto que se desea consultar.
+  * @param event variable que se envía desde component AutocompleteOverviewCustomer
+  */
   showId(event): void {
     if (event.id !== null) {
       this.product_id = event.id;
     }
   }
+  /**
+  * Función onSubmit, se envía el formulario a función del services que se encarga de realizar llamada a API y envíar los datos de esta al gráfico mediante la función setData().
+  * @param f:NgForm, formulario creado con NgModel.
+  */
   onSubmit(f: NgForm) {
     this.active = false;
     if (this.product_id == null) {
@@ -61,6 +75,9 @@ export class ChartRankPPrice implements OnInit {
       err => { console.log(err) }
       );
   }
+  /**
+  * Función de conversión Responsive
+  */
   getResponsive(padding, offset) {
     return this._ChartRankPPriceService.getResponsive(padding, offset);
 

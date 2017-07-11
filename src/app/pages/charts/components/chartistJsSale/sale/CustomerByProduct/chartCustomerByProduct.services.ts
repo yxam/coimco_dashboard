@@ -1,3 +1,6 @@
+/**
+* Services de component chartCustomerByProduct
+*/
 import { Injectable } from '@angular/core';
 import { BaThemeConfigProvider } from '../../../../../../theme';
 import { ChartsAPI } from './../../../../chartsAPI.services';
@@ -35,16 +38,28 @@ export class ChartCustomerByProductService {
   getAll() {
     return this._data;
   }
-
+  /**
+  *Método que envía filtro a services que contiene llamadas a API.
+  *@param filter Objeto JSON el cuál contiene fecha y 'k'.
+  *@returns Observable del request a API.
+  */
   getCustomers(filter: JSON): any {
     //Retorna el observable de la data
     return this._chartAPI.getCustomersByProduct(filter);
   }
+  /**
+  *Función encargada de remover todos los datos actuales del gráfico
+  */
   removeData() {
     this._data.stackedBarData.labels.splice(0);
     this._data.stackedBarData.series.splice(0);
     console.log(this._data);
   }
+  /**
+  * Método encargado de setear los datos enviados desde la API para asignarlos al gráfico.
+  * @param Arreglo de JSON los cuales son la información envíada desde la API.
+  * @return Objeto que contiene información del gráfico y cuál se utilizará.
+  */
   setData(dbdata: Array<JSON>) {
     this.removeData();
     let list: string[] = [];

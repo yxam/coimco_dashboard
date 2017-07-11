@@ -1,3 +1,6 @@
+/**
+* Services de component RankPPrice
+*/
 import { Injectable } from '@angular/core';
 import { BaThemeConfigProvider } from '../../../../../../theme';
 import { ChartsAPI } from './../../../../chartsAPI.services';
@@ -27,7 +30,6 @@ export class ChartCustomerByBestService {
   }
 
   getSeller(filter: JSON): any {
-
     //Retorna el observable de la data
     return this._chartAPI.getBestSeller(filter);
   }
