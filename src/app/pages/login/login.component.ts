@@ -38,7 +38,6 @@ export class Login {
   }
   ngOnInit() {
     this.authenticationService.logout();
-    console.log("Hola");
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '';
   }
   login() {
